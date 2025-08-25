@@ -33,10 +33,17 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Ana Clara  | Uma forma de identificar se uma agência é realmente confiável           | Me sentir mais segura ao contratar seus serviços               |
-|Ana Clara       | Ter um mecanismo eficiente e rápido de comunicação                 | Que eu possa sanar todas as minhas dúvidas rapidamente |
-|Ana Clara  | Uma forma de identificar se uma agência é realmente confiável           | Me sentir mais segura ao contratar seus serviços               |
-|Ana Clara       | Ter um mecanismo eficiente e rápido de comunicação                 | Que eu possa sanar todas as minhas dúvidas rapidamente |
+| Usuário | Criar uma conta           | Acessar meus hábitos em qualquer dispositivo               |
+| Usuário       | Logar no sistema                 | Continuar acompanhando minhas metas já registradas |
+| Usuário iniciante  | Ter uma lista de hábitos sugeridos (beber água, praticar exercícios, dormir cedo)           | Não começar do zero       |
+| Usuário     | Receber lembretes periódicos dos hábitos | Não esquecer de praticá-los |
+| Usuário | Cadastrar um novo hábito personalizado          | Que a aplicação se adapte às minhas metas pessoais               |
+| Usuário       | Definir a frequência de um hábito (diária, semanal, mensal)                 | Acompanhar meu progresso corretamente |
+| Usuário  | Receber notificações no celular/desktop           | Ser lembrado de cumprir meus hábitos       |
+| Usuário     | Visualizar relatórios/gráficos de desempenho | Ver meu progresso ao longo do tempo |
+| Usuário       | Marcar quando completei um hábito no dia                | Acompanhar meu histórico |
+| Usuário  | Ver meu nível de consistência           | Manter a disciplina       |
+
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
