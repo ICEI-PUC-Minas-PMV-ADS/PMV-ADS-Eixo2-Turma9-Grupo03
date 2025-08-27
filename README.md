@@ -1,23 +1,27 @@
-# TÍTULO DO PROJETO
+# HABITLY
 
-`CURSO`
+`ANÁLISE E DESENVOLIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`DISCIPLINA - Eixo 2 - Projeto: Desenvolvimento de uma Aplicação Interativa - Turma 09 - 2025/2`
 
-`SEMESTRE`
+`2° SEMESTRE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Sistema de gerenciamento de hábitos que auxilie os usuários na criação, acompanhamento e manutenção de seus hábitos diários por meio de recursos simples, interativos e motivacionais.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Sophia Calvano da Silva
+* Guilherme Vinicius Costa Damas
+* Julia Clara Silva Miranda
+* Lorrayne Ritiele Rodrigues Coelho
+* Lucas Fonseca Gomes
+* Matheus Augusto de Castro Valadão
+* Pedro Henrique Gomes
 
 ## Orientador
 
-* Nome completo do professor
+* José Wilson da Costa
+
 
 ## Instruções de Instalação, Execução e Acesso
 
