@@ -8,9 +8,6 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Identifique, em torno de, 5 personas. Para cada persona, lembre-se de descrever suas angústicas, frustrações e expectativas de vida relacionadas ao problema. Além disso, defina uma "aparência" para a persona. Para isso, você poderá utilizar sites como [https://this-person-does-not-exist.com/pt#google_vignette](https://this-person-does-not-exist.com/pt) ou https://thispersondoesnotexist.com/ 
-
-Utilize também como referência o exemplo abaixo:
 ## Persona 1 – João Henrique
 - **Idade:** 22 anos  
 - **Profissão:** Estudante de Engenharia  
@@ -74,10 +71,50 @@ Carlos é apaixonado por tecnologia, mas sente que sua rotina é dominada apenas
 - Ter flexibilidade para criar hábitos personalizados.  
 - Receber lembretes inteligentes que não atrapalhem sua rotina.  
 - Conseguir acompanhar seu progresso a longo prazo, de forma clara e motivadora.
-- 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/IntApplicationProject-Template/blob/main/docs/img/AnaClara1.png" alt="Persona1"/>
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+---
+
+## Persona 4 – Beatriz Lima
+- **Idade:** 19 anos  
+- **Profissão:** Estudante de Medicina  
+- **Localização:** Recife, Brasil  
+- **Formação:** Graduação em andamento  
+- **Objetivo:** Equilibrar rotina intensa de estudos com saúde física e mental.  
+
+### Descrição
+Beatriz está no início da faculdade de Medicina e enfrenta uma rotina puxada de aulas, estudos e atividades extracurriculares. Ela sente dificuldade em manter hábitos básicos, como alimentação saudável e sono regulado, e gostaria de contar com uma ferramenta que a ajudasse a não se perder no meio da correria.  
+
+### Dores
+- Fica sobrecarregada com tantas tarefas e esquece de cuidar da saúde.  
+- Tem dificuldade em organizar horários para estudo e descanso.  
+- Já tentou usar planners físicos, mas não conseguiu manter a disciplina.  
+
+### Expectativas
+- Receber lembretes práticos para manter pequenos hábitos saudáveis.  
+- Ter uma visão clara da sua rotina diária e semanal.  
+- Sentir que está cuidando de si mesma, mesmo com a correria da faculdade.  
+
+---
+
+## Persona 5 – Rafael Monteiro
+- **Idade:** 42 anos  
+- **Profissão:** Gerente de Projetos  
+- **Localização:** Porto Alegre, Brasil  
+- **Formação:** MBA em Gestão de Projetos  
+- **Objetivo:** Melhorar a produtividade e conciliar vida profissional e pessoal.  
+
+### Descrição
+Rafael tem uma carreira consolidada, mas sente que o estresse do trabalho afeta sua vida pessoal. Ele gostaria de desenvolver hábitos como praticar atividades físicas, passar mais tempo com a família e aprender a meditar, mas acaba sempre priorizando o trabalho.  
+
+### Dores
+- Sente que sua rotina é dominada por compromissos profissionais.  
+- Tem dificuldade em manter consistência em atividades pessoais.  
+- Sofre com estresse e falta de equilíbrio entre vida profissional e pessoal.  
+
+### Expectativas
+- Usar um app que o ajude a criar metas realistas e sustentáveis.  
+- Acompanhar seu progresso para sentir que está evoluindo fora do trabalho.  
+- Ter lembretes e estatísticas que incentivem a continuidade dos novos hábitos.  
 
 > **Links Úteis**:
 > 
