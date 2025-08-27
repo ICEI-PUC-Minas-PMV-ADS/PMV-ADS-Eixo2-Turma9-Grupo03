@@ -11,7 +11,70 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 Identifique, em torno de, 5 personas. Para cada persona, lembre-se de descrever suas angústicas, frustrações e expectativas de vida relacionadas ao problema. Além disso, defina uma "aparência" para a persona. Para isso, você poderá utilizar sites como [https://this-person-does-not-exist.com/pt#google_vignette](https://this-person-does-not-exist.com/pt) ou https://thispersondoesnotexist.com/ 
 
 Utilize também como referência o exemplo abaixo:
+## Persona 1 – João Henrique
+- **Idade:** 22 anos  
+- **Profissão:** Estudante de Engenharia  
+- **Localização:** Belo Horizonte, Brasil  
+- **Formação:** Graduação em andamento  
+- **Objetivo:** Criar uma rotina disciplinada para estudar e manter hábitos saudáveis.  
 
+### Descrição
+João é universitário, mora com os pais e tem dificuldade em manter uma rotina equilibrada entre estudos, lazer e saúde. Ele sente que perde muito tempo no celular e gostaria de criar disciplina para estudar regularmente, praticar exercícios e dormir mais cedo.  
+
+### Dores
+- Sente-se improdutivo e procrastina facilmente.  
+- Não consegue manter consistência em novos hábitos (ex.: academia, leitura).  
+- Fica frustrado por começar algo e abandonar após poucos dias.  
+
+### Expectativas
+- Ter um aplicativo que o lembre das metas diárias e registre seu progresso.  
+- Conseguir visualizar sua evolução de forma clara e motivadora.  
+- Se sentir motivado por recompensas ou feedback visual (ex.: streaks, conquistas).  
+
+---
+
+## Persona 2 – Maria Eduarda
+- **Idade:** 28 anos  
+- **Profissão:** Analista de Marketing  
+- **Localização:** São Paulo, Brasil  
+- **Formação:** Pós-graduação em andamento  
+- **Objetivo:** Melhorar o autocuidado e manter hábitos de bem-estar no dia a dia.  
+
+### Descrição
+Maria tem uma rotina intensa de trabalho e estudos, e muitas vezes esquece de beber água, se alongar ou cuidar da saúde mental. Ela busca ferramentas que a ajudem a lembrar de pequenos hábitos de autocuidado, para não se sentir esgotada no final do dia.  
+
+### Dores
+- Esquece de se hidratar e de fazer pausas ao longo do dia.  
+- Sente-se sobrecarregada e sem tempo para si mesma.  
+- Já tentou usar listas de tarefas, mas não conseguiu manter a constância.  
+
+### Expectativas
+- Encontrar um app simples, prático e fácil de usar.  
+- Ter lembretes automáticos para beber água, alongar e praticar mindfulness.  
+- Manter uma rotina equilibrada que ajude no bem-estar físico e mental.  
+
+---
+
+## Persona 3 – Carlos Alberto
+- **Idade:** 35 anos  
+- **Profissão:** Programador  
+- **Localização:** Curitiba, Brasil  
+- **Formação:** Graduação em Ciência da Computação  
+- **Objetivo:** Adquirir novos conhecimentos e organizar melhor sua rotina pessoal.  
+
+### Descrição
+Carlos é apaixonado por tecnologia, mas sente que sua rotina é dominada apenas pelo trabalho. Ele quer aprender coisas novas, como estudar inglês e ler mais livros, mas tem dificuldade em manter disciplina.  
+
+### Dores
+- Cria metas muito grandes e desanima rápido.  
+- Não consegue visualizar sua evolução, então sente que não está progredindo.  
+- Fica sobrecarregado quando tenta conciliar trabalho, família e novos hábitos.  
+
+### Expectativas
+- Ter flexibilidade para criar hábitos personalizados.  
+- Receber lembretes inteligentes que não atrapalhem sua rotina.  
+- Conseguir acompanhar seu progresso a longo prazo, de forma clara e motivadora.
+- 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/IntApplicationProject-Template/blob/main/docs/img/AnaClara1.png" alt="Persona1"/>
 
 Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
