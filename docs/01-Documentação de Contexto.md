@@ -4,7 +4,7 @@ Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o pr
 
 ## Problema
  
- Atualmente, grande parte da população enfrenta dificuldades para manter uma rotina de hábitos saudáveis. O sedentarismo, a má alimentação e a falta de controle sobre atividades básicas, como hidratação e sono, têm contribuído para o aumento de doenças crônicas e para a sobrecarga dos sistemas de saúde. Apesar de todos saberem da importância de cuidar do corpo e da mente, a verdade é que transformar um hábito em parte da rotina exige tempo, consistência e motivação .
+ Atualmente, grande parte da população enfrenta dificuldades para manter uma rotina de hábitos saudáveis. O sedentarismo, a má alimentação e a falta de controle sobre atividades básicas, como hidratação e sono, têm contribuído para o aumento de doenças crônicas e para a sobrecarga dos sistemas de saúde. Apesar de todos saberem da importância de cuidar do corpo e da mente, a verdade é que transformar um hábito em parte da rotina exige tempo, consistência e motivação.
 
  Pesquisas mostram que criar um novo hábito pode levar em média de dois a cinco meses para se tornar automático, o que explica por que muitas pessoas desistem no caminho. Nesse sentido, ferramentas digitais têm se mostrado um apoio fundamental. O simples ato de registrar e acompanhar uma ação aumenta a conscientização, gera motivação e cria um senso de responsabilidade pessoal. Além disso, ver o próprio progresso estimula a continuidade, já que a sensação de recompensa é reforçada ao longo do processo.
 
