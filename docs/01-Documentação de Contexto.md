@@ -3,16 +3,14 @@
 Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+ 
+ Atualmente, grande parte da população enfrenta dificuldades para manter uma rotina de hábitos saudáveis. O sedentarismo, a má alimentação e a falta de controle sobre atividades básicas, como hidratação e sono, têm contribuído para o aumento de doenças crônicas e para a sobrecarga dos sistemas de saúde. Apesar de todos saberem da importância de cuidar do corpo e da mente, a verdade é que transformar um hábito em parte da rotina exige tempo, consistência e motivação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+ Pesquisas mostram que criar um novo hábito pode levar em média de dois a cinco meses para se tornar automático, o que explica por que muitas pessoas desistem no caminho. Nesse sentido, ferramentas digitais têm se mostrado um apoio fundamental. O simples ato de registrar e acompanhar uma ação aumenta a conscientização, gera motivação e cria um senso de responsabilidade pessoal. Além disso, ver o próprio progresso estimula a continuidade, já que a sensação de recompensa é reforçada ao longo do processo.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+ Estudos recentes indicam que pessoas que utilizam aplicativos de saúde e bem-estar conseguem aumentar significativamente a prática de atividade física, melhorar a alimentação, dormir melhor e até mesmo reduzir índices relacionados a doenças como diabetes. Técnicas como a gamificação, quando associadas ao rastreamento de hábitos, também se mostraram eficazes para engajar os usuários e manter a constância.
+ 
+ Com base nisso, fica claro que uma aplicação voltada para o rastreamento de hábitos saudáveis pode ser uma ferramenta de grande utilidade para a população. Mais do que ajudar na organização do dia a dia, ela se torna um incentivo para que as pessoas cuidem da própria saúde de forma contínua, transformando pequenas ações em mudanças duradouras que impactam diretamente na qualidade de vida.
 
 ## Objetivos
 
