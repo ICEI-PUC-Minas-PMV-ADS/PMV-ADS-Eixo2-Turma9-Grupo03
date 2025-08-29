@@ -141,32 +141,28 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID     | Descrição do Requisito                                                                 | Prioridade |
-|-------|----------------------------------------------------------------------------------------|------------|
-|RF-001 | A aplicação deve permitir que o usuário crie uma conta, faça login, logout e recupere senha | ALTA |
-|RF-002 | A aplicação deve permitir que o usuário defina e edite seu perfil (nome e fuso horário) | MÉDIA |
-|RF-003 | A aplicação deve permitir criar, visualizar, editar e excluir/arquivar hábitos          | ALTA |
-|RF-004 | A aplicação deve permitir configurar a periodicidade/meta dos hábitos (diário, dias da semana ou X vezes por semana) | ALTA |
-|RF-005 | A aplicação deve permitir registrar um check-in diário por hábito (um por dia, com atualização se repetido) | ALTA |
-|RF-006 | A aplicação deve mostrar indicadores de progresso (streak atual, streak máximo e resumo semanal) | ALTA |
-|RF-007 | A aplicação deve permitir organizar hábitos com etiquetas (tags) e buscar hábitos       | MÉDIA |
-|RF-008 | A aplicação deve permitir configurar lembretes por hábito, escolhendo horário e dias da semana | ALTA |
-|RF-009 | A aplicação deve registrar conquistas de consistência (ex.: 7, 30 e 100 dias)           | MÉDIA |
-|RF-010 | A aplicação deve permitir compartilhar conquistas em redes sociais, sem expor dados pessoais | BAIXA |
+| ID     | Descrição do Requisito                                                                              | Prioridade |
+| ------ | --------------------------------------------------------------------------------------------------- | ---------- |
+| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                      | ALTA       |
+| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                         | ALTA       |
+| RF-003 | A aplicação deve permitir **CRUD de Hábitos**                                                       | ALTA       |
+| RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido) | ALTA       |
+| RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)              | MÉDIA      |
+| RF-006 | A aplicação deve permitir **consultar visão geral (dashboard)** dos hábitos                         | MÉDIA      |
+| RF-007 | A aplicação deve fornecer **documentação da API (Swagger/OpenAPI)**                                 | BAIXA      |
 
 ### Requisitos não Funcionais
 
-|ID      | Descrição do Requisito                                                               | Prioridade |
-|--------|--------------------------------------------------------------------------------------|------------|
-|RNF-001 | A aplicação deve ser simples e intuitiva de usar                                     | ALTA |
-|RNF-002 | A aplicação deve responder às ações do usuário em até 2 segundos                     | MÉDIA |
-|RNF-003 | A aplicação deve salvar os dados dos usuários em banco de dados e recuperá-los de forma confiável | ALTA |
-|RNF-004 | As senhas dos usuários não podem ser armazenadas em texto simples, devendo ser protegidas | ALTA |
-|RNF-005 | O sistema deve suportar múltiplos usuários, garantindo que cada um acesse apenas seus próprios dados | ALTA |
-|RNF-006 | O sistema deve poder rodar em computadores pessoais e em serviços gratuitos de nuvem | MÉDIA |
-|RNF-007 | Os dados não devem ser perdidos após fechar ou reiniciar o sistema                   | ALTA |
-|RNF-008 | O sistema deve ser compatível com navegadores e aplicativos que usem o back-end      | MÉDIA |
-
+| ID      | Descrição do Requisito                                                                               | Prioridade |
+| ------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| RNF-001 | A aplicação deve ser simples e intuitiva de usar                                                     | ALTA       |
+| RNF-002 | A aplicação deve responder às ações do usuário em até 2 segundos                                     | MÉDIA      |
+| RNF-003 | A aplicação deve salvar os dados dos usuários em banco de dados e recuperá-los de forma confiável    | ALTA       |
+| RNF-004 | As senhas dos usuários não podem ser armazenadas em texto simples, devendo ser protegidas            | ALTA       |
+| RNF-005 | O sistema deve suportar múltiplos usuários, garantindo que cada um acesse apenas seus próprios dados | ALTA       |
+| RNF-006 | O sistema deve poder rodar em computadores pessoais e em serviços gratuitos de nuvem                 | MÉDIA      |
+| RNF-007 | Os dados não devem ser perdidos após fechar ou reiniciar o sistema                                   | ALTA       |
+| RNF-008 | O sistema deve ser compatível com navegadores e aplicativos que usem o back-end                      | MÉDIA      |
 
 ## Restrições
 
@@ -176,9 +172,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |----|---------------------------------------------------------------------------|
 |01 | O projeto deverá ser entregue até o final do semestre                      |
 |02 | O projeto não pode depender de serviços pagos obrigatórios                 |
-|03 | O MVP deve priorizar RF-001 a RF-008; conquistas e compartilhamento podem ser entregues depois |
-|04 | O sistema deve ser executado localmente e em ambiente de nuvem gratuita    |
-|05 | Deve permitir que o usuário exclua sua conta e dados pessoais (LGPD)       |
+|03 | O sistema deve ser executado localmente e em ambiente de nuvem gratuita 
+|04 | Deve permitir que o usuário exclua sua conta e dados pessoais (LGPD)     |
 
 ## Diagrama de Casos de Uso
 
