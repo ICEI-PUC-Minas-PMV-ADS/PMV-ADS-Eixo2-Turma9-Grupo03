@@ -149,7 +149,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido) | ALTA       |
 | RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)              | MÉDIA      |
 | RF-006 | A aplicação deve permitir **consultar visão geral (dashboard)** dos hábitos                         | MÉDIA      |
-| RF-007 | A aplicação deve fornecer **documentação da API (Swagger/OpenAPI)**                                 | BAIXA      |
+
 
 ### Requisitos não Funcionais
 
