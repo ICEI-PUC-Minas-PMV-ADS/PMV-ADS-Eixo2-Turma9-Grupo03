@@ -76,11 +76,7 @@ Essas funcionalidades se alinham diretamente aos Objetivos de Desenvolvimento Su
 Dessa forma, o software justifica-se não apenas por resolver um problema individual recorrente — a dificuldade em manter hábitos — mas também por alinhar-se a metas globais da Agenda 2030, contribuindo para a saúde, educação, produtividade e inovação tecnológica.
 
 ## Público-Alvo
-
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Além das personas iniciais (estudantes, profissionais e pais), a visão inclui:
+- Adultos que buscam prevenção de doenças crônicas.
+- Profissionais de saúde que recomendam ferramentas de adesão a pacientes.
+- Empresas interessadas em bem‑estar corporativo e programas de qualidade de vida.
