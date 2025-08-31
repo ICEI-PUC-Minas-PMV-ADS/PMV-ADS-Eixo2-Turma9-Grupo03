@@ -45,16 +45,16 @@ Compartilhar conquistas em redes sociais, fortalecendo a motivação social.
 
 Essas funcionalidades se alinham diretamente aos Objetivos de Desenvolvimento Sustentável (ODS) da ONU:
 
-> DS 3 – Saúde e Bem-Estar (Meta 3.4): Reduzir em um terço as mortes prematuras por doenças crônicas por meio da promoção da saúde mental e bem-estar.
+> - DS 3 – Saúde e Bem-Estar (Meta 3.4): Reduzir em um terço as mortes prematuras por doenças crônicas por meio da promoção da saúde mental e bem-estar.
 → O sistema contribui ao incentivar hábitos saudáveis como exercícios, sono regulado e alimentação balanceada.
 
-> ODS 4 – Educação de Qualidade (Meta 4.4): Aumentar o número de jovens e adultos com habilidades relevantes, inclusive técnicas e profissionais.
+> - ODS 4 – Educação de Qualidade (Meta 4.4): Aumentar o número de jovens e adultos com habilidades relevantes, inclusive técnicas e profissionais.
 → O aplicativo pode ser utilizado para consolidar hábitos de estudo e aprendizado contínuo, apoiando o desenvolvimento educacional.
 
-> ODS 8 – Trabalho Decente e Crescimento Econômico (Meta 8.2): Aumentar a produtividade econômica por meio da diversificação e inovação.
+> - ODS 8 – Trabalho Decente e Crescimento Econômico (Meta 8.2): Aumentar a produtividade econômica por meio da diversificação e inovação.
 → O sistema ajuda usuários a desenvolverem disciplina e consistência em rotinas de trabalho, impactando positivamente a produtividade.
 
-> ODS 9 – Indústria, Inovação e Infraestrutura (Meta 9.5): Reforçar a pesquisa científica e apoiar o desenvolvimento de tecnologias.
+> - ODS 9 – Indústria, Inovação e Infraestrutura (Meta 9.5): Reforçar a pesquisa científica e apoiar o desenvolvimento de tecnologias.
 → A aplicação é uma solução digital inovadora que se insere no contexto de transformação tecnológica.
 
 Dessa forma, o software justifica-se não apenas por resolver um problema individual recorrente — a dificuldade em manter hábitos — mas também por alinhar-se a metas globais da Agenda 2030, contribuindo para a saúde, educação, produtividade e inovação tecnológica.
