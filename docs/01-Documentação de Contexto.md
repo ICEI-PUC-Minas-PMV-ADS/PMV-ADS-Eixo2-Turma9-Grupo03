@@ -17,8 +17,11 @@ Aplicativos e sistemas de gerenciamento de hábitos surgem como uma solução pr
 ## Objetivos
 
 **Objetivo Geral:**
+
 Desenvolver um sistema de gerenciamento de hábitos que auxilie os usuários na criação, acompanhamento e manutenção de seus hábitos diários por meio de recursos simples, interativos e motivacionais.
+
 **Objetivos Específicos:**
+
 Permitir o cadastro e gerenciamento de usuários.
 
 
