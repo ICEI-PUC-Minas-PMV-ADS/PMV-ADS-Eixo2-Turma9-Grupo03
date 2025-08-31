@@ -16,12 +16,25 @@ Aplicativos e sistemas de gerenciamento de hábitos surgem como uma solução pr
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+*Objetivo Geral:*
+Desenvolver um sistema de gerenciamento de hábitos que auxilie os usuários na criação, acompanhamento e manutenção de seus hábitos diários por meio de recursos simples, interativos e motivacionais.
+*Objetivos Específicos:*
+Permitir o cadastro e gerenciamento de usuários.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+
+Oferecer a criação de hábitos com periodicidade e objetivos personalizados.
+
+
+Registrar check-ins diários com sistema de recompensas baseado em constância.
+
+
+Disponibilizar métricas como streak atual e streak máximo.
+
+
+Implementar lembretes, etiquetas, notas e definição de duração para hábitos.
+
+
+Possibilitar o compartilhamento de conquistas em redes sociais.
 
 ## Justificativa
 
