@@ -179,13 +179,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 <img width="558" height="637" alt="Habitly drawio" src="https://github.com/user-attachments/assets/06ae7437-7777-474a-992e-31b13238436d" />
 
+O diagrama de casos de uso representa as principais interações do Usuário com o sistema Habit Tracker. Ele mostra como o usuário pode criar e gerenciar sua conta, definir metas, registrar e visualizar hábitos, além de acompanhar check-ins diários e conquistas de consistência. As relações de associação indicam diretamente quais funcionalidades estão disponíveis ao ator principal.
+
+Além disso, o diagrama utiliza as relações <<include>> e <<extend>> para detalhar o comportamento do sistema. O include aparece quando um caso de uso depende obrigatoriamente de outro, como em Visualizar Check-in Diário, que sempre inclui Visualizar Progresso das Metas. Já o extend indica funções opcionais que podem complementar a experiência, como Configurar Lembretes ao definir metas, ou Compartilhar Conquistas ao visualizar conquistas de consistência. Assim, o diagrama organiza de forma clara os fluxos principais e as extensões opcionais, facilitando a compreensão da lógica do sistema.
 
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
 
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
