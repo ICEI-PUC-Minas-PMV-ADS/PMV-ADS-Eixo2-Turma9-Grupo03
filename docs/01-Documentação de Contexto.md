@@ -82,8 +82,7 @@ Além das personas iniciais (estudantes, profissionais e pais), a visão inclui:
 - Empresas interessadas em bem‑estar corporativo e programas de qualidade de vida.
 
 ## Video
-<video src="[https://github.com/user-attachments/assets/XXXXXXXX/video.mp4](https://github.com/user-attachments/assets/aa4bdd34-7359-4af1-bbae-a2e752b40e1f
-)" controls width="600"></video>
+<video src="https://github.com/user-attachments/assets/aa4bdd34-7359-4af1-bbae-a2e752b40e1f" controls width="600"></video>
 
 
 
