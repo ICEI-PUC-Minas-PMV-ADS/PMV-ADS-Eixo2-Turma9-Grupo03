@@ -177,7 +177,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ## Diagrama de Casos de Uso
 
-<img width="258" height="971" alt="CasosDeUsoHabitly" src="https://github.com/user-attachments/assets/38310ab5-5f0e-44d9-ba42-3eac52484d4c" />
+<img width="558" height="637" alt="Habitly drawio" src="https://github.com/user-attachments/assets/06ae7437-7777-474a-992e-31b13238436d" />
+
 
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
