@@ -1,6 +1,8 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Nos últimos anos, tem crescido o interesse por ferramentas digitais voltadas para o desenvolvimento pessoal, especialmente no acompanhamento e manutenção de hábitos saudáveis e produtivos. Estudos em psicologia e comportamento apontam que a criação de hábitos é fundamental para alcançar objetivos de longo prazo, seja na área de saúde, educação ou produtividade. Entretanto, muitas pessoas enfrentam dificuldades para manter a consistência necessária, o que compromete seus resultados.
+
+Aplicativos e sistemas de gerenciamento de hábitos surgem como uma solução prática para apoiar o usuário nesse processo, oferecendo recursos como lembretes, indicadores de progresso e recompensas que incentivam a continuidade. Esses mecanismos tornam mais clara a jornada do usuário, fortalecendo sua disciplina e aumentando a motivação ao visualizar seus avanços.
 
 ## Problema
  
@@ -23,12 +25,39 @@ Apresente também alguns (pelo menos 2) objetivos específicos dependendo de ond
 
 ## Justificativa
 
-Explique de forma clara a relevância da aplicação escolhida, justificando os objetivos específicos e os aspectos do software que serão aprofundados, e quantifique o impacto do problema com dados concretos (números, percentuais, indicadores) obtidos por bases oficiais ou outras fontes confiáveis, sempre citadas no padrão ABNT (no formato [Numérico] ou (AUTOR, ANO)).
+A criação e manutenção de hábitos positivos está diretamente relacionada ao bem-estar físico, mental e social dos indivíduos. Entretanto, a falta de mecanismos de acompanhamento e reforço dificulta a consolidação desses hábitos. De acordo com estudo da Universidade College London, em média, são necessários 66 dias para que um comportamento se torne automático (LALLY et al., 2010). Nesse período, a ausência de registros claros e lembretes reduz a consistência, levando ao abandono dos objetivos pessoais.
 
-**Relacione o problema aos Objetivos de Desenvolvimento Sustentável (ODS), indicando quais ODS e subobjetivos são atendidos e descrevendo como o projeto contribui para cada um deles, garantindo coerência entre o impacto mensurado e as metas selecionadas.**
+No Brasil, mais de 40% da população relata dificuldade em manter rotinas saudáveis, como prática regular de exercícios e alimentação balanceada (IBGE, 2020). Além disso, dados da Organização Mundial da Saúde indicam que a inatividade física é responsável por 5 milhões de mortes anuais no mundo (WHO, 2019), demonstrando o impacto global do problema.
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+A aplicação proposta busca enfrentar esses desafios ao:
+
+Gerenciar usuários e possibilitar a personalização da experiência;
+
+Permitir criação de hábitos com objetivos e periodicidade definida, reforçando a clareza das metas;
+
+Registrar check-ins diários com recompensas, incentivando a constância;
+
+Expor métricas de progresso (streak atual e máximo), fornecendo feedback imediato;
+
+Oferecer lembretes e etiquetas de hábitos, aumentando a aderência;
+
+Compartilhar conquistas em redes sociais, fortalecendo a motivação social.
+
+Essas funcionalidades se alinham diretamente aos Objetivos de Desenvolvimento Sustentável (ODS) da ONU:
+
+ODS 3 – Saúde e Bem-Estar (Meta 3.4): Reduzir em um terço as mortes prematuras por doenças crônicas por meio da promoção da saúde mental e bem-estar.
+→ O sistema contribui ao incentivar hábitos saudáveis como exercícios, sono regulado e alimentação balanceada.
+
+ODS 4 – Educação de Qualidade (Meta 4.4): Aumentar o número de jovens e adultos com habilidades relevantes, inclusive técnicas e profissionais.
+→ O aplicativo pode ser utilizado para consolidar hábitos de estudo e aprendizado contínuo, apoiando o desenvolvimento educacional.
+
+ODS 8 – Trabalho Decente e Crescimento Econômico (Meta 8.2): Aumentar a produtividade econômica por meio da diversificação e inovação.
+→ O sistema ajuda usuários a desenvolverem disciplina e consistência em rotinas de trabalho, impactando positivamente a produtividade.
+
+ODS 9 – Indústria, Inovação e Infraestrutura (Meta 9.5): Reforçar a pesquisa científica e apoiar o desenvolvimento de tecnologias.
+→ A aplicação é uma solução digital inovadora que se insere no contexto de transformação tecnológica.
+
+Dessa forma, o software justifica-se não apenas por resolver um problema individual recorrente — a dificuldade em manter hábitos — mas também por alinhar-se a metas globais da Agenda 2030, contribuindo para a saúde, educação, produtividade e inovação tecnológica.
 
 ## Público-Alvo
 
