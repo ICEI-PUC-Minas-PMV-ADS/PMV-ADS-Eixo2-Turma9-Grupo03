@@ -3,7 +3,9 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A abordagem utilizada no desenvolvimento da API Habitly foi fundamentada no SCRUM, uma metodologia ágil que favorece entregas incrementais, ciclos curtos de trabalho e adaptação contínua aos requisitos do usuário. Essa escolha permite uma melhor organização da equipe, fragmentando tarefas em sprints e possibilitando maior eficiência no desenvolvimento.
+
+No contexto do Habitly, o SCRUM é aplicado para garantir que as funcionalidades essenciais — como autenticação de usuários, criação e registro de hábitos, check-ins diários e lembretes — sejam entregues de forma progressiva, validadas a cada iteração e ajustadas de acordo com o feedback.
 
 ## Controle de Versão
 
@@ -26,16 +28,8 @@ etiquetas:
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
-
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
->  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
-
 ## Gerenciamento de Projeto
+
 
 ### Divisão de Papéis
 
