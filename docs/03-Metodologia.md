@@ -29,43 +29,30 @@ etiquetas:
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
 ## Gerenciamento de Projeto
+O gerenciamento do projeto segue os princípios do SCRUM, utilizando o GitHub Projects em formato Kanban:
 
+- Backlog: lista de todas as funcionalidades e requisitos levantados.
+- To Do: tarefas planejadas para a sprint atual.
+- In Progress: tarefas em andamento.
+- Done: tarefas concluídas, testadas e integradas.
 
 ### Divisão de Papéis
-
-Apresente a divisão de papéis entre os membros do grupo.
-
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+- Scrum Master: Sophia
+- Product Owner: Matheus
+- Equipe de Desenvolvimento: Lucas, Pedro Henrique e Guilherme
+- Equipe de Design: Júlia e Lorrayne
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+As principais cerimônias aplicadas no Habitly são:
+- Sprint Planning: definição do que será implementado em cada sprint, com divisão de tarefas.
+- Daily Standup: reuniões semanais rápidas de acompanhamento do progresso e identificação de obstáculos.
+- Sprint Review: apresentação das funcionalidades concluídas ao final de cada enterega. 
+- Sprint Retrospective: reflexão sobre o que funcionou bem e o que pode ser melhorado na próxima sprint.
 
 ### Ferramentas
-
-As ferramentas empregadas no projeto são:
-
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
-
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
-
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+- GitHub: repositório de código e gestão de tarefas (Kanban).
+- Visual Studio Code: ambiente principal de desenvolvimento da API.
+- Figma: design de wireframes.
+- Canva: criação de slides e materiais de apresentação.
+- WhatsApp/Teams: comunicação da equipe e alinhamento rápido.
