@@ -1,8 +1,6 @@
 
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-
 A abordagem utilizada no desenvolvimento da API Habitly foi fundamentada no SCRUM, uma metodologia ágil que favorece entregas incrementais, ciclos curtos de trabalho e adaptação contínua aos requisitos do usuário. Essa escolha permite uma melhor organização da equipe, fragmentando tarefas em sprints e possibilitando maior eficiência no desenvolvimento.
 
 No contexto do Habitly, o SCRUM é aplicado para garantir que as funcionalidades essenciais — como autenticação de usuários, criação e registro de hábitos, check-ins diários e lembretes — sejam entregues de forma progressiva, validadas a cada iteração e ajustadas de acordo com o feedback.
@@ -36,7 +34,7 @@ O gerenciamento do projeto segue os princípios do SCRUM, utilizando o GitHub Pr
 ### Divisão de Papéis
 - Scrum Master: Sophia
 - Product Owner: Matheus
-- Equipe de Desenvolvimento: Lucas, Pedro Henrique e Guilherme
+- Equipe de Desenvolvimento: Lucas, Pedro Henrique, Guilherme, Sophia, Matheus, Júlia e Lorrayne. 
 - Equipe de Design: Júlia e Lorrayne
 
 ### Processo
@@ -49,8 +47,9 @@ As principais cerimônias aplicadas no Habitly são:
 
 ### Ferramentas
 - GitHub: repositório de código e gestão de tarefas (Kanban).
-- Visual Studio Code: ambiente principal de desenvolvimento da API.
+- Visual Studio: ambiente principal de desenvolvimento da API.
 - Figma: design de wireframes.
+- SQL Express: banco de dados.
 - Canva: criação de slides e materiais de apresentação.
 - WhatsApp/Teams: comunicação da equipe e alinhamento rápido.
   
