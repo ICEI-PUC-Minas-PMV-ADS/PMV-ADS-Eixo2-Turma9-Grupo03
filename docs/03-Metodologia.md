@@ -59,14 +59,16 @@ As principais cerimônias aplicadas no Habitly são:
   
 ### Para organização e distribuição das tarefas do projeto, a equipe está utilizando o **GitHub Project**, por meio do Quadro Kanban, organizado da seguinte forma:
 - **To Do:** Esta lista representa o Sprint Backlog que está sendo trabalhado.
-
 - **In progress:** Lista das tarefas iniciadas.
-
 - **Done:** Nesta lista são colocadas as tarefas finalizadas e as que passaram pelos testes e controle de qualidade, prontas para serem entregues aos usuários.
 <br>
 
 
 ## Etapa 1 e 2:
+
+<img width="1129" height="679" alt="Image" src="https://github.com/user-attachments/assets/db6109eb-45a2-46eb-ba40-d66dc6f93c40" />
+
+
 ![WhatsApp Image 2025-09-10 at 21 17 59](https://github.com/user-attachments/assets/49fc4cf7-eb81-4a8b-af33-365807937f1f)
 
 ### Planejamento:
