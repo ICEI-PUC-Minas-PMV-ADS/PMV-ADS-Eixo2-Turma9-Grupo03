@@ -56,3 +56,27 @@ As principais cerimônias aplicadas no Habitly são:
 - Figma: design de wireframes.
 - Canva: criação de slides e materiais de apresentação.
 - WhatsApp/Teams: comunicação da equipe e alinhamento rápido.
+  
+### Para organização e distribuição das tarefas do projeto, a equipe está utilizando o **GitHub Project**, por meio do Quadro Kanban, organizado da seguinte forma:
+
+- **Product Backlog:** Recebe as tarefas a serem trabalhadas e representa o Backlog do produto. Todas as atividades identificadas no decorrer do projeto são incorporadas a esta lista.
+
+- **To Do:** Esta lista representa o Sprint Backlog que está sendo trabalhado.
+
+- **In progress:** Lista das tarefas iniciadas.
+
+- **Done:** Nesta lista são colocadas as tarefas finalizadas e as que passaram pelos testes e controle de qualidade, prontas para serem entregues aos usuários.
+<br>
+
+
+## Etapa 1 e 2:
+![WhatsApp Image 2025-09-10 at 21 17 59](https://github.com/user-attachments/assets/49fc4cf7-eb81-4a8b-af33-365807937f1f)
+
+### Planejamento:
+
+Nesta etapa inicial, foi discutido e definido o problema central a ser abordado: dificuldades para manter uma rotina de hábitos saudáveis, com foco em falta de controle sobre atividades básicas e sedentarismo. Foram estabelecidos os objetivos do projeto,. Além disso, foram propostos os Requisitos Funcionais e Não-Funcionais necessários, e as restrições técnicas e regulatórias que a solução deverá observar.
+
+Como parte do planejamento, foi desenvolvida uma apresentação com a abordagem geral do projeto e um vídeo que sintetiza os principais pontos e propósitos da solução proposta. Após a formação da equipe, foram estabelecidos canais de comunicação e planejamento de reuniões semanais por meio das plataformas Microsoft Teams, além de um grupo no WhatsApp para discussões rápidas e troca de ideias.
+
+Por fim, foi elaborada e entregue a documentação referente a esta fase inicial, contendo as seções de Documentação do Contexto e a Especificação do Projeto, que detalha os principais aspectos técnicos e operacionais.
+
