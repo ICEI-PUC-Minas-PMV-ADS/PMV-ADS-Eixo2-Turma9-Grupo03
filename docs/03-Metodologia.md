@@ -58,9 +58,6 @@ As principais cerimônias aplicadas no Habitly são:
 - WhatsApp/Teams: comunicação da equipe e alinhamento rápido.
   
 ### Para organização e distribuição das tarefas do projeto, a equipe está utilizando o **GitHub Project**, por meio do Quadro Kanban, organizado da seguinte forma:
-
-- **Product Backlog:** Recebe as tarefas a serem trabalhadas e representa o Backlog do produto. Todas as atividades identificadas no decorrer do projeto são incorporadas a esta lista.
-
 - **To Do:** Esta lista representa o Sprint Backlog que está sendo trabalhado.
 
 - **In progress:** Lista das tarefas iniciadas.
