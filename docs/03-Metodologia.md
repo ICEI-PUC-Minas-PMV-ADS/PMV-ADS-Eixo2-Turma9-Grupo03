@@ -29,7 +29,6 @@ etiquetas:
 ## Gerenciamento de Projeto
 O gerenciamento do projeto segue os princípios do SCRUM, utilizando o GitHub Projects em formato Kanban:
 
-- Backlog: lista de todas as funcionalidades e requisitos levantados.
 - To Do: tarefas planejadas para a sprint atual.
 - In Progress: tarefas em andamento.
 - Done: tarefas concluídas, testadas e integradas.
