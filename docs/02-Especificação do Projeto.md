@@ -141,14 +141,22 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-| ID     | Descrição do Requisito                                                                              | Prioridade |
-| ------ | --------------------------------------------------------------------------------------------------- | ---------- |
-| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                      | ALTA       |
-| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                         | ALTA       |
-| RF-003 | A aplicação deve permitir **CRUD de Hábitos**                                                       | ALTA       |
-| RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido) | ALTA       |
-| RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)              | MÉDIA      |
-| RF-006 | A aplicação deve permitir **consultar visão geral (dashboard)** dos hábitos                         | MÉDIA      |
+| ID     | Descrição do Requisito                                                                                 | Prioridade |
+| ------ | ------------------------------------------------------------------------------------------------------ | ---------- |
+| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                         | ALTA       |
+| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                            | ALTA       |
+| RF-003 | A aplicação deve permitir **CRUD de Hábitos**                                                          | ALTA       |
+| RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido)    | ALTA       |
+| RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)                 | MÉDIA      |
+| RF-006 | A aplicação deve permitir **consultar visão geral (dashboard)** dos hábitos                            | MÉDIA      |
+| RF-007 | A aplicação deve permitir **CRUD de Lembretes** associados aos hábitos                                 | ALTA       |
+| RF-008 | A aplicação deve permitir **CRUD de Etiquetas (tags)** para organizar hábitos                          | MÉDIA      |
+| RF-009 | A aplicação deve permitir **definir periodicidade** dos hábitos (diário, dias fixos, X vezes/semana)   | ALTA       |
+| RF-010 | A aplicação deve permitir **arquivar hábitos**, preservando histórico de check-ins                     | MÉDIA      |
+| RF-011 | A aplicação deve permitir **consultar histórico de check-ins** por hábito e por período de tempo       | ALTA       |
+| RF-012 | A aplicação deve registrar **conquistas de consistência** (ex.: 7, 30 e 100 dias)                      | MÉDIA      |
+| RF-013 | A aplicação deve permitir **compartilhar conquistas** em redes sociais                                 | BAIXA      |
+| RF-014 | A aplicação deve permitir **configuração de preferências do usuário**                                  | MÉDIA      |
 
 
 ### Requisitos não Funcionais
