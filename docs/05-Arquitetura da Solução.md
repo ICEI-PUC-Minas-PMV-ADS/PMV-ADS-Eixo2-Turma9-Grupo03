@@ -20,17 +20,14 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
-Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
+<img width="751" height="581" alt="MER Conceitual drawio" src="https://github.com/user-attachments/assets/b37f2e58-b7b2-43c3-970f-9451f19d4ebc" />
 
-A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
 
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
 
 ## Projeto da Base de Dados
 
-O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
- 
-Para mais informações, consulte o microfundamento "Modelagem de Dados".
+<img width="740" height="711" alt="MER_Habitly_Logico drawio" src="https://github.com/user-attachments/assets/bfac7184-6314-4242-9ca5-c83ea52ea017" />
+
 
 ## ATENÇÃO!!!
 
