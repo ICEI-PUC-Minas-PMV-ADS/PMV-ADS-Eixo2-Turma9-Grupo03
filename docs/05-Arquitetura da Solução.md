@@ -26,7 +26,7 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 ## Projeto da Base de Dados
 
-<img width="740" height="711" alt="MER_Habitly_Logico drawio" src="https://github.com/user-attachments/assets/bfac7184-6314-4242-9ca5-c83ea52ea017" />
+<img width="1136" height="700" alt="Image" src="https://github.com/user-attachments/assets/6f4f83c2-10c4-4e5e-b3a1-0426092dfc9a" />
 
 
 ## ATENÇÃO!!!
