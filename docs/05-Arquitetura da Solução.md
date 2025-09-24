@@ -21,10 +21,17 @@ O modelo foi pensado a partir do usuário como entidade central, responsável po
 
 
 ## Tecnologias Utilizadas
+Tecnologias Utilizadas
+HTML e CSS - Utilizados para a estrutura e estilo das páginas web.
+JavaScript - Para interatividade do site e funcionalidades dinâmicas
+C# – Linguagem usada para programar a API.
+ASP.NET Core – Framework para criar os endpoints e organizar as rotas da aplicação.
+Entity Framework Core – Para facilitar a comunicação do C# com o SQLServer.
+SQLServer – Banco de dados.
+Visual Studio – Ambiente de desenvolvimento usado para programar e rodar o projeto.
+Git e GitHub – Controle de versão e local de armazenamento do código.
+Figma/Canvas - Wireframes e desgin.
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
 
 ## Hospedagem
 
