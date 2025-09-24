@@ -58,11 +58,12 @@ As principais cerimônias aplicadas no Habitly são:
 - **In progress:** Lista das tarefas iniciadas.
 - **Done:** Nesta lista são colocadas as tarefas finalizadas e as que passaram pelos testes e controle de qualidade, prontas para serem entregues aos usuários.
 <br>
+- **Backlog**: Lista dinâmica todo o trabalho futuro de um produto.
 
 
 ## Etapa 1 e 2:
 
-<img width="1129" height="679" alt="Image" src="https://github.com/user-attachments/assets/db6109eb-45a2-46eb-ba40-d66dc6f93c40" />
+<img width="1279" height="663" alt="Image" src="https://github.com/user-attachments/assets/f9c6de45-a747-461f-834b-9f2bd9f709bd" />
 
 ### Planejamento:
 
