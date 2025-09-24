@@ -32,14 +32,10 @@ Visual Studio – Ambiente de desenvolvimento usado para programar e rodar o pro
 Git e GitHub – Controle de versão e local de armazenamento do código.
 Figma/Canvas - Wireframes e desgin.
 
+<img width="3840" height="1368" alt="Image" src="https://github.com/user-attachments/assets/da858596-d0ac-41b5-b537-eff07f6ab880" />
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+O Habitly foi hospedado na Microsoft Azure, usando um App Service integrado ao GitHub para facilitar a atualização do sistema. Essa escolha garante que a aplicação em ASP.NET Core com banco de dados SQL Server funcione de forma segura, estável e acessível. Assim, os usuários conseguem acessar a plataforma pelo navegador sem precisar de instalação local, com boa disponibilidade e praticidade.
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+
