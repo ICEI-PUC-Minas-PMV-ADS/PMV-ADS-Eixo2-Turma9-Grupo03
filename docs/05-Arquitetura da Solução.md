@@ -17,7 +17,7 @@ O modelo foi pensado a partir do usuário como entidade central, responsável po
 
 ## Projeto da Base de Dados
 
-<img width="1136" height="700" alt="Image" src="https://github.com/user-attachments/assets/6f4f83c2-10c4-4e5e-b3a1-0426092dfc9a" />
+<img width="1389" height="831" alt="Image" src="https://github.com/user-attachments/assets/9c6b1c3f-ed41-42a9-86d0-3a9d7cc26279" />
 
 
 ## Tecnologias Utilizadas
