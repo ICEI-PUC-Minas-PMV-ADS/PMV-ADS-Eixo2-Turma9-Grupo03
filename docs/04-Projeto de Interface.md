@@ -20,6 +20,12 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 > **Links Úteis**:
 > - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
 
+## Diagrama de Fluxo
+
+![WhatsApp Image 2025-09-24 at 22 25 56](https://github.com/user-attachments/assets/275a3c7d-7d03-4017-852b-35cc2adb34c1)
+
+<br>
+
 ## Wireframes
 
 ![Exemplo de Wireframe](img/wireframe-example.png)
