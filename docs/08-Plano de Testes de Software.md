@@ -1,31 +1,81 @@
 # Plano de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+| **Caso de Teste** | **CT-01 – Criar novo usuário** |
+|:---:|:---:|
+| Requisito Associado | RF-001 – CRUD de Usuários |
+| Objetivo do Teste | Criar novo usuário |
+| Passos | - Acessar tela de cadastro <br> - Preencher campos obrigatórios com dados válidos <br> - Clicar em "Cadastrar" |
+| Critério de Êxito | Conta criada com sucesso e dados armazenados no banco |
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
+| **Caso de Teste** | **CT-02 – Editar dados de usuário** |
+| Requisito Associado | RF-001 – CRUD de Usuários |
+| Objetivo do Teste | Editar dados de usuário |
+| Passos | - Acessar tela de edição de perfil <br> - Alterar dados e salvar |
+| Critério de Êxito | Alterações gravadas corretamente |
 
-Não deixe de enumerar os casos de teste de forma sequencial e de garantir que o(s) requisito(s) associado(s) a cada um deles está(ão) correto(s) - de acordo com o que foi definido na seção "2 - Especificação do Projeto". 
+| **Caso de Teste** | **CT-03 – Excluir usuário** |
+| Requisito Associado | RF-001 – CRUD de Usuários |
+| Objetivo do Teste | Excluir usuário |
+| Passos | - Acessar opção de excluir conta <br> - Confirmar exclusão |
+| Critério de Êxito | Conta removida do sistema e dados apagados |
 
-Por exemplo:
- 
-| **Caso de Teste** 	| **CT01 – Cadastrar perfil** 	|
-|:---:	|:---:	|
-|	Requisito Associado 	| RF-00X - A aplicação deve apresentar, na página principal, a funcionalidade de cadastro de usuários para que esses consigam criar e gerenciar seu perfil. |
-| Objetivo do Teste 	| Verificar se o usuário consegue se cadastrar na aplicação. |
-| Passos 	| - Acessar o navegador <br> - Informar o endereço do site https://adota-pet.herokuapp.com/src/index.html<br> - Clicar em "Criar conta" <br> - Preencher os campos obrigatórios (e-mail, nome, sobrenome, celular, CPF, senha, confirmação de senha) <br> - Aceitar os termos de uso <br> - Clicar em "Registrar" |
-|Critério de Êxito | - O cadastro foi realizado com sucesso. |
-|  	|  	|
-| Caso de Teste 	| CT02 – Efetuar login	|
-|Requisito Associado | RF-00Y	- A aplicação deve possuir opção de fazer login, sendo o login o endereço de e-mail. |
-| Objetivo do Teste 	| Verificar se o usuário consegue realizar login. |
-| Passos 	| - Acessar o navegador <br> - Informar o endereço do site https://adota-pet.herokuapp.com/src/index.html<br> - Clicar no botão "Entrar" <br> - Preencher o campo de e-mail <br> - Preencher o campo da senha <br> - Clicar em "Login" |
-|Critério de Êxito | - O login foi realizado com sucesso. |
+| **Caso de Teste** | **CT-04 – Login com credenciais válidas** |
+| Requisito Associado | RF-002 – CRUD de Sessões/Autenticação |
+| Objetivo do Teste | Login com credenciais válidas |
+| Passos | - Acessar tela de login <br> - Informar e-mail e senha corretos <br> - Clicar em "Entrar" |
+| Critério de Êxito | Usuário autenticado e redirecionado para o dashboard |
 
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+| **Caso de Teste** | **CT-05 – Login com senha incorreta** |
+| Requisito Associado | RF-002 – CRUD de Sessões/Autenticação |
+| Objetivo do Teste | Login com senha incorreta |
+| Passos | - Acessar tela de login <br> - Informar e-mail válido e senha incorreta <br> - Clicar em "Entrar" |
+| Critério de Êxito | Exibir mensagem de erro, acesso negado |
+
+| **Caso de Teste** | **CT-06 – Logout** |
+| Requisito Associado | RF-002 – CRUD de Sessões/Autenticação |
+| Objetivo do Teste | Logout |
+| Passos | - Clicar em "Sair" |
+| Critério de Êxito | Sessão encerrada e usuário volta para tela de login |
+
+| **Caso de Teste** | **CT-07 – Criar novo hábito com periodicidade** |
+| Requisito Associado | RF-003 – CRUD de Hábitos |
+| Objetivo do Teste | Criar novo hábito com periodicidade |
+| Passos | - Acessar tela de criação de hábito <br> - Preencher nome, periodicidade e objetivo <br> - Salvar |
+| Critério de Êxito | Hábito aparece na lista do usuário com os dados definidos |
+
+| **Caso de Teste** | **CT-08 – Editar hábito existente** |
+| Requisito Associado | RF-003 – CRUD de Hábitos |
+| Objetivo do Teste | Editar hábito existente |
+| Passos | - Selecionar hábito <br> - Alterar informações <br> - Salvar |
+| Critério de Êxito | Alterações gravadas e exibidas na lista de hábitos |
+
+| **Caso de Teste** | **CT-09 – Excluir hábito** |
+| Requisito Associado | RF-003 – CRUD de Hábitos |
+| Objetivo do Teste | Excluir hábito |
+| Passos | - Selecionar hábito <br> - Clicar em "Excluir" <br> - Confirmar |
+| Critério de Êxito | Hábito removido da lista e do banco |
+
+| **Caso de Teste** | **CT-10 – Registrar check-in diário** |
+| Requisito Associado | RF-004 – CRUD de Check-ins de Hábito |
+| Objetivo do Teste | Registrar check-in diário |
+| Passos | - Abrir hábito desejado <br> - Marcar check-in do dia |
+| Critério de Êxito | Check-in registrado e streak atual atualizado |
+
+| **Caso de Teste** | **CT-11 – Atualizar check-in já marcado** |
+| Requisito Associado | RF-004 – CRUD de Check-ins de Hábito |
+| Objetivo do Teste | Atualizar check-in já marcado |
+| Passos | - Desmarcar ou remarcar check-in |
+| Critério de Êxito | Check-in atualizado e streak recalculado corretamente |
+
+| **Caso de Teste** | **CT-12 – Visualizar streak atual e máximo** |
+| Requisito Associado | RF-005 – Consultar métricas |
+| Objetivo do Teste | Visualizar streak atual e máximo |
+| Passos | - Acessar dashboard de métricas |
+| Critério de Êxito | Exibição correta de streak atual, streak máximo e taxa de adesão |
+
+| **Caso de Teste** | **CT-13 – Visualizar hábitos cadastrados** |
+| Requisito Associado | RF-006 – Consultar visão geral (dashboard) |
+| Objetivo do Teste | Visualizar hábitos cadastrados |
+| Passos | - Acessar dashboard geral |
+| Critério de Êxito | Exibição de todos os hábitos com status de check-ins e métricas |
+
