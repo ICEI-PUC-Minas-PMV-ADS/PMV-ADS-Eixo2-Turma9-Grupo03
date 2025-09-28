@@ -1,71 +1,88 @@
 # Plano de Testes de Usabilidade
 
-Os testes de usabilidade permitem avaliar a qualidade da interface com o usuário da aplicação interativa.
-
-Um plano de teste de usabilidade deverá conter: 
-
 ## Definição do(s) objetivo(s)
 
-Antes de iniciar os testes, é essencial definir o que se deseja avaliar na usabilidade do sistema. 
-Alguns exemplos de objetivos são:
-- Verificar se os usuários conseguem concluir tarefas essenciais sem dificuldades.
-- Identificar barreiras na navegação e interação com o sistema.
-- Avaliar a eficiência e a satisfação do usuário ao utilizar a interface.
-- Testar a acessibilidade para diferentes perfis de usuários.
+O objetivo é garantir que o sistema de gerenciamento de hábitos seja intuitivo, funcional e atenda às necessidades do usuário final, validando tanto aspectos técnicos (funcionalidades) quanto de experiência (usabilidade).  
+Entre os pontos principais estão:  
+- Verificar se os usuários conseguem concluir tarefas essenciais sem dificuldades.  
+- Identificar barreiras na navegação e interação com o sistema.  
+- Avaliar a eficiência e a satisfação do usuário ao utilizar a interface.  
+- Testar a acessibilidade para diferentes perfis de usuários.  
 
 ## Seleção dos participantes
 
-Para garantir que o teste reflita o uso real do sistema, escolha participantes representativos do público-alvo.
+**Critérios para selecionar participantes:**  
+- Perfis variados (estudantes, profissionais e adultos que buscam saúde e organização).  
+- Diferentes níveis de familiaridade com tecnologia (iniciante a avançado).  
+- Pessoas com necessidades especiais, se aplicável.  
 
-**Critérios para selecionar participantes:**
-- Perfis variados (experientes e iniciantes no sistema).
-- Diferentes níveis de familiaridade com tecnologia.
-- Pessoas com necessidades especiais (se aplicável).
-
-**Quantidade recomendada:**
-Mínimo: 5 participantes.
-Ideal: Entre 8 e 12 para maior diversidade.
+**Quantidade recomendada:**  
+- Mínimo: 5 participantes.  
+- Ideal: entre 8 e 12 para maior diversidade.  
 
 ## Definição de cenários de teste
 
-Os cenários representam tarefas reais que os usuários executam no sistema. Neste projeto, cada grupo deverá definir, no mínimo, **CINCO cenários para a aplicação** e cada cenário deve incluir:
+**Cenário 1 – Cadastro de Usuário**  
+- **Objetivo:** Avaliar a facilidade de criar uma conta no sistema.  
+- **Contexto:** Um novo usuário deseja utilizar a aplicação para organizar seus hábitos.  
+- **Tarefa:** Preencher o formulário de cadastro com dados válidos e confirmar.  
+- **Critério de Sucesso:** Conta criada com sucesso e redirecionamento para a tela inicial.  
 
-- Objetivo: O que será avaliado.
-- Contexto: A situação que leva o usuário a interagir com o sistema.
-- Tarefa: A ação que o usuário deve realizar.
-- Critério de sucesso: Como determinar se a tarefa foi concluída corretamente.
+**Cenário 2 – Login**  
+- **Objetivo:** Avaliar a eficiência e clareza do processo de autenticação.  
+- **Contexto:** O usuário já possui cadastro e deseja acessar seus hábitos.  
+- **Tarefa:** Informar e-mail e senha válidos e efetuar login.  
+- **Critério de Sucesso:** Usuário autenticado e acesso liberado à tela principal.  
 
-**Exemplo: Cenário 1**
+**Cenário 3 – Criação de Hábito**  
+- **Objetivo:** Verificar se o usuário consegue cadastrar um hábito de forma rápida e intuitiva.  
+- **Contexto:** Usuário deseja acompanhar sua rotina de exercícios.  
+- **Tarefa:** Inserir nome do hábito e definir meta de periodicidade.  
+- **Critério de Sucesso:** Hábito cadastrado corretamente e exibido na lista.  
 
-**Objetivo:** Avaliar a facilidade e eficiência do usuário em pesquisar, adicionar um produto ao carrinho e finalizar a compra sem dificuldades.
+**Cenário 4 – Check-in Diário**  
+- **Objetivo:** Avaliar se o usuário consegue registrar progresso em um hábito.  
+- **Contexto:** Usuário deseja marcar que concluiu um hábito no dia.  
+- **Tarefa:** Selecionar o hábito e marcar como concluído.  
+- **Critério de Sucesso:** Hábito aparece como concluído e streak atualizado.  
 
-**Contexto:** O usuário deseja comprar um notebook para uso pessoal. Para isso, ele deverá entrar no site www.compras.com.br para buscar opções disponíveis, comparar preços, adicionar o produto ao carrinho e finalizar a compra com pagamento via cartão de crédito.
-
-**Tarefa(s):** 
-- Acessar o site e localizar a barra de pesquisa.
-- Pesquisar por "notebook" e utilizar os filtros para refinar a busca (exemplo: marca, preço, processador).
-- Escolher um dos notebooks listados e acessar a página do produto.
-- Adicionar o produto ao carrinho.
-- Finalizar a compra, preenchendo os dados de pagamento e endereço de entrega.
-- Confirmar a transação e verificar a tela de pedido concluído.
-
-**Critério(s) de Sucesso(s):**
-- O usuário consegue encontrar e filtrar os produtos sem dificuldades.
-- O produto é adicionado ao carrinho corretamente.
-- O usuário consegue preencher as informações de pagamento e entrega sem erros.
-- A compra é finalizada com sucesso, e o usuário visualiza a confirmação do pedido.
-- Todo o processo ocorre em menos de 5 minutos, sem necessidade de assistência.
+**Cenário 5 – Visualização de Relatórios**  
+- **Objetivo:** Avaliar a clareza na exibição de métricas de progresso.  
+- **Contexto:** Usuário quer visualizar sua evolução semanal/mensal.  
+- **Tarefa:** Acessar o painel de métricas.  
+- **Critério de Sucesso:** Relatórios exibidos corretamente, com gráficos claros e dados consistentes.  
 
 ## Métodos de coleta de dados
 
-Os dados coletados devem ajudar a entender a experiência dos usuários e os dados podem ser coletados por observação direta incluindo métricas quantitativas (quantidade de cliques, número de erros, tempo gasto para cada tarefa etc.), métricas qualitativas (dificuldades, comentários etc.) e questionários pós-teste (A interface foi fácil de entender? Você encontrou dificuldades em alguma etapa? O que poderia ser melhorado?)
+Os dados coletados devem ajudar a entender a experiência dos usuários. Serão utilizados:  
+- **Métricas quantitativas:** tempo médio para concluir cada tarefa, número de erros, taxa de sucesso.  
+- **Métricas qualitativas:** observação de dificuldades, comentários espontâneos dos usuários.  
+- **Questionários pós-teste:**  
+  - SUS (System Usability Scale), para gerar um score de 0 a 100.  
+  - Perguntas qualitativas, como:  
+    - Qual foi a sua primeira impressão ao usar o sistema?  
+    - O que você achou mais fácil de fazer?  
+    - O que você achou mais difícil/confuso?  
+    - Você se sentiu motivado a registrar hábitos diariamente?  
+    - Que melhorias você sugeriria?  
+    - Você recomendaria o sistema a colegas/amigos?  
 
-Para cada voluntário do teste, é fundamental coletar e apresentar todos os dados/métricas previamente definidos, mas não se esqueça: atendendo à LGPD (Lei Geral de Proteção de Dados), nenhum dado sensível, que permita identificar o voluntário, deverá ser apresentado).
+**Observação:** Todos os dados serão coletados de forma anônima, em conformidade com a LGPD (Lei Geral de Proteção de Dados), sem exposição de informações sensíveis ou pessoais.  
 
-As referências abaixo irão auxiliá-lo na geração do artefato "Plano de Testes de Usabilidade".
+## Cronograma
 
-> **Links Úteis**:
-> - [Teste De Usabilidade: O Que É e Como Fazer Passo a Passo (neilpatel.com)](https://neilpatel.com/br/blog/teste-de-usabilidade/)
-> - [Teste de usabilidade: tudo o que você precisa saber! | by Jon Vieira | Aela.io | Medium](https://medium.com/aela/teste-de-usabilidade-o-que-voc%C3%AA-precisa-saber-39a36343d9a6/)
-> - [Planejando testes de usabilidade: o que (e o que não) fazer | iMasters](https://imasters.com.br/design-ux/planejando-testes-de-usabilidade-o-que-e-o-que-nao-fazer/)
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+| Etapa | Duração | Responsável |
+|-------|---------|-------------|
+| Planejamento dos testes | 1 semana | Equipe de QA |
+| Testes funcionais iniciais | 2 semanas | Dev + QA |
+| Testes de usabilidade | 2 semanas | UX Researcher |
+| Análise de resultados | 1 semana | Equipe de UX |
+| Ajustes finais | 2 semanas | Equipe de Desenvolvimento |
+
+## Critérios de Aceitação
+
+- Funcionalidades críticas (cadastro, login, criação de hábito, check-ins) devem ter 100% de sucesso nos testes.  
+- Métricas de usabilidade:  
+  - **SUS ≥ 80** (considerado excelente).  
+  - **Taxa de sucesso ≥ 90%** nas tarefas propostas.  
+  - **Tempo médio para criar um hábito ≤ 1 minuto.**  
