@@ -33,8 +33,7 @@ A tela de configurações voltada para lembretes e notificações permite ativar
 
 Por fim, a tela de configurações de dados pessoais possibilita ao usuário alterar informações sensíveis, como e-mail e senha. Ela cobre o RF-014 e o RNF-003, que trata da persistência de dados. É voltada para personas como Rafael, que precisam manter segurança e flexibilidade no acesso ao sistema.
 
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/USbcuDcQYtTyBcDu3Wh0B7/Habitly?node-id=2-2&embed-host=share" allowfullscreen></iframe>
+[Acesse o protótipo no Figma](https://www.figma.com/proto/USbcuDcQYtTyBcDu3Wh0B7/Habitly?node-id=9-154&t=oW5ihTMJGirI2Kww-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A13)
 
 ## Diagrama de Fluxo
 
