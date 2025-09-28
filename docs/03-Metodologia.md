@@ -57,7 +57,6 @@ As principais cerimônias aplicadas no Habitly são:
 - **To Do:** Esta lista representa o Sprint Backlog que está sendo trabalhado.
 - **In progress:** Lista das tarefas iniciadas.
 - **Done:** Nesta lista são colocadas as tarefas finalizadas e as que passaram pelos testes e controle de qualidade, prontas para serem entregues aos usuários.
-<br>
 - **Backlog**: Lista dinâmica todo o trabalho futuro de um produto.
 
 
