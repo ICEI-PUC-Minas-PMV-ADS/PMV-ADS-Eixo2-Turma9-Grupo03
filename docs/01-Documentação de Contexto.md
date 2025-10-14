@@ -1,0 +1,90 @@
+# Introdução
+
+Nos últimos anos, tem crescido o interesse por ferramentas digitais voltadas para o desenvolvimento pessoal, especialmente no acompanhamento e manutenção de hábitos saudáveis e produtivos. Estudos em psicologia e comportamento apontam que a criação de hábitos é fundamental para alcançar objetivos de longo prazo, seja na área de saúde, educação ou produtividade. Entretanto, muitas pessoas enfrentam dificuldades para manter a consistência necessária, o que compromete seus resultados.
+
+Aplicativos e sistemas de gerenciamento de hábitos surgem como uma solução prática para apoiar o usuário nesse processo, oferecendo recursos como lembretes, indicadores de progresso e recompensas que incentivam a continuidade. Esses mecanismos tornam mais clara a jornada do usuário, fortalecendo sua disciplina e aumentando a motivação ao visualizar seus avanços.
+
+## Problema
+ 
+ Atualmente, grande parte da população enfrenta dificuldades para manter uma rotina de hábitos saudáveis. O sedentarismo, a má alimentação e a falta de controle sobre atividades básicas, como hidratação e sono, têm contribuído para o aumento de doenças crônicas e para a sobrecarga dos sistemas de saúde. Apesar de todos saberem da importância de cuidar do corpo e da mente, a verdade é que transformar um hábito em parte da rotina exige tempo, consistência e motivação.
+
+ Pesquisas mostram que criar um novo hábito pode levar em média de dois a cinco meses para se tornar automático, o que explica por que muitas pessoas desistem no caminho. Nesse sentido, ferramentas digitais têm se mostrado um apoio fundamental. O simples ato de registrar e acompanhar uma ação aumenta a conscientização, gera motivação e cria um senso de responsabilidade pessoal. Além disso, ver o próprio progresso estimula a continuidade, já que a sensação de recompensa é reforçada ao longo do processo.
+
+ Estudos recentes indicam que pessoas que utilizam aplicativos de saúde e bem-estar conseguem aumentar significativamente a prática de atividade física, melhorar a alimentação, dormir melhor e até mesmo reduzir índices relacionados a doenças como diabetes. Técnicas como a gamificação, quando associadas ao rastreamento de hábitos, também se mostraram eficazes para engajar os usuários e manter a constância.
+ 
+ Com base nisso, fica claro que uma aplicação voltada para o rastreamento de hábitos saudáveis pode ser uma ferramenta de grande utilidade para a população. Mais do que ajudar na organização do dia a dia, ela se torna um incentivo para que as pessoas cuidem da própria saúde de forma contínua, transformando pequenas ações em mudanças duradouras que impactam diretamente na qualidade de vida.
+
+## Objetivos
+
+**Objetivo Geral:**
+
+Desenvolver um sistema de gerenciamento de hábitos que auxilie os usuários na criação, acompanhamento e manutenção de seus hábitos diários por meio de recursos simples, interativos e motivacionais.
+
+**Objetivos Específicos:**
+
+Permitir o cadastro e gerenciamento de usuários.
+
+
+- Oferecer a criação de hábitos com periodicidade e objetivos personalizados.
+
+
+- Registrar check-ins diários com sistema de recompensas baseado em constância.
+
+
+- Disponibilizar métricas como streak atual e streak máximo.
+
+
+- Implementar lembretes, etiquetas, notas e definição de duração para hábitos.
+
+
+- Possibilitar o compartilhamento de conquistas em redes sociais.
+
+## Justificativa
+
+A criação e manutenção de hábitos positivos está diretamente relacionada ao bem-estar físico, mental e social dos indivíduos. Entretanto, a falta de mecanismos de acompanhamento e reforço dificulta a consolidação desses hábitos. De acordo com estudo da Universidade College London, em média, são necessários 66 dias para que um comportamento se torne automático (LALLY et al., 2010). Nesse período, a ausência de registros claros e lembretes reduz a consistência, levando ao abandono dos objetivos pessoais.
+
+No Brasil, mais de 40% da população relata dificuldade em manter rotinas saudáveis, como prática regular de exercícios e alimentação balanceada (IBGE, 2020). Além disso, dados da Organização Mundial da Saúde indicam que a inatividade física é responsável por 5 milhões de mortes anuais no mundo (WHO, 2019), demonstrando o impacto global do problema.
+
+A aplicação proposta busca enfrentar esses desafios ao:
+
+Gerenciar usuários e possibilitar a personalização da experiência;
+
+Permitir criação de hábitos com objetivos e periodicidade definida, reforçando a clareza das metas;
+
+Registrar check-ins diários com recompensas, incentivando a constância;
+
+Expor métricas de progresso (streak atual e máximo), fornecendo feedback imediato;
+
+Oferecer lembretes e etiquetas de hábitos, aumentando a aderência;
+
+Compartilhar conquistas em redes sociais, fortalecendo a motivação social.
+
+Essas funcionalidades se alinham diretamente aos Objetivos de Desenvolvimento Sustentável (ODS) da ONU:
+
+- DS 3 – Saúde e Bem-Estar (Meta 3.4): Reduzir em um terço as mortes prematuras por doenças crônicas por meio da promoção da saúde mental e bem-estar.
+→ O sistema contribui ao incentivar hábitos saudáveis como exercícios, sono regulado e alimentação balanceada.
+
+- ODS 4 – Educação de Qualidade (Meta 4.4): Aumentar o número de jovens e adultos com habilidades relevantes, inclusive técnicas e profissionais.
+→ O aplicativo pode ser utilizado para consolidar hábitos de estudo e aprendizado contínuo, apoiando o desenvolvimento educacional.
+
+- ODS 8 – Trabalho Decente e Crescimento Econômico (Meta 8.2): Aumentar a produtividade econômica por meio da diversificação e inovação.
+→ O sistema ajuda usuários a desenvolverem disciplina e consistência em rotinas de trabalho, impactando positivamente a produtividade.
+
+- ODS 9 – Indústria, Inovação e Infraestrutura (Meta 9.5): Reforçar a pesquisa científica e apoiar o desenvolvimento de tecnologias.
+→ A aplicação é uma solução digital inovadora que se insere no contexto de transformação tecnológica.
+
+Dessa forma, o software justifica-se não apenas por resolver um problema individual recorrente — a dificuldade em manter hábitos — mas também por alinhar-se a metas globais da Agenda 2030, contribuindo para a saúde, educação, produtividade e inovação tecnológica.
+
+## Público-Alvo
+Além das personas iniciais (estudantes, profissionais e pais), a visão inclui:
+- Adultos que buscam prevenção de doenças crônicas.
+- Profissionais de saúde que recomendam ferramentas de adesão a pacientes.
+- Empresas interessadas em bem‑estar corporativo e programas de qualidade de vida.
+
+## Video
+<video src="https://github.com/user-attachments/assets/aa4bdd34-7359-4af1-bbae-a2e752b40e1f" controls width="600"></video>
+
+
+
+
+

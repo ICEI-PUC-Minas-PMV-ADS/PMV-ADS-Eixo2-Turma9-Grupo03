@@ -1,0 +1,7 @@
+# Garante que todas as pastas .vs/ sejam ignoradas em qualquer nível
+**/.vs/
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudio,aspnetcore
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,aspnetcore
+
+### ASPNETCore ###
