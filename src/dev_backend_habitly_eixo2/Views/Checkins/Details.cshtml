@@ -1,0 +1,30 @@
+﻿@model dev_backend_habitly_eixo2.Models.Checkin
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Checkin</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Habito)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Habito.IdHabito)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataCheckin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataCheckin)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdCheckin">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

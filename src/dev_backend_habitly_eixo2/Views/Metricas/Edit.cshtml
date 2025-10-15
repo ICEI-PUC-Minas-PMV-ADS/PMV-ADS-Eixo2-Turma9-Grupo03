@@ -1,0 +1,44 @@
+﻿@model dev_backend_habitly_eixo2.Models.Metrica
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Metrica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdMetrica" />
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreakAtual" class="control-label"></label>
+                <input asp-for="StreakAtual" class="form-control" />
+                <span asp-validation-for="StreakAtual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreakMaximo" class="control-label"></label>
+                <input asp-for="StreakMaximo" class="form-control" />
+                <span asp-validation-for="StreakMaximo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
