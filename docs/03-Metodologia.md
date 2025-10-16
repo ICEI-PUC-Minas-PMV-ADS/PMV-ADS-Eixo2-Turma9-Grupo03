@@ -72,3 +72,9 @@ Como parte do planejamento, foi desenvolvida uma apresentação com a abordagem 
 
 Por fim, foi elaborada e entregue a documentação referente a esta fase inicial, contendo as seções de Documentação do Contexto e a Especificação do Projeto, que detalha os principais aspectos técnicos e operacionais.
 
+### Execução:
+Durante a fase de execução, foram realizados encontros semanais com o orientador para direcionamento e orientação quanto à documentação, o uso do GitHub. O orientador também sugeriu melhorias e correções, que foram implementadas no decorrer dos encontros. As reuniões da equipe ocorreram de uma a duas vezes por semana no Teams, devido à natureza crítica das definições desta etapa. Cada encontro resultou na distribuição de tarefas entre os membros, visando o avanço e refinamento das documentações e diagramas técnicos.
+
+### Etapa 3:
+
+<img width="1279" height="663" alt="Image" src="https://github.com/user-attachments/assets/454a4b90-a600-4b09-8919-179831f81c72"/>
