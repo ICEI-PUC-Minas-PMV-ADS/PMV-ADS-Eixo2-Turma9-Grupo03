@@ -53,7 +53,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUsuario,Nome,Email,Senha")] Usuarios usuarios)
+        public async Task<IActionResult> Create([Bind("IdUsuario,Nome,Email,Senha,Perfil")] Usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("IdUsuario,Nome,Email,Senha")] Usuarios usuarios)
+        public async Task<IActionResult> Edit(string id, [Bind("IdUsuario,Nome,Email,Senha,Perfil")] Usuarios usuarios)
         {
             if (id != usuarios.IdUsuario)
             {

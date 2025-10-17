@@ -18,6 +18,15 @@ namespace dev_backend_habitly_eixo2.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar senha.")]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        [Required(ErrorMessage = "Obrigatório informar senha.")]
+        public Perfil Perfil { get; set; }
+    }
+    public enum Perfil
+    {
+        Admin,
+        User
     }
 }
