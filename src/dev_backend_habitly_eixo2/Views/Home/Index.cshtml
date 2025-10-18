@@ -1,89 +1,255 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    ViewData["Title"] = "Habitly";
+}
+@{
+    Layout = null;
+}
+
+
 <style>
-
-    h1 {
-        font-size: 85px;
-        color: #007A80;
-        position: absolute;
-        top: 60px;
-        left: 20px;
-        z-index: 1000;
-        margin: 0; 
+    :root {
+        --primary: #007A80;
+        --text: #2b2f33;
+        --muted: #495057;
+        --bg: #ffffff;
+        --soft: #f5f7f7;
     }
 
+    /* ====== Layout base ====== */
+    .page {
+        min-height: 100vh;
+        background: var(--bg);
+        position: relative;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
 
-
-    .header-buttons {
+    /* ====== Header ====== */
+    .site-header {
         position: absolute;
-        top: 85px;
-        right: 20px;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         z-index: 1000;
     }
 
+    .brand {
+        font-size: clamp(32px, 6vw, 72px);
+        font-weight: 900;
+        color: var(--primary);
+        margin: 0;
+        letter-spacing: .5px;
+    }
 
-    .btn {
+    .header-buttons a.btn {
         display: inline-block;
-        padding: 10px 20px;
-        border-radius: 6px;
-        font-size: 18px;
-        font-weight: bold;
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 700;
         text-decoration: none;
         cursor: pointer;
-        transition: background-color 0.3s;
-        margin-left: 10px; 
+        transition: transform .08s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+        margin-left: 10px;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(0,0,0,.08);
     }
 
+    .btn:active {
+        transform: translateY(1px);
+    }
+
+    .btn--login {
+        color: var(--primary);
+        background: #fff;
+        border: 2px solid var(--primary);
+    }
+
+        .btn--login:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+    .btn--cadastro {
+        color: #fff;
+        background: var(--primary);
+        border: 2px solid var(--primary);
+    }
+
+        .btn--cadastro:hover {
+            opacity: .9;
+        }
+
+    .btn--sair {
+        color: #fff;
+        background: #e03131;
+        border: 2px solid #e03131;
+    }
+
+        .btn--sair:hover {
+            opacity: .95;
+        }
+
+    /* ====== Hero ====== */
+    .hero {
+        padding: 160px 24px 64px;
+        text-align: center;
+        background: radial-gradient(1200px 500px at 80% -20%, rgba(0,122,128,.10), transparent 60%), radial-gradient(1200px 500px at 20% -30%, rgba(0,122,128,.06), transparent 60%), var(--bg);
+    }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            line-height: 1.05;
+            margin: 0 auto 12px;
+            color: var(--primary);
+            font-weight: 900;
+            letter-spacing: .4px;
+            max-width: 980px;
+        }
+
+        .hero p {
+            font-size: clamp(18px, 2.6vw, 22px);
+            color: var(--muted);
+            max-width: 860px;
+            margin: 12px auto 28px;
+        }
+
+    .cta {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn--cta {
+        padding: 14px 24px !important;
+        font-size: 18px !important;
+        border-radius: 12px !important;
+    }
+
+    /* ====== Features ====== */
+    .features {
+        padding: 36px 20px 80px;
+        background: var(--soft);
+    }
+
+    .features-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.06);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.05);
+        text-align: left;
+    }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 20px;
+            color: var(--text);
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+    /* ====== Footer ====== */
+    .site-footer {
+        text-align: center;
+        padding: 32px 16px 48px;
+        color: #6b7176;
+        font-size: 14px;
+        background: #fff;
+    }
+
+    /* ====== Responsivo ====== */
  
-    .login {
-        color: #007A80;
-        border: 2px solid #007A80;
-        background-color: transparent;
+        grid-template-columns: 1fr 1fr;
     }
 
-        .login:hover {
-            background-color: #007A80;
-            color: white;
-        }
-
-
-    .cadastro {
-        color: white;
-        background-color: #007A80;
-        border: 2px solid #007A80;
+  
+    {
+        padding: 16px;
     }
 
-        .cadastro:hover {
-            opacity: 0.9;
-        }
-
-
-    .text-center {
-
-        padding-top: 200px;
-        padding-bottom: 80px;
-        background-color: #FFF;
-        min-height: 100vh;
-        font-size: 40px;
+    .header-buttons a.btn {
+        font-size: 14px;
+        padding: 8px 14px;
     }
 
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 
-        .text-center p {
-            font-size: 28px;
-            color: #495057;
-            max-width: 800px;
-            margin: 20px auto 0 auto;
-        }
+    }
 </style>
 
-<h1>Habitly!</h1>
+<div class="page">
+    <!-- Header -->
+    <header class="site-header" role="banner" aria-label="Topo do site">
+        <h1 class="brand">Habitly!</h1>
+    </header>
 
-<div class="header-buttons">
-    <a href="#" class="btn login">Login</a>
-    <a href="#" class="btn cadastro">Cadastro</a>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Construa hábitos fortes. Dia após dia.</h1>
+        <p>
+            Quer ler mais, treinar com constância ou aprender um idioma?
+            O Habitly ajuda você a <strong>definir metas</strong>, acompanhar o
+            <strong>progresso</strong> e manter a <strong>motivação</strong>.
+            O futuro é a soma dos seus hábitos.
+        </p>
+        <div class="cta">
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <a class="btn btn--cadastro btn--cta" asp-controller="Habitos" asp-action="Index">Ir para meus hábitos</a>
+            }
+            else
+            {
+                <a class="btn btn--cadastro btn--cta" asp-controller="Usuarios" asp-action="Create">Começar agora</a>
+                <a class="btn btn--login btn--cta" asp-controller="Usuarios" asp-action="Login">Já tenho conta</a>
+            }
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" aria-label="Recursos do Habitly">
+        <div class="features-grid">
+            <article class="card">
+                <h3>Metas claras</h3>
+                <p>Crie hábitos com periodicidade, alarmes e metas semanais. Simples de configurar, fácil de manter.</p>
+            </article>
+            <article class="card">
+                <h3>Progresso visível</h3>
+                <p>Checklist diário e métricas como streak, taxa de cumprimento e melhores sequências.</p>
+            </article>
+            <article class="card">
+                <h3>Motivação contínua</h3>
+                <p>Notificações, recompensas e mensagens de incentivo para manter a constância ao longo do tempo.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        © @DateTime.Now.Year Habitly — Construa hoje o seu amanhã.
+    </footer>
 </div>
 
-<div class="text-center">
-    <p>Quer começar a ler mais, se exercitar diariamente ou aprender um novo idioma? O Habitly é seu parceiro ideal. Acompanhe seu progresso, defina metas claras e mantenha sua motivação em alta. O futuro é a soma dos seus hábitos.</p>
-</div>
