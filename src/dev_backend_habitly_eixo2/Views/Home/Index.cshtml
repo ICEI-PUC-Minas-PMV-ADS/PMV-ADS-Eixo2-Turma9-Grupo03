@@ -9,6 +9,14 @@
 }
 
 
+@{
+    ViewData["Title"] = "Habitly";
+    Layout = null;
+}
+
+<!-- Importa a fonte Inter (mantém suas cores) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
 <style>
     :root {
         --primary: #007A80;
@@ -24,7 +32,7 @@
         background: var(--bg);
         position: relative;
         overflow-x: hidden;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+        font-family: 'Inter', system-ui, -apple-system, sans-serif; /* 👈 trocado aqui */
     }
 
     /* ====== Header ====== */
@@ -36,7 +44,7 @@
         padding: 20px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center; /* centralizado, sem botões */
         z-index: 1000;
     }
 
@@ -46,58 +54,10 @@
         color: var(--primary);
         margin: 0;
         letter-spacing: .5px;
+        font-family: 'Inter', sans-serif;
     }
 
-    .header-buttons a.btn {
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        text-decoration: none;
-        cursor: pointer;
-        transition: transform .08s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
-        margin-left: 10px;
-        white-space: nowrap;
-        box-shadow: 0 4px 10px rgba(0,0,0,.08);
-    }
-
-    .btn:active {
-        transform: translateY(1px);
-    }
-
-    .btn--login {
-        color: var(--primary);
-        background: #fff;
-        border: 2px solid var(--primary);
-    }
-
-        .btn--login:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-    .btn--cadastro {
-        color: #fff;
-        background: var(--primary);
-        border: 2px solid var(--primary);
-    }
-
-        .btn--cadastro:hover {
-            opacity: .9;
-        }
-
-    .btn--sair {
-        color: #fff;
-        background: #e03131;
-        border: 2px solid #e03131;
-    }
-
-        .btn--sair:hover {
-            opacity: .95;
-        }
-
-    /* ====== Hero ====== */
+    /* ====== Demais estilos originais ====== */
     .hero {
         padding: 160px 24px 64px;
         text-align: center;
@@ -105,14 +65,15 @@
     }
 
         .hero h1 {
-            font-size: clamp(36px, 6vw, 64px);
-            line-height: 1.05;
+            font-size: clamp(28px, 5vw, 48px); /* menor que o Habitly */
+            line-height: 1.2;
             margin: 0 auto 12px;
             color: var(--primary);
-            font-weight: 900;
-            letter-spacing: .4px;
-            max-width: 980px;
+            font-weight: 600; /* mais leve */
+            letter-spacing: 0.3px;
+            max-width: 800px;
         }
+
 
         .hero p {
             font-size: clamp(18px, 2.6vw, 22px);
@@ -134,7 +95,6 @@
         border-radius: 12px !important;
     }
 
-    /* ====== Features ====== */
     .features {
         padding: 36px 20px 80px;
         background: var(--soft);
@@ -170,7 +130,6 @@
             line-height: 1.5;
         }
 
-    /* ====== Footer ====== */
     .site-footer {
         text-align: center;
         padding: 32px 16px 48px;
@@ -178,28 +137,59 @@
         font-size: 14px;
         background: #fff;
     }
-
-    /* ====== Responsivo ====== */
- 
-        grid-template-columns: 1fr 1fr;
+    /* ====== Botões principais ====== */
+    .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        letter-spacing: 0.3px;
     }
 
-  
-    {
-        padding: 16px;
+    /* Botão sólido (verde) */
+    .btn--cadastro {
+        background-color: var(--primary);
+        color: #fff;
+        border: 2px solid var(--primary);
     }
 
-    .header-buttons a.btn {
-        font-size: 14px;
-        padding: 8px 14px;
+        .btn--cadastro:hover {
+            background-color: #009093; /* tom ligeiramente mais escuro */
+            border-color: #009093;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 122, 128, 0.25);
+        }
+
+    /* Botão contornado (transparente) */
+    .btn--login {
+        background-color: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
     }
 
-    .features-grid {
-        grid-template-columns: 1fr;
+        .btn--login:hover {
+            background-color: var(--primary);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 122, 128, 0.25);
+        }
+
+    /* Layout da área de botões */
+    .cta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        margin-top: 32px;
     }
 
-    }
 </style>
+
 
 <div class="page">
     <!-- Header -->

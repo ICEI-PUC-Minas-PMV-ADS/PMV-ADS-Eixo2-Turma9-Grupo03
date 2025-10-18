@@ -4,10 +4,145 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#007A80;
+  --text:#2b2f33;
+  --muted:#495057;
+  --bg:#ffffff;
+  --soft:#f5f7f7;
+  --border:rgba(0,0,0,.08);
+}
+
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--soft);
+  color:var(--text);
+}
+
+/* ===== Título ===== */
+h1{
+  font-size:clamp(24px,3.5vw,36px);
+  font-weight:900;
+  color:var(--primary);
+  letter-spacing:.3px;
+  margin:36px auto 12px;
+}
+
+/* ===== Botão "Create New" ===== */
+h1 + p{
+  margin:0 auto 20px;
+}
+h1 + p > a{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+  cursor:pointer;
+  transition:all .2s ease;
+  border:2px solid var(--primary);
+  color:#fff;
+  background:var(--primary);
+  box-shadow:0 4px 10px rgba(0,122,128,.18);
+}
+h1 + p > a:hover{
+  background:#009093;
+  border-color:#009093;
+}
+
+/* ===== Tabela ===== */
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 8px 30px rgba(0,0,0,.05);
+  overflow:hidden; /* arredondado real nas bordas */
+}
+
+.table thead th{
+  text-align:left;
+  font-weight:700;
+  font-size:14px;
+  color:var(--muted);
+  background:#f8fbfb;
+  padding:14px 16px;
+  border-bottom:1px solid var(--border);
+}
+
+.table tbody td{
+  padding:14px 16px;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
+  font-size:15px;
+}
+
+.table tbody tr:hover{
+  background:rgba(0,122,128,.04);
+}
+
+/* ===== Ações (Edit/Details/Delete) ===== */
+.table tbody td:last-child a{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .2s ease;
+  border:2px solid var(--primary);
+  color:var(--primary);
+  margin-right:8px;
+}
+.table tbody td:last-child a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+/* Edit em amarelo */
+.table tbody td:last-child a[href*="Edit"] {
+  border-color: #f0ad00;    /* amarelo vibrante */
+  color: #f0ad00;
+}
+
+.table tbody td:last-child a[href*="Edit"]:hover {
+  background: #f0ad00;
+  color: #fff;
+}
+
+/* Delete vermelho */
+.table tbody td:last-child a[href*="Delete"]{
+  border-color:#e03131;
+  color:#e03131;
+}
+.table tbody td:last-child a[href*="Delete"]:hover{
+  background:#e03131;
+  color:#fff;
+}
+
+/* ===== Responsividade ===== */
+ (max-width: 720px){
+  .table{
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .table thead th, .table tbody td{
+    white-space:nowrap;
+  }
+}
+</style>
+
+<h1>Menu de Usuários</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar novo usuário</a>
 </p>
 <table class="table">
     <thead>
@@ -20,9 +155,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Senha)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Perfil)
@@ -46,9 +178,9 @@
                 @Html.DisplayFor(modelItem => item.Perfil)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdUsuario">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdUsuario">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdUsuario">Visualizar</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUsuario">Excluir</a>
             </td>
         </tr>
 }
