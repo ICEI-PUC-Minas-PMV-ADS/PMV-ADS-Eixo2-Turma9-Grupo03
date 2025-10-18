@@ -9,6 +9,20 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();//instalação do ru
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));//conexão com o banco de dados SQL Server
 
+//Configuração de autenticação por cookie
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None;
+    });
+
+builder.Services.AddAuthentication("CookieAuthentication")
+    .AddCookie("CookieAuthentication", config =>
+    {
+        config.LoginPath = "/Usuarios/Login/";
+        config.AccessDeniedPath = "/Usuarios/Login/AccessDenied/";
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +38,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();    
 app.UseAuthorization();
 
 app.MapControllerRoute(

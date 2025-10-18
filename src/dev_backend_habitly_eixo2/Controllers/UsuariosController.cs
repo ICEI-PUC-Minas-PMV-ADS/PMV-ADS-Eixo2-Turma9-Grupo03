@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using dev_backend_habitly_eixo2.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using dev_backend_habitly_eixo2.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace dev_backend_habitly_eixo2.Controllers
 {
@@ -24,6 +26,7 @@ namespace dev_backend_habitly_eixo2.Controllers
               return View(await _context.Usuarios.ToListAsync());
         }
 
+        //Login
         public IActionResult Login()
         {
             return View();
@@ -36,9 +39,45 @@ namespace dev_backend_habitly_eixo2.Controllers
             if(dados == null)
             {
                 ViewBag.Mensagem = "Usuário e/ou senha invalidos!";
+                return View();
             }
             bool senhaOk = BCrypt.Net.BCrypt.Verify(usuarios.Senha, dados.Senha);
+            if (senhaOk)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, dados.Nome),
+                    new Claim(ClaimTypes.NameIdentifier, dados.IdUsuario.ToString()),
+                    new Claim(ClaimTypes.Role, dados.Perfil.ToString()),
+                };
+                var usuarioIdentity = new ClaimsIdentity(claims, "Login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentity);
 
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true, 
+                    ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddHours(8),//vai expirar em 8 horas
+                    IsPersistent = true,
+                };
+
+                await HttpContext.SignInAsync(principal, props);
+
+                return Redirect("/");  
+            }
+            else
+            {
+                ViewBag.Mensagem = "Usuário e/ou senha invalidos!";
+                return View();
+            }
+            return View();
+
+        }
+
+        //Logout
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Usuarios"); 
         }
 
         // GET: Usuarios/Details/5

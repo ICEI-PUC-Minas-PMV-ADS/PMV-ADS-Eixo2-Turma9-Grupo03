@@ -29,6 +29,21 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                Olá, @User.Identity.Name! <a class=nav-link text-dark" asp-area"" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                Olá! Faça seu <a asp-controller="Usuarios" asp-action="Login">Login</a> ou
+                                <a asp-controller="Usuarios" asp-action="Create">crie sua conta</a>!
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>
