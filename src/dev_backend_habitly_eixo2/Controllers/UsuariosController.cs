@@ -24,6 +24,23 @@ namespace dev_backend_habitly_eixo2.Controllers
               return View(await _context.Usuarios.ToListAsync());
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(Usuarios usuarios)
+        {
+            var dados = await _context.Usuarios
+                .FindAsync(usuarios.IdUsuario);
+            if(dados == null)
+            {
+                ViewBag.Mensagem = "Usuário e/ou senha invalidos!";
+            }
+            bool senhaOk = BCrypt.Net.BCrypt.Verify(usuarios.Senha, dados.Senha);
+
+        }
+
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(string id)
         {
