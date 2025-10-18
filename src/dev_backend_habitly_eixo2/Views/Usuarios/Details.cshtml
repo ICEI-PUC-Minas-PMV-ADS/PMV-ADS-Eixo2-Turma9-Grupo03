@@ -3,19 +3,152 @@
 @{
     ViewData["Title"] = "Details";
 }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ===== Tema Habitly ===== */
+:root{
+  --primary:#007A80;
+  --text:#2b2f33;
+  --muted:#495057;
+  --bg:#ffffff;
+  --soft:#f5f7f7;
+  --border:rgba(0,0,0,.10);
+  --danger:#e03131;
+  --warn:#f0ad00;
+}
 
-<h1>Details</h1>
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--soft);
+  color:var(--text);
+  margin:0;
+}
+
+/* ===== Títulos ===== */
+h1{
+  text-align:center;
+  font-size:clamp(24px,3.5vw,36px);
+  font-weight:900;
+  color:var(--primary);
+  letter-spacing:.3px;
+  margin:36px auto 8px;
+}
+h4{
+  text-align:center;
+  font-size:16px;
+  font-weight:700;
+  color:var(--muted);
+  margin:0 0 8px;
+}
+hr{
+  border:none;
+  border-top:1px solid var(--border);
+  margin:12px 0 20px;
+}
+
+/* ===== Card ===== */
+div > dl.row{
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 8px 30px rgba(0,0,0,.05);
+  padding:24px;
+}
+
+/* ===== Layout do conteúdo ===== */
+dl.row{
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap:12px;
+  column-gap:12px;
+  align-items:center;
+}
+dt{
+  font-weight:700;
+  color:var(--muted);
+  font-size:15px;
+  text-align:right;
+}
+dd{
+  font-size:16px;
+  color:var(--text);
+  margin:0;
+  word-wrap:break-word;
+}
+
+/* ===== Link de ação ===== */
+div + div{
+  text-align:center;
+  margin-top:20px;
+}
+div + div > a[asp-action="Edit"]{
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:12px;
+  border:2px solid var(--warn);
+  color:var(--warn);
+  font-weight:600;
+  text-decoration:none;
+  transition:all .2s ease;
+}
+div + div > a[asp-action="Edit"]:hover{
+  background:var(--warn);
+  color:#fff;
+  box-shadow:0 4px 10px rgba(240,173,0,.25);
+}
+/* Botões */
+.btn {
+       display: inline-block;
+       padding: 12px 20px;
+       border-radius: 12px;
+       font-size: 16px;
+       font-weight: 600;
+       text-decoration: none;
+       cursor: pointer;
+       transition: all .2s ease;
+       border: 2px solid transparent;
+    }
+
+.btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0,122,128,.18);
+    }
+
+.btn-primary:hover {
+        background: #009093;
+        border-color: #009093;
+        transform: translateY(-1px);
+        }
+
+
+/* ===== Responsivo ===== */
+
+(max-width:540px){
+  dl.row{
+    grid-template-columns:1fr;
+  }
+  dt{
+    text-align:left;
+    margin-top:8px;
+  }
+}
+</style>
+<h1>Visualizar dados do usuário</h1>
 
 <div>
-    <h4>Usuarios</h4>
     <hr />
     <dl class="row">
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuario)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.IdUsuario)
         </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdUsuario)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
@@ -37,6 +170,5 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdUsuario">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.IdUsuario">Editar dados</a> 
 </div>

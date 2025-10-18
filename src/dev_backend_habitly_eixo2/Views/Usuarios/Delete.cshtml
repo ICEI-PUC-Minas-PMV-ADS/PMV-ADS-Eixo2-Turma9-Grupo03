@@ -3,12 +3,133 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+    /* ===== Tema Habitly ===== */
+    :root {
+        --primary: #007A80;
+        --text: #2b2f33;
+        --muted: #495057;
+        --bg: #ffffff;
+        --soft: #f5f7f7;
+        --border: rgba(0,0,0,.10);
+        --danger: #e03131;
+        --warn: #f0ad00;
+    }
 
-<h1>Delete</h1>
+    body {
+        font-family: 'Inter',system-ui,-apple-system,sans-serif;
+        background: var(--soft);
+        color: var(--text);
+        margin: 0;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
+    /* ===== Título e texto de confirmação ===== */
+    h3 {
+        text-align: center;
+        font-size: clamp(22px,3vw,30px);
+        font-weight: 900;
+        color: #b02222;
+        letter-spacing: .3px;
+        margin: 36px auto 12px;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 12px 0 20px;
+    }
+
+    /* ===== Card dos dados do usuário ===== */
+    dl.row {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto 24px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.05);
+        padding: 24px;
+    }
+
+    dl.row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        row-gap: 12px;
+        column-gap: 12px;
+        align-items: center;
+    }
+
+    dt {
+        font-weight: 700;
+        color: var(--muted);
+        font-size: 15px;
+        text-align: right;
+    }
+
+    dd {
+        font-size: 16px;
+        color: var(--text);
+        margin: 0;
+        word-wrap: break-word;
+    }
+
+    /* ===== Formulário e botões ===== */
+    form {
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* Botão principal: vermelho */
+    .btn-danger {
+        background: var(--danger);
+        border: 2px solid var(--danger);
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        transition: all .2s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(224,49,49,.25);
+    }
+
+    .btn-danger:hover {
+            background: #c22a2a;
+            border-color: #c22a2a;
+            transform: translateY(-1px);
+    }
+
+    /* ===== Destaque suave de alerta atrás do card ===== */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(180deg,rgba(224,49,49,.05),transparent 40%);
+        z-index: -1;
+    }
+
+    /* ===== Responsivo ===== */
+     (max-width:540px) {
+        dl .row
+
+    {
+        grid-template-columns: 1fr;
+    }
+
+    dt {
+        text-align: left;
+        margin-top: 8px;
+    }
+
+    .btn-danger {
+        width: 100%;
+    }
+
+    }
+</style>
+<h3>Você tem certeza que quer excluir um usuário?</h3>
 <div>
-    <h4>Usuarios</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -33,7 +154,6 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdUsuario" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Excluir" class="btn btn-danger" /> 
     </form>
 </div>

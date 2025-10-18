@@ -3,16 +3,185 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+    /* ===== Tema Habitly ===== */
+    :root {
+        --primary: #007A80;
+        --text: #2b2f33;
+        --muted: #495057;
+        --bg: #ffffff;
+        --soft: #f5f7f7;
+        --border: rgba(0,0,0,.10);
+        --danger: #e03131;
+        --warn: #f0ad00; /* amarelo para edição */
+    }
 
-<h1>Edit</h1>
+    body {
+        font-family: 'Inter',system-ui,-apple-system,sans-serif;
+        background: var(--soft);
+        color: var(--text);
+        margin: 0;
+    }
 
-<h4>Usuarios</h4>
+    /* Títulos */
+    h1 {
+        text-align: center;
+        font-size: clamp(24px,3.5vw,36px);
+        font-weight: 900;
+        color: var(--primary);
+        letter-spacing: .3px;
+        margin: 36px auto 8px;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--muted);
+        margin: 0 0 8px;
+    }
+
+    /* Linha separadora */
+    hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 12px 0 20px;
+    }
+
+    /* Card do formulário (sem alterar HTML) */
+    .row {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .col-md-4 {
+        width: 100%;
+        max-width: 560px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.05);
+        padding: 22px;
+    }
+
+    /* Campos */
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .control-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 6px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1.5px solid #e5e7eb;
+        border-radius: 12px;
+        background: #fff;
+        color: var(--text);
+        font-size: 15px;
+        transition: border-color .15s ease, box-shadow .15s ease;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0,122,128,.12);
+        }
+
+    /* Validação */
+    .text-danger {
+        color: var(--danger);
+        font-size: 13px;
+        margin-top: 6px;
+        display: block;
+    }
+
+    .input-validation-error {
+        border-color: var(--danger) !important;
+        background: #fff7f7;
+    }
+
+    /* Botões */
+    .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .2s ease;
+        border: 2px solid transparent;
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0,122,128,.18);
+    }
+
+    .btn-primary:hover {
+            background: #009093;
+            border-color: #009093;
+            transform: translateY(-1px);
+    }
+
+    /* Link "Back to List" como botão contornado, sem mudar HTML */
+    div + a[asp-action="Index"] {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: 600;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+
+        div + a[asp-action="Index"]:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+    /* Responsivo */
+    (max-width:540px) {
+        .col-md-4
+
+    {
+        padding: 18px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    }
+</style>
+
+<h1>Editar dados do usuário</h1>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdUsuario" />
+            <input type="hidden" />
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -40,9 +209,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
