@@ -1,6 +1,57 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Política de Privacidade";
 }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ===== Tema Habitly minimalista ===== */
+:root {
+  --primary: #007A80;
+  --text: #2b2f33;
+  --muted: #495057;
+  --bg: #ffffff;
+  --soft: #f5f7f7;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--soft);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Container principal ===== */
+.page-privacy {
+  max-width: 800px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+  padding: 40px 32px;
+}
+
+/* ===== Título ===== */
+.page-privacy h1 {
+  text-align: center;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 12px;
+  letter-spacing: 0.4px;
+}
+
+/* ===== Parágrafo ===== */
+.page-privacy p {
+  text-align: center;
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+</style>
+
 <h1>@ViewData["Title"]</h1>
 
 <p>Entenda mais sobre a nossa política de privacidade</p>
