@@ -57,6 +57,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuarios.Senha = BCrypt.Net.BCrypt.HashPassword(usuarios.Senha);
                 _context.Add(usuarios);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -96,6 +97,7 @@ namespace dev_backend_habitly_eixo2.Controllers
             {
                 try
                 {
+                    usuarios.Senha = BCrypt.Net.BCrypt.HashPassword(usuarios.Senha);
                     _context.Update(usuarios);
                     await _context.SaveChangesAsync();
                 }
