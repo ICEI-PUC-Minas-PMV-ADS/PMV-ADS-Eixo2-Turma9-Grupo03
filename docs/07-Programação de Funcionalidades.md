@@ -19,17 +19,20 @@
 
 
 # Instruções de acesso
+Para acessar a aplicação Habitly com perfil de usuário padrão, siga as orientações abaixo:
 
-Não deixe de informar o link onde a aplicação estiver disponível para acesso (por exemplo: https://adota-pet.herokuapp.com/src/index.html).
+🔗 Link de Acesso:
 
-Se houver usuário de teste, o login e a senha também deverão ser informados aqui (por exemplo: usuário - admin / senha - admin).
+Credenciais de Acesso (Usuário):
+Usuário: user00
+Senha: 123456
 
-O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
+Credenciais de Acesso (Administrador):
+Usuário: admin00
+Senha: 123456
 
-> **Links Úteis**:
->
-> - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
-> - [JSON Tutorial](https://www.w3resource.com/JSON)
-> - [JSON Data Set Sample](https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html)
-> - [JSON - Introduction (W3Schools)](https://www.w3schools.com/js/js_json_intro.asp)
-> - [JSON Tutorial (TutorialsPoint)](https://www.tutorialspoint.com/json/index.htm)
+Passos para Acesso:
+1. Clique no link de acesso acima;
+2. Na tela de login, insira o e-mail e senha de usuário;
+3. Clique em “Entrar” para acessar o Habitly com perfil de usuário comum;
+4. Você poderá criar, editar e acompanhar seus hábitos, mas não terá acesso às páginas administrativas.
