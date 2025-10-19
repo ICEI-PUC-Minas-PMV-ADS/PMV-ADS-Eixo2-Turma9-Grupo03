@@ -1,12 +1,28 @@
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+# Estrutura e Tecnologias Utilizadas
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+O design padrão do Habitly foi desenvolvido utilizando HTML, CSS, JavaScript e C#, com suporte do Entity Framework Core e Bootstrap Framework.
+A aplicação segue o padrão MVC (Model–View–Controller) e possui integração com autenticação e autorização via Identity Claims, controlando o acesso às páginas por perfil de usuário (User e Admin).
 
-> **Links Úteis**:
->
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
+# Identidade Visual
+| Elemento           | Cor (Hexadecimal) | Função                                       |
+| ------------------ | ----------------- | -------------------------------------------- |
+| Verde-água Habitly | `#007A80`         | Cor primária (botões, títulos, links ativos) |
+| Verde-claro        | `#009093`         | Hover de botões e elementos secundários      |
+| Branco Neutro      | `#FFFFFF`         | Fundo principal das páginas                  |
+| Cinza Suave        | `#F5F7F7`         | Containers e áreas neutras                   |
+| Preto Suave        | `#2B2F33`         | Textos e ícones                              |
+
+
+Essas cores foram escolhidas para transmitir clareza, foco e tranquilidade, alinhadas à proposta de consistência e bem-estar no desenvolvimento de hábitos.
+
+# Tipografia
+A fonte padrão utilizada é Inter, escolhida por seu design moderno e legível.
+- Hierarquia tipográfica:
+- Títulos: font-weight: 900;
+- Subtítulos: font-weight: 700;
+-Textos gerais: font-weight: 400;
+- Importação:
+
+# Logotipo 
