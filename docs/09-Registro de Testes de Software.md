@@ -10,10 +10,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |         **Método**         |                                Teste funcional                                |
 |        **Resultado**       |      Usuário cadastrado com sucesso e redirecionado para a tela de login      |
 
-
-
-
-
+Plano de teste - CT-01 – Criar Novo Usuário**
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/ecb4c58e-acc8-4c8a-a27b-28b4f39d1be6"/>
 
 |    **Registro de Teste**   |                  **CT-02 – Editar Dados de Usuário**                  |
 | :------------------------: | :-------------------------------------------------------------------: |
@@ -22,11 +20,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Critérios de Aceitação** |    Alterações devem ser gravadas e exibidas corretamente no perfil    |
 |         **Método**         |                            Teste funcional                            |
 |        **Resultado**       | Dados atualizados corretamente e refletidos na visualização do perfil |
-
-
-
-
-
+Plano de teste - CT-02 – Editar Dados de Usuário
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/a61b0b13-bf39-4220-b5e9-4c2f1365684a" />
 
 |    **Registro de Teste**   |                   **CT-04 – Login com Credenciais Válidas**                  |
 | :------------------------: | :--------------------------------------------------------------------------: |
@@ -35,11 +30,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Critérios de Aceitação** |         Usuário deve ser autenticado e redirecionado para o dashboard        |
 |         **Método**         |                                Teste funcional                               |
 |        **Resultado**       |         Usuário autenticado com sucesso e redirecionado corretamente         |
-
-
-
-
-
+Plano de teste - CT-04 – Login com Credenciais Válidas
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/f2c016f9-f590-4f89-83db-da54384fe755" />
 
 |    **Registro de Teste**   |           **CT-05 – Login com Senha Incorreta**          |
 | :------------------------: | :------------------------------------------------------: |
@@ -48,9 +40,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Critérios de Aceitação** |    Deve ser exibida mensagem de erro e o acesso negado   |
 |         **Método**         |                      Teste funcional                     |
 |        **Resultado**       |   Mensagem de erro exibida corretamente, acesso negado   |
-
-
-
+Plano de teste - Login senha incorreta
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/c5fad747-4af8-4211-9a12-04b2377d9cba" />
 
 
 |    **Registro de Teste**   |                             **CT-06 – Logout**                            |
@@ -60,11 +51,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Critérios de Aceitação** | Sessão deve ser finalizada e o usuário redirecionado para a tela de login |
 |         **Método**         |                              Teste funcional                              |
 |        **Resultado**       |                        Logout realizado com sucesso         
-
-
-
-
-
+Plano de teste - Logout
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/a803e30b-f43a-45fc-ae4b-e4aead896726" />
 
 ## Relatório de testes de software
 
