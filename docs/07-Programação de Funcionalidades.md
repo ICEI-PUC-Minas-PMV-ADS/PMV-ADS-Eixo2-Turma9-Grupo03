@@ -24,12 +24,12 @@ Para acessar a aplicação Habitly com perfil de usuário padrão, siga as orien
 🔗 Link de Acesso:
 
 Credenciais de Acesso (Usuário):
-Usuário: user00
-Senha: 123456
+- Usuário: user00
+- Senha: 123456
 
 Credenciais de Acesso (Administrador):
-Usuário: admin00
-Senha: 123456
+- Usuário: admin00
+- Senha: 123456
 
 Passos para Acesso:
 1. Clique no link de acesso acima;
