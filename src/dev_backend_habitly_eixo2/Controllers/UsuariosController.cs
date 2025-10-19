@@ -1,5 +1,6 @@
 ﻿using dev_backend_habitly_eixo2.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace dev_backend_habitly_eixo2.Controllers
 {
+    [Authorize(Roles ="Admin")]//Somente admin pode acessar
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,16 +23,26 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // GET: Usuarios
+      
         public async Task<IActionResult> Index()
         {
               return View(await _context.Usuarios.ToListAsync());
         }
 
+        //Página de acesso negado
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
         //Login
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(Usuarios usuarios)
         {
@@ -62,18 +74,17 @@ namespace dev_backend_habitly_eixo2.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
 
-                return Redirect("/");  
+                return RedirectToAction("Index", "Habitoes");
             }
             else
             {
                 ViewBag.Mensagem = "Usuário e/ou senha invalidos!";
                 return View();
             }
-            return View();
-
         }
 
         //Logout
+        [AllowAnonymous]//para que o usuário possa sair mesmo sem ser Admin
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
@@ -81,6 +92,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // GET: Usuarios/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Usuarios == null)
@@ -99,6 +111,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // GET: Usuarios/Create
+        [AllowAnonymous]//permitir que a aba de login seja acessada sem estar autenticado
         public IActionResult Create()
         {
             return View();
@@ -109,6 +122,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Create([Bind("IdUsuario,Nome,Email,Senha,Perfil")] Usuarios usuarios)
         {
             if (ModelState.IsValid)
@@ -122,6 +136,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // GET: Usuarios/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Usuarios == null)
@@ -142,6 +157,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id, [Bind("IdUsuario,Nome,Email,Senha,Perfil")] Usuarios usuarios)
         {
             if (id != usuarios.IdUsuario)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - dev_backend_habitly_eixo2</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/dev_backend_habitly_eixo2.styles.css" asp-append-version="true" />
@@ -23,7 +23,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Habitoes" asp-action="Index">Meus hábitos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
@@ -33,7 +33,10 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                Olá@User.Identity.Name! <a class=nav-link text-dark" asp-area"" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                                Olá, @User.Identity.Name! 
+                            </li>
+                            <li class="nav-item">
+                                <a class=nav-link text-dark" asp-area"" asp-controller="Usuarios" asp-action="Logout">Sair</a>
                             </li>
                         }
                         else

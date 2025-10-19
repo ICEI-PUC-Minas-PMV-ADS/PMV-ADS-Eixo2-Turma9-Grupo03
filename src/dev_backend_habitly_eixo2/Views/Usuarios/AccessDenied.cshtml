@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Acesso Negado";
+    Layout = null;
+}
+
+<!-- Fonte Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --primary: #007A80;
+        --text: #2b2f33;
+        --muted: #495057;
+        --bg: #ffffff;
+        --soft: #f5f7f7;
+        --danger: #e03131;
+    }
+
+    body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: var(--soft);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .access-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        padding: 48px 32px;
+        max-width: 480px;
+        border: 1px solid rgba(0, 0, 0, .06);
+        animation: fadeIn .6s ease;
+    }
+
+     .access-card img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+     }
+
+     .access-card h1 {
+            font-size: clamp(26px, 4vw, 36px);
+            color: var(--danger);
+            font-weight: 900;
+            margin-bottom: 12px;
+    }
+
+    .access-card p {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 28px;
+            line-height: 1.5;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .2s ease;
+        border: 2px solid transparent;
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0,122,128,.18);
+    }
+
+    .btn-primary:hover {
+            background: #009093;
+            border-color: #009093;
+            transform: translateY(-1px);
+    }
+
+   
+</style>
+
+<div class="access-card">
+    <img src="~/img/habitly_img.png" alt="Habitly logo" />
+    <h1>Acesso negado</h1>
+    <p>
+        Desculpe, você não tem permissão para acessar esta página.<br>
+        Entre com uma conta autorizada ou volte à página inicial.
+    </p>
+
+    <a href="~/" class="btn btn-primary">Voltar para o início</a>
+</div>
