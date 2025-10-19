@@ -1,4 +1,4 @@
-# Programação de Funcionalidades (INCLUIR A PROGRAMAÇAÕ DE FUNCIONALIDADE EM PROFUNDIDADE)
+# Programação de Funcionalidades 
 
 | ID     | Descrição do Requisito                                                                               | Artefatos Produzidos                             | Aluno(a) Responsável |
 | ------ | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------- |
