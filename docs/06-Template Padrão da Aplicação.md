@@ -28,5 +28,6 @@ A fonte padrão utilizada é Inter, escolhida por seu design moderno e legível.
 # Logotipo 
 O logotipo do Habitly representa crescimento e constância, com linhas simples e estilo minimalista.
 O tom verde-água (#007A80) foi escolhido por transmitir equilíbrio, foco e bem-estar, refletindo a proposta de evolução contínua dos hábitos.
-![Logotipo Habitly](https://user-images.githubusercontent.com/.../habitly_logo.png)
+
+<img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/62325ce9-34ef-4368-a814-540dc40b8ef3" />
  
