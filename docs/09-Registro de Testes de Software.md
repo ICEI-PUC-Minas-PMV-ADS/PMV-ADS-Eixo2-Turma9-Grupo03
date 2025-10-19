@@ -10,10 +10,9 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |         **Método**         |                                Teste funcional                                |
 |        **Resultado**       |      Usuário cadastrado com sucesso e redirecionado para a tela de login      |
 
-Plano de teste - CT-01 – Criar Novo Usuário**
-🎥 [Assista ao vídeo do CT-01](https://github.com/user-attachments/assets/3bad3b7f-6af5-46ff-b7e3-fc7276930f5b)
-
+Plano de teste - CT-01 – Criar Novo Usuário - 🎥 [Assista ao vídeo do CT-01](https://github.com/user-attachments/assets/3bad3b7f-6af5-46ff-b7e3-fc7276930f5b)
 <img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/ecb4c58e-acc8-4c8a-a27b-28b4f39d1be6"/>
+
 
 |    **Registro de Teste**   |                  **CT-02 – Editar Dados de Usuário**                  |
 | :------------------------: | :-------------------------------------------------------------------: |
@@ -22,8 +21,8 @@ Plano de teste - CT-01 – Criar Novo Usuário**
 | **Critérios de Aceitação** |    Alterações devem ser gravadas e exibidas corretamente no perfil    |
 |         **Método**         |                            Teste funcional                            |
 |        **Resultado**       | Dados atualizados corretamente e refletidos na visualização do perfil |
-Plano de teste - CT-02 – Editar Dados de Usuário
-🎥 [Assista ao vídeo do CT-02](https://github.com/user-attachments/assets/b8e8565d-6b39-4c82-94ac-46ebd6a9200d)
+
+Plano de teste - CT-02 – Editar Dados de Usuário - 🎥 [Assista ao vídeo do CT-02](https://github.com/user-attachments/assets/b8e8565d-6b39-4c82-94ac-46ebd6a9200d)
 <img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/a61b0b13-bf39-4220-b5e9-4c2f1365684a" />
 
 
@@ -35,6 +34,9 @@ Plano de teste - CT-02 – Editar Dados de Usuário
 |         **Método**         |                       Teste funcional                      |
 |        **Resultado**       |    Usuário excluído com sucesso, sem registros residuais   |
 
+Plano de teste - CT-03 – Excluir Usuário 🎥 [Assista ao vídeo do CT-03](https://github.com/user-attachments/assets/54c02a11-ded5-435d-99fb-17bc77484644)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/d58f7031-a56b-4ab6-953d-c660c71f7e15" />
+
 
 |    **Registro de Teste**   |                   **CT-04 – Login com Credenciais Válidas**                  |
 | :------------------------: | :--------------------------------------------------------------------------: |
@@ -43,9 +45,10 @@ Plano de teste - CT-02 – Editar Dados de Usuário
 | **Critérios de Aceitação** |         Usuário deve ser autenticado e redirecionado para o dashboard        |
 |         **Método**         |                                Teste funcional                               |
 |        **Resultado**       |         Usuário autenticado com sucesso e redirecionado corretamente         |
-Plano de teste - CT-04 – Login com Credenciais Válidas
-🎥 [Assista ao vídeo do CT-04](https://github.com/user-attachments/assets/9a5a5806-1772-4797-8357-e02cd74287be)
+
+Plano de teste - CT-04 – Login com Credenciais Válidas - 🎥 [Assista ao vídeo do CT-04](https://github.com/user-attachments/assets/9a5a5806-1772-4797-8357-e02cd74287be)
 <img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/f2c016f9-f590-4f89-83db-da54384fe755" />
+
 
 |    **Registro de Teste**   |           **CT-05 – Login com Senha Incorreta**          |
 | :------------------------: | :------------------------------------------------------: |
@@ -54,8 +57,8 @@ Plano de teste - CT-04 – Login com Credenciais Válidas
 | **Critérios de Aceitação** |    Deve ser exibida mensagem de erro e o acesso negado   |
 |         **Método**         |                      Teste funcional                     |
 |        **Resultado**       |   Mensagem de erro exibida corretamente, acesso negado   |
-Plano de teste - Login senha incorreta
-🎥 [Assista ao vídeo do CT-05](https://github.com/user-attachments/assets/f4d8bbdf-9cd0-46b7-9ca8-ad001c81af19)
+
+Plano de teste - CT-05 – Login com Senha Incorreta - 🎥 [Assista ao vídeo do CT-05](https://github.com/user-attachments/assets/f4d8bbdf-9cd0-46b7-9ca8-ad001c81af19)
 <img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/c5fad747-4af8-4211-9a12-04b2377d9cba" />
 
 
@@ -66,9 +69,9 @@ Plano de teste - Login senha incorreta
 | **Critérios de Aceitação** | Sessão deve ser finalizada e o usuário redirecionado para a tela de login |
 |         **Método**         |                              Teste funcional                              |
 |        **Resultado**       |                        Logout realizado com sucesso         
-Plano de teste - Logout
-🎥 [Assista ao vídeo do CT-06](https://github.com/user-attachments/assets/7299787b-f6ac-4364-bc18-5beaeb0e74a4)
+Plano de teste - CT-06 – Logout - 🎥 [Assista ao vídeo do CT-06](https://github.com/user-attachments/assets/7299787b-f6ac-4364-bc18-5beaeb0e74a4)
 <img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/a803e30b-f43a-45fc-ae4b-e4aead896726" />
+
 
 ## Relatório de testes de software
 
