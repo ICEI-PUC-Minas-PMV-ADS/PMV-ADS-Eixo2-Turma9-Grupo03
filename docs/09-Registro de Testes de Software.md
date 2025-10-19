@@ -10,6 +10,11 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |         **Método**         |                                Teste funcional                                |
 |        **Resultado**       |      Usuário cadastrado com sucesso e redirecionado para a tela de login      |
 
+
+
+
+
+
 |    **Registro de Teste**   |                  **CT-02 – Editar Dados de Usuário**                  |
 | :------------------------: | :-------------------------------------------------------------------: |
 |   **Requisito Associado**  |          RF-001 – A aplicação deve permitir CRUD de Usuários          |
@@ -17,6 +22,11 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Critérios de Aceitação** |    Alterações devem ser gravadas e exibidas corretamente no perfil    |
 |         **Método**         |                            Teste funcional                            |
 |        **Resultado**       | Dados atualizados corretamente e refletidos na visualização do perfil |
+
+
+
+
+
 
 |    **Registro de Teste**   |                   **CT-04 – Login com Credenciais Válidas**                  |
 | :------------------------: | :--------------------------------------------------------------------------: |
@@ -26,6 +36,11 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |         **Método**         |                                Teste funcional                               |
 |        **Resultado**       |         Usuário autenticado com sucesso e redirecionado corretamente         |
 
+
+
+
+
+
 |    **Registro de Teste**   |           **CT-05 – Login com Senha Incorreta**          |
 | :------------------------: | :------------------------------------------------------: |
 |   **Requisito Associado**  |           RF-002 – CRUD de Sessões/Autenticação          |
@@ -34,14 +49,20 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |         **Método**         |                      Teste funcional                     |
 |        **Resultado**       |   Mensagem de erro exibida corretamente, acesso negado   |
 
+
+
+
+
 |    **Registro de Teste**   |                             **CT-06 – Logout**                            |
 | :------------------------: | :-----------------------------------------------------------------------: |
 |   **Requisito Associado**  |                   RF-002 – CRUD de Sessões/Autenticação                   |
 |        **Objetivo**        |                Validar o encerramento da sessão de usuário                |
 | **Critérios de Aceitação** | Sessão deve ser finalizada e o usuário redirecionado para a tela de login |
 |         **Método**         |                              Teste funcional                              |
-|        **Resultado**       |                        Logout realizado com sucesso                       |
-                   |
+|        **Resultado**       |                        Logout realizado com sucesso         
+
+
+
 
 
 
