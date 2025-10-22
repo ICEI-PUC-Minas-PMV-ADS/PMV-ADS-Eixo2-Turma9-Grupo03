@@ -1,47 +1,60 @@
 ﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.Metrica>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Hábitos e Métricas";
 }
 
-<h1>Index</h1>
+<h1>Meus Hábitos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">➕ Adicionar Novo Hábito</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdUsuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StreakAtual)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StreakMaximo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreakAtual)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreakMaximo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMetrica">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMetrica">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMetrica">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="row">
+    @* Usando uma classe "row" do Bootstrap para organizar os cards *@
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4 mb-4">
+            @* Define o tamanho de cada card (3 por linha no desktop) *@
+            <div class="card h-100 shadow-sm">
+                @* h-100 para todos terem a mesma altura, shadow-sm para dar profundidade *@
+                <div class="card-body">
+                    @* Título do Hábito - Mantenha um nome claro, não um ID *@
+                    <h5 class="card-title text-primary">Hábito (ID: @item.IdUsuario)</h5>
+
+                    <hr />
+
+                    @* Destaque para a Streak Atual *@
+                    <div class="text-center mb-3">
+                        <span style="font-size: 2.5rem; font-weight: bold; color: #ffc107;">
+                            🔥 @Html.DisplayFor(modelItem => item.StreakAtual)
+                        </span>
+                        <p class="card-text text-muted">Dias de Streak Atual</p>
+                    </div>
+
+                    @* Exibição do Recorde *@
+                    <p class="card-text text-center">
+                        Recorde Máximo: <strong class="text-success">@Html.DisplayFor(modelItem => item.StreakMaximo) dias</strong>
+                    </p>
+
+                    <hr />
+
+                    @* Ação Principal: Marcar como Concluído (exige lógica no Controller) *@
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success btn-lg mb-2" onclick="marcarConcluido(@item.IdMetrica)">
+                            Concluído Hoje! ✔️
+                        </button>
+                    </div>
+
+                    @* Ações Administrativas - Com ícones para clareza *@
+                    <div class="text-center mt-3">
+                        <a asp-action="Edit" asp-route-id="@item.IdMetrica" class="btn btn-sm btn-outline-secondary me-2">✏️ Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdMetrica" class="btn btn-sm btn-outline-info me-2">ℹ️ Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdMetrica" class="btn btn-sm btn-outline-danger">🗑️ Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
