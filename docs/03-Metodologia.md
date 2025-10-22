@@ -78,3 +78,6 @@ Durante a fase de execução, foram realizados encontros semanais com o orientad
 ### Etapa 3:
 
 <img width="1279" height="663" alt="Image" src="https://github.com/user-attachments/assets/454a4b90-a600-4b09-8919-179831f81c72"/>
+
+
+teste apenas
