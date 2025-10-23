@@ -7,7 +7,7 @@ namespace dev_backend_habitly_eixo2.Models
     public class Usuarios
     {
         [Key]
-        public int IdUsuario { get; set; }
+        public string IdUsuario { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar nome.")]
         [StringLength(200)]
