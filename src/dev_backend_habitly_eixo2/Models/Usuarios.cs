@@ -7,7 +7,8 @@ namespace dev_backend_habitly_eixo2.Models
     public class Usuarios
     {
         [Key]
-        public string IdUsuario { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IdUsuario { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar nome.")]
         [StringLength(200)]
@@ -21,12 +22,13 @@ namespace dev_backend_habitly_eixo2.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar senha.")]
-        public Perfil Perfil { get; set; }
+        [Required]
+        [Column(TypeName = "tinyint")]      
+        public Perfil Perfil { get; set; }   // 0 = User, 1 = Admin
     }
-    public enum Perfil
+    public enum Perfil: byte
     {
-        Admin,
-        User
+        Admin =1,
+        User = 0
     }
 }

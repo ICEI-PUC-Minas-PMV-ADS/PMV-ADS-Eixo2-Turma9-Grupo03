@@ -9,22 +9,22 @@ using dev_backend_habitly_eixo2.Models;
 
 namespace dev_backend_habitly_eixo2.Controllers
 {
-    public class HabitoesController : Controller
+    public class HabitosController : Controller
     {
         private readonly AppDbContext _context;
 
-        public HabitoesController(AppDbContext context)
+        public HabitosController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Habitoes
+        // GET: Habitos
         public async Task<IActionResult> Index()
         {
               return View(await _context.Habitos.ToListAsync());
         }
 
-        // GET: Habitoes/Details/5
+        // GET: Habitos/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Habitos == null)
@@ -42,13 +42,13 @@ namespace dev_backend_habitly_eixo2.Controllers
             return View(habito);
         }
 
-        // GET: Habitoes/Create
+        // GET: Habitos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Habitoes/Create
+        // POST: Habitos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace dev_backend_habitly_eixo2.Controllers
             return View(habito);
         }
 
-        // GET: Habitoes/Edit/5
+        // GET: Habitos/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Habitos == null)
@@ -80,7 +80,7 @@ namespace dev_backend_habitly_eixo2.Controllers
             return View(habito);
         }
 
-        // POST: Habitoes/Edit/5
+        // POST: Habitos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +115,7 @@ namespace dev_backend_habitly_eixo2.Controllers
             return View(habito);
         }
 
-        // GET: Habitoes/Delete/5
+        // GET: Habitos/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Habitos == null)
@@ -133,7 +133,7 @@ namespace dev_backend_habitly_eixo2.Controllers
             return View(habito);
         }
 
-        // POST: Habitoes/Delete/5
+        // POST: Habitos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
