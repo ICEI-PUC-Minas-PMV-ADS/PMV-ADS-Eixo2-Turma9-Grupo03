@@ -26,7 +26,12 @@ namespace dev_backend_habitly_eixo2.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            int? requestId = null;
+            if (int.TryParse(Activity.Current?.Id ?? HttpContext.TraceIdentifier, out int parsedId))
+            {
+                requestId = parsedId;
+            }
+            return View(new ErrorViewModel { RequestId = requestId });
         }
     }
 }
