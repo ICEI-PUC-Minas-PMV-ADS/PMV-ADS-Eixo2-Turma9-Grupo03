@@ -24,15 +24,17 @@ namespace dev_backend_habitly_eixo2.Migrations
 
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Checkin", b =>
                 {
-                    b.Property<string>("IdCheckin")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdCheckin")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCheckin"), 1L, 1);
 
                     b.Property<DateTime>("DataCheckin")
                         .HasColumnType("date");
 
-                    b.Property<string>("IdHabito")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdHabito")
+                        .HasColumnType("int");
 
                     b.HasKey("IdCheckin");
 
@@ -43,22 +45,33 @@ namespace dev_backend_habitly_eixo2.Migrations
 
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Habito", b =>
                 {
-                    b.Property<string>("IdHabito")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdHabito")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdHabito"), 1L, 1);
+
+                    b.Property<DateTime>("DataFim")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("DescricaoHabito")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("int");
+                    b.Property<string>("DiasDaSemana")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("PeriodicidadeHabito")
+                    b.Property<int>("IdUsuario")
                         .HasColumnType("int");
 
                     b.Property<string>("StatusHabito")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("TituloHabito")
                         .IsRequired()

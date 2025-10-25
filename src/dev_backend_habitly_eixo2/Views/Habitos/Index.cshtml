@@ -1,59 +1,77 @@
-﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.Habito>
+﻿@using dev_backend_habitly_eixo2.Models.DTOs
+@using System.Text.Json
+
+@model List<CalendarioEventoDTO>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Calendário de Hábitos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Calendário de Hábitos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Novo Hábito</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdUsuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TituloHabito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescricaoHabito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PeriodicidadeHabito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatusHabito)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TituloHabito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescricaoHabito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PeriodicidadeHabito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusHabito)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdHabito">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdHabito">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdHabito">Delete</a>
-            </td>
-        </tr>
+
+@* Container onde o calendário será renderizado *@
+<div id='calendar'></div>
+
+
+@section Scripts {
+
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            // 2.1. Conversão dos dados do C# para JavaScript/JSON
+            var habitosEventos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+
+            // 2.2. Mapeamento e Ajuste de Propriedades para o FullCalendar
+            var eventosFormatados = habitosEventos.map(function(evento) {
+                return {
+                    id: evento.IdHabito,
+                    title: evento.TituloHabito,
+                    start: evento.DataHoraInicio,
+                    end: evento.DataHoraFim,
+                    color: evento.Cor
+                };
+            });
+
+            // 2.3. Inicialização do Calendário
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'pt-br',
+                height: 'auto',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                editable: false,
+                events: eventosFormatados,
+
+                eventClick: function(info) {
+                    if (info.event.id) {
+                        var idHabito = info.event.id;
+                        var detalhesUrl = '@Url.Action("Details", "Habitos")' + '/' + idHabito;
+                        window.location.href = detalhesUrl;
+                    }
+                },
+
+                slotLabelFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    meridiem: false,
+                    hour12: false
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
 }
-    </tbody>
-</table>

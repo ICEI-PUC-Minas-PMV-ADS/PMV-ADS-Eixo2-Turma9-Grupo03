@@ -7,11 +7,11 @@ namespace dev_backend_habitly_eixo2.Models
     public class Checkin
     {
         [Key]
-        public string IdCheckin { get; set; }
+        public int IdCheckin { get; set; }
 
         [Required]
         [ForeignKey(nameof(Habito))]
-        public string IdHabito { get; set; }
+        public int IdHabito { get; set; }
 
         public virtual Habito Habito { get; set; }
 
