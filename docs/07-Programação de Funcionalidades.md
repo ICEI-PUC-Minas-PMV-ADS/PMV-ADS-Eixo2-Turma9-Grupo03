@@ -2,8 +2,8 @@
 
 | ID     | Descrição do Requisito                                                                               | Artefatos Produzidos                             | Aluno(a) Responsável |
 | ------ | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------- |
-| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                       | Controller, View, Model de Usuários              | Sophia Calvano       |
-| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                          | Controller de Login, View Login, Claims Identity | Sophia Calvano       |
+| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                       | Controller, View, Model de Usuários              | Sophia               |
+| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                          | Controller de Login, View Login, Claims Identity | Sophia               |
 | RF-003 | A aplicação deve permitir **CRUD de Hábitos**                                                        | Controller, View e Model de Hábitos              | Matheus              |
 | RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido)  | Controller e Model de Checkins                   | Matheus              |
 | RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)               | Model de Métricas, View Dashboard                | Guilherme            |
