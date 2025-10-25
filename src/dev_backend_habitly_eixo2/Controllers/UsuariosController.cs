@@ -60,7 +60,7 @@ namespace dev_backend_habitly_eixo2.Controllers
                 var claims = new List<Claim>
                 {
                     new(ClaimTypes.Name, dados.Nome),
-                    new(ClaimTypes.NameIdentifier, dados.Email.ToString()),
+                    new(ClaimTypes.NameIdentifier, dados.IdUsuario.ToString()),
                     new(ClaimTypes.Role, dados.Perfil.ToString()),
                 };
 
@@ -153,48 +153,53 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // POST: Usuarios/Edit/5
+        // Controllers/UsuariosController.cs
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Nome,Email,Senha,Perfil")] Usuarios usuarios)
+        public async Task<IActionResult> Edit(int id, [Bind("Nome,Email,Senha,Perfil")] Usuarios form)
         {
-            if (id != usuarios.IdUsuario)
-                return NotFound();
+            var user = await _context.Usuarios.FindAsync(id);
+            if (user == null) return NotFound();
 
-            if (ModelState.IsValid)
+            // E-mail único (exceto o próprio)
+            if (await _context.Usuarios.AnyAsync(u => u.Email == form.Email && u.IdUsuario != id))
             {
-                try
-                {
-                    usuarios.Senha = BCrypt.Net.BCrypt.HashPassword(usuarios.Senha);
-                    _context.Update(usuarios);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UsuariosExists(usuarios.IdUsuario))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("Email", "Este e-mail já está em uso.");
             }
-            return View(usuarios);
-        }
+            if (string.IsNullOrWhiteSpace(form.Senha))
+            {
+                ModelState.Remove(nameof(form.Senha));
+            }
+            if (!ModelState.IsValid)
+            { 
+                form.IdUsuario = id;
+                return View(form);
+            }
 
+            // Atualiza só campos permitidos
+            user.Nome = form.Nome;
+            user.Email = form.Email;
+            user.Perfil = form.Perfil;
+
+            // Troca senha apenas se vier nova
+            if (!string.IsNullOrWhiteSpace(form.Senha))
+            {
+                user.Senha = BCrypt.Net.BCrypt.HashPassword(form.Senha);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
         // GET: Usuarios/Delete/5
+        [Authorize(Roles = "Admin")] // opcional, pois a classe já tem
         public async Task<IActionResult> Delete(int id)
         {
-            if (_context.Usuarios == null)
-                return NotFound();
-
-            var usuarios = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuarios == null)
-                return NotFound();
-
-            return View(usuarios);
+            var user = await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id);
+            if (user == null) return NotFound();
+            return View(user);
         }
-
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

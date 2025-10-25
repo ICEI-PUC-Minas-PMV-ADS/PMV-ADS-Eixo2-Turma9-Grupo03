@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace dev_backend_habitly_eixo2.Migrations
 {
-    public partial class M01AddTableUsuario : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,13 @@ namespace dev_backend_habitly_eixo2.Migrations
                 name: "Habitos",
                 columns: table => new
                 {
-                    IdHabito = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdHabito = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false),
                     TituloHabito = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DescricaoHabito = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     PeriodicidadeHabito = table.Column<int>(type: "int", nullable: false),
-                    StatusHabito = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    StatusHabito = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,7 +31,7 @@ namespace dev_backend_habitly_eixo2.Migrations
                 columns: table => new
                 {
                     IdMetrica = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false),
                     StreakAtual = table.Column<int>(type: "int", nullable: false),
                     StreakMaximo = table.Column<int>(type: "int", nullable: false)
                 },
@@ -44,7 +45,7 @@ namespace dev_backend_habitly_eixo2.Migrations
                 columns: table => new
                 {
                     IdNotificacao = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false),
                     Mensagem = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DataHora = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -57,10 +58,12 @@ namespace dev_backend_habitly_eixo2.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    IdUsuario = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Perfil = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,8 +74,9 @@ namespace dev_backend_habitly_eixo2.Migrations
                 name: "Checkins",
                 columns: table => new
                 {
-                    IdCheckin = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdHabito = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdCheckin = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdHabito = table.Column<int>(type: "int", nullable: false),
                     DataCheckin = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
@@ -90,6 +94,12 @@ namespace dev_backend_habitly_eixo2.Migrations
                 name: "IX_Checkins_IdHabito",
                 table: "Checkins",
                 column: "IdHabito");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuarios_Email",
+                table: "Usuarios",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
