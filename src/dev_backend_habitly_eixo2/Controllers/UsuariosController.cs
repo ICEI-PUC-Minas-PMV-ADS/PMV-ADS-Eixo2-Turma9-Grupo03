@@ -192,7 +192,14 @@ namespace dev_backend_habitly_eixo2.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        // GET: Usuarios/Delete/5
+        [Authorize(Roles = "Admin")] // opcional, pois a classe já tem
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id);
+            if (user == null) return NotFound();
+            return View(user);
+        }
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
