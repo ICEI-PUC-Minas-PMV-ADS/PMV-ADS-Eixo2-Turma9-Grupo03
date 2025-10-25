@@ -60,7 +60,7 @@ namespace dev_backend_habitly_eixo2.Controllers
                 var claims = new List<Claim>
                 {
                     new(ClaimTypes.Name, dados.Nome),
-                    new(ClaimTypes.NameIdentifier, dados.Email.ToString()),
+                    new(ClaimTypes.NameIdentifier, dados.IdUsuario.ToString()),
                     new(ClaimTypes.Role, dados.Perfil.ToString()),
                 };
 
