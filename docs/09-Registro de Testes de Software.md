@@ -113,6 +113,20 @@
 
 
 
+# Plano de teste - CT-10 – Criar Lembretes - 🎥 [Assista ao vídeo do CT-10]
+
+https://github.com/user-attachments/assets/0631778d-365c-4822-a8a4-7378b8da672b
+
+
+| **Registro de Teste** | **CT-10 – Adicionar Lembretes** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-007 – A aplicação deve permitir CRUD de Lembretes associados aos hábitos |
+| **Objetivo** | Criar lembretes personalizado |
+| **Critérios de Aceitação** | Lembrete criado e salvo no banco de dados |
+| **Método** | Teste funcional |
+| **Resultado** | Lembrete criado com sucesso |
+
+
 ## Relatório de testes de software
 
 Os testes de software realizados no sistema Habitly demonstram que as principais funcionalidades estão estáveis e em conformidade com os requisitos definidos.
