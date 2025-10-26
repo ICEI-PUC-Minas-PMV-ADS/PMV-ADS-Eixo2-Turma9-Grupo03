@@ -43,21 +43,6 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.ToTable("Checkins");
                 });
 
-            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Etiqueta", b =>
-                {
-                    b.Property<string>("IdEtiqueta")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("IdEtiqueta");
-
-                    b.ToTable("Etiquetas");
-                });
-
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Habito", b =>
                 {
                     b.Property<int>("IdHabito")
@@ -80,10 +65,6 @@ namespace dev_backend_habitly_eixo2.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<bool>("IsArquivado")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("PeriodicidadeHabito")
                     b.Property<int>("IdUsuario")
                         .HasColumnType("int");
 
@@ -188,8 +169,6 @@ namespace dev_backend_habitly_eixo2.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("Perfil")
-                        .HasColumnType("int");
                     b.Property<byte>("Perfil")
                         .HasColumnType("tinyint");
 
@@ -205,21 +184,6 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("EtiquetaHabito", b =>
-                {
-                    b.Property<string>("EtiquetasIdEtiqueta")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("HabitosIdHabito")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("EtiquetasIdEtiqueta", "HabitosIdHabito");
-
-                    b.HasIndex("HabitosIdHabito");
-
-                    b.ToTable("EtiquetaHabito");
-                });
-
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Checkin", b =>
                 {
                     b.HasOne("dev_backend_habitly_eixo2.Models.Habito", "Habito")
@@ -231,19 +195,6 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.Navigation("Habito");
                 });
 
-            modelBuilder.Entity("EtiquetaHabito", b =>
-                {
-                    b.HasOne("dev_backend_habitly_eixo2.Models.Etiqueta", null)
-                        .WithMany()
-                        .HasForeignKey("EtiquetasIdEtiqueta")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("dev_backend_habitly_eixo2.Models.Habito", null)
-                        .WithMany()
-                        .HasForeignKey("HabitosIdHabito")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.PreferenciasUsuario", b =>
                 {
                     b.HasOne("dev_backend_habitly_eixo2.Models.Usuarios", "Usuario")
