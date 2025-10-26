@@ -30,9 +30,14 @@ Sistema de gerenciamento de hábitos que auxilie os usuários na criação, acom
 * Status: online / instável / em manutenção (atualize conforme o caso)
 * Ambiente: produção / homologação
 
-**Usuário(s) de teste (se houver):**
-* Login: usuario_teste
-* Senha: senha_teste
+Credenciais de Acesso (Usuário):
+- Email: user@habitly.com
+- Senha: 123456
+
+Credenciais de Acesso (Administrador):
+- Usuário: admin@habitly.com
+- Senha: 123456
+
 
 # Documentação
 

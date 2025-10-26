@@ -2,20 +2,20 @@
 
 | ID     | Descrição do Requisito                                                                               | Artefatos Produzidos                             | Aluno(a) Responsável |
 | ------ | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------- |
-| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                       | Controller, View, Model de Usuários              | Sophia Calvano       |
-| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                          | Controller de Login, View Login, Claims Identity | Sophia Calvano       |
-| RF-003 | A aplicação deve permitir **CRUD de Hábitos**                                                        | Controller, View e Model de Hábitos              | —                    |
-| RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido)  | Controller e Model de Checkins                   | —                    |
-| RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)               | Model de Métricas, View Dashboard                | —                    |
-| RF-006 | A aplicação deve permitir **consultar visão geral (dashboard)** dos hábitos                          | View Dashboard, Controlador de Métricas          | —                    |
-| RF-007 | A aplicação deve permitir **CRUD de Lembretes** associados aos hábitos                               | Controller e Model de Lembretes                  | —                    |
-| RF-008 | A aplicação deve permitir **CRUD de Etiquetas (tags)** para organizar hábitos                        | Controller e Model de Tags                       | —                    |
-| RF-009 | A aplicação deve permitir **definir periodicidade** dos hábitos (diário, dias fixos, X vezes/semana) | Model de Hábitos, Enum Periodicidade             | —                    |
-| RF-010 | A aplicação deve permitir **arquivar hábitos**, preservando histórico de check-ins                   | Controller de Hábitos, Flag Arquivado            | —                    |
-| RF-011 | A aplicação deve permitir **consultar histórico de check-ins** por hábito e por período de tempo     | View Histórico, Controller Checkins              | —                    |
-| RF-012 | A aplicação deve registrar **conquistas de consistência** (ex.: 7, 30 e 100 dias)                    | Model de Métricas, Lógica de Conquistas          | —                    |
-| RF-013 | A aplicação deve permitir **compartilhar conquistas** em redes sociais                               | Integração com redes sociais                     | —                    |
-| RF-014 | A aplicação deve permitir **configuração de preferências do usuário**                                | Model de Preferências, View Configurações        | —                    |
+| RF-001 | A aplicação deve permitir **CRUD de Usuários**                                                       | Controller, View, Model de Usuários              | Sophia               |
+| RF-002 | A aplicação deve permitir **CRUD de Sessões/Autenticação** (login e logout)                          | Controller de Login, View Login, Claims Identity | Sophia               |
+| RF-003 | A aplicação deve permitir **CRUD de Hábitos**                                                        | Controller, View e Model de Hábitos              | Matheus              |
+| RF-004 | A aplicação deve permitir **CRUD de Check-ins de Hábito** (um por dia, com atualização se repetido)  | Controller e Model de Checkins                   | Matheus              |
+| RF-005 | A aplicação deve permitir **consultar métricas** (streak atual, streak máximo, adesão)               | Model de Métricas, View Dashboard                | Guilherme            |
+| RF-006 | A aplicação deve permitir **consultar visão geral (dashboard)** dos hábitos                          | View Dashboard, Controlador de Métricas          | Guilherme            |
+| RF-007 | A aplicação deve permitir **CRUD de Lembretes** associados aos hábitos                               | Controller e Model de Lembretes                  | Júlia                |
+| RF-008 | A aplicação deve permitir **CRUD de Etiquetas (tags)** para organizar hábitos                        | Controller e Model de Tags                       | Lucas                |
+| RF-009 | A aplicação deve permitir **definir periodicidade** dos hábitos (diário, dias fixos, X vezes/semana) | Model de Hábitos, Enum Periodicidade             | Júlia                |
+| RF-010 | A aplicação deve permitir **arquivar hábitos**, preservando histórico de check-ins                   | Controller de Hábitos, Flag Arquivado            | Lucas                |
+| RF-011 | A aplicação deve permitir **consultar histórico de check-ins** por hábito e por período de tempo     | View Histórico, Controller Checkins              | Lorrayne             |
+| RF-012 | A aplicação deve registrar **conquistas de consistência** (ex.: 7, 30 e 100 dias)                    | Model de Métricas, Lógica de Conquistas          | Lorrayne             |
+| RF-013 | A aplicação deve permitir **compartilhar conquistas** em redes sociais                               | Integração com redes sociais                     | Pedro Henrique       |
+| RF-014 | A aplicação deve permitir **configuração de preferências do usuário**                                | Model de Preferências, View Configurações        | Pedro Henrique       |
 
 
 # Instruções de acesso
@@ -24,11 +24,11 @@ Para acessar a aplicação Habitly com perfil de usuário padrão, siga as orien
 🔗 Link de Acesso:
 
 Credenciais de Acesso (Usuário):
-- Usuário: user00
+- Email: user@habitly.com
 - Senha: 123456
 
 Credenciais de Acesso (Administrador):
-- Usuário: admin00
+- Usuário: admin@habitly.com
 - Senha: 123456
 
 Passos para Acesso:
