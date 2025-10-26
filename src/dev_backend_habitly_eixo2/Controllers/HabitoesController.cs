@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using dev_backend_habitly_eixo2.Models;
@@ -21,7 +22,8 @@ namespace dev_backend_habitly_eixo2.Controllers
         // GET: Habitoes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Habitos.ToListAsync());
+              // Incluir etiquetas para exibição em 'Meus Hábitos'
+              return View(await _context.Habitos.Include(h => h.Etiquetas).ToListAsync());
         }
 
         // GET: Habitoes/Details/5
@@ -33,11 +35,16 @@ namespace dev_backend_habitly_eixo2.Controllers
             }
 
             var habito = await _context.Habitos
+                .Include(h => h.Etiquetas)
                 .FirstOrDefaultAsync(m => m.IdHabito == id);
             if (habito == null)
             {
                 return NotFound();
             }
+
+            // carregar todas as etiquetas para o dropdown de associação
+            var todasEtiquetas = await _context.Etiquetas.OrderBy(e => e.Nome).ToListAsync();
+            ViewData["EtiquetasList"] = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(todasEtiquetas, "IdEtiqueta", "Nome");
 
             return View(habito);
         }

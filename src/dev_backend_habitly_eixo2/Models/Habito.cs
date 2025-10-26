@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace dev_backend_habitly_eixo2.Models
 {
@@ -24,5 +25,11 @@ namespace dev_backend_habitly_eixo2.Models
 
         [Required]
         public string StatusHabito { get; set; }
+        
+        // Indica se o hábito está arquivado. Quando arquivado, os check-ins devem ser preservados.
+        public bool IsArquivado { get; set; }
+
+        // Etiquetas associadas (many-to-many)
+        public virtual ICollection<Etiqueta> Etiquetas { get; set; }
     }
 }

@@ -47,6 +47,15 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StatusHabito)
+                @if (item?.Etiquetas != null && item.Etiquetas.Any())
+                {
+                    <div>
+                        @foreach (var et in item.Etiquetas)
+                        {
+                            <span class="badge badge-secondary" style="margin-left:6px; background:#e9f1ef; color:#0b6b63; padding:4px 8px; border-radius:12px; font-size:0.9em;">@et.Nome</span>
+                        }
+                    </div>
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdHabito">Edit</a> |
