@@ -1,0 +1,55 @@
+﻿@page
+@model dev_backend_habitly_eixo2.Views.Preferencias.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "Create.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferenciasUsuario[0].Tema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferenciasUsuario[0].NotificacoesAtivas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferenciasUsuario[0].Idioma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferenciasUsuario[0].Usuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PreferenciasUsuario) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tema)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotificacoesAtivas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idioma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdPreferencia">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdPreferencia">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdPreferencia">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
