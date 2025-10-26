@@ -10,7 +10,7 @@ namespace dev_backend_habitly_eixo2.Models
         public string IdNotificacao { get; set; }
 
         [Required]
-        public string IdUsuario { get; set; }
+        public int IdUsuario { get; set; }
 
         [StringLength(100)]
         public string Mensagem { get; set; }

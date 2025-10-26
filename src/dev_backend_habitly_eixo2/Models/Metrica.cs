@@ -10,7 +10,7 @@ namespace dev_backend_habitly_eixo2.Models
         public string IdMetrica { get; set; }
 
         [Required]
-        public string IdUsuario { get; set; }
+        public int IdUsuario { get; set; }
 
         public int StreakAtual { get; set; }
         public int StreakMaximo { get; set; }
