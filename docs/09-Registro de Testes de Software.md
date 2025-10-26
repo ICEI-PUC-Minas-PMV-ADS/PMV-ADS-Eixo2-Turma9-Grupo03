@@ -69,7 +69,47 @@
 |        **Objetivo**        |                Validar o encerramento da sessão de usuário                |
 | **Critérios de Aceitação** | Sessão deve ser finalizada e o usuário redirecionado para a tela de login |
 |         **Método**         |                              Teste funcional                              |
-|        **Resultado**       |                        Logout realizado com sucesso         
+|        **Resultado**       |                        Logout realizado com sucesso                       |
+
+
+# Plano de teste - CT-07 – Criar novo hábito - 🎥 [Assista ao vídeo do CT-07](https://github.com/user-attachments/assets/99952b4d-f146-429a-ae8c-b5f10a789c96)
+<img width="1873" height="924" alt="image" src="https://github.com/user-attachments/assets/7a88d6b6-5ed7-4cc9-ad98-651195dacae2" />
+
+| **Registro de Teste** | **CT-07 – Criar novo hábito com periodicidade** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-003 – CRUD de Hábitos |
+| **Objetivo** | Criar novo hábito com periodicidade |
+| **Critérios de Aceitação** | Hábito aparece na lista do usuário com os dados definidos |
+| **Método** | Teste funcional |
+| **Passos** | - Acessar tela de criação de hábito <br> - Preencher nome, periodicidade e objetivo <br> - Salvar |
+| **Resultado** | Hábito criado com sucesso |
+
+
+# Plano de teste - CT-08 – Editar hábito existente - 🎥 [Assista ao vídeo do CT-08](https://github.com/user-attachments/assets/09695518-3419-427c-b43f-a1f8436f188d)
+<img width="1872" height="923" alt="image" src="https://github.com/user-attachments/assets/f2b84240-172b-4706-92fe-75e67e2b2b86" />
+
+| **Registro de Teste** | **CT-08 – Editar hábito existente** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-003 – CRUD de Hábitos |
+| **Objetivo** | Editar hábito existente |
+| **Critérios de Aceitação** | Alterações gravadas e exibidas na lista de hábitos |
+| **Método** | Teste funcional |
+| **Passos** | - Selecionar hábito <br> - Alterar informações <br> - Salvar |
+| **Resultado** | Hábito editado com sucesso |
+
+
+# Plano de teste - CT-09 – Excluir hábito - 🎥 [Assista ao vídeo do CT-09](https://github.com/user-attachments/assets/f0be0e64-9f73-41cc-9030-4987b5cbee12)
+<img width="1873" height="924" alt="image" src="https://github.com/user-attachments/assets/954be738-bf4e-4b5d-9d3f-28ee39e1ad21" />
+
+| **Registro de Teste** | **CT-09 – Excluir hábito** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-003 – CRUD de Hábitos |
+| **Objetivo** | Excluir hábito |
+| **Critérios de Aceitação** | Hábito removido da lista e do banco |
+| **Método** | Teste funcional |
+| **Passos** | - Selecionar hábito <br> - Clicar em "Excluir" <br> - Confirmar |
+| **Resultado** | Hábito excluído com sucesso |
+
 
 
 
