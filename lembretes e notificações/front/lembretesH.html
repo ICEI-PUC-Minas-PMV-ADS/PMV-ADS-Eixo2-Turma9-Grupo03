@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habitly</title>
+  <link rel="stylesheet" href="lembretesH.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Habitly</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <a href="#" onclick="abrirAba('dashboard')">Dashboard</a>
+      <a href="#" onclick="abrirAba('lembretes')">Lembretes</a>
+      <a href="#" onclick="abrirAba('configuracoes')">Configurações</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" class="aba ativa">
+      <h2>Bem-vinda ao Habitly</h2>
+      <p>Seu painel de hábitos, metas e lembretes personalizados 💚</p>
+    </section>
+
+    <section id="lembretes" class="aba">
+      <h2>Lembretes</h2>
+
+      <form id="formLembrete">
+        <input type="text" id="titulo" placeholder="Título do lembrete" required />
+        <input type="text" id="dias" placeholder="Dias (ex: Seg, Qua, Sex)" required />
+        <input type="number" id="intervalo" placeholder="Intervalo em horas" required />
+        <button type="submit">Adicionar</button>
+      </form>
+
+      <div id="listaLembretes"></div>
+    </section>
+
+    <section id="configuracoes" class="aba">
+      <h2>Configurações</h2>
+      <p>Aqui você poderá ajustar preferências e notificações futuramente.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Habitly</p>
+  </footer>
+
+  <script src="lembretesH.js"></script>
+</body>
+</html>
