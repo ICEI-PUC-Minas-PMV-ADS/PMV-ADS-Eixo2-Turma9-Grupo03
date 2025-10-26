@@ -1,13 +1,13 @@
 ﻿@model dev_backend_habitly_eixo2.Models.Habito
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Hábito";
 }
 
-<h1>Details</h1>
+<h1>Detalhes do Hábito</h1>
 
 <div>
-    <h4>Habito</h4>
+    <h4>Hábito</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -16,6 +16,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TituloHabito)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DescricaoHabito)
         </dt>
@@ -23,20 +24,19 @@
             @Html.DisplayFor(model => model.DescricaoHabito)
         </dd>
 
-        @* 🎯 NOVOS CAMPOS DE DATA *@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DataInicio)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DataInicio)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DataFim)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DataFim)
         </dd>
-        @* 🎯 FIM NOVOS CAMPOS DE DATA *@
 
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.StatusHabito)
@@ -46,11 +46,39 @@
         </dd>
     </dl>
 </div>
+
+<!-- 🎯 Seção de Compartilhamento -->
+<div class="mt-4">
+    <h5>Compartilhar Conquista</h5>
+    <p>Compartilhe seu progresso com amigos nas redes sociais:</p>
+
+    @{
+        var titulo = Uri.EscapeDataString($"Concluí meu hábito '{Model.TituloHabito}' no Habitly! 🎯");
+        var link = Uri.EscapeDataString($"https://meusite.com/habito/{Model.IdHabito}");
+    }
+
+    <a href="https://api.whatsapp.com/send?text=@titulo%20@link"
+       target="_blank" class="btn btn-success btn-sm me-2">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+    </a>
+
+    <a href="https://twitter.com/intent/tweet?text=@titulo%20@link"
+       target="_blank" class="btn btn-info btn-sm me-2" style="color:white;">
+        <i class="bi bi-twitter"></i> Twitter
+    </a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=@link&quote=@titulo"
+       target="_blank" class="btn btn-primary btn-sm">
+        <i class="bi bi-facebook"></i> Facebook
+    </a>
+</div>
+
+<hr />
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.IdHabito">Edit</a> |
     <a asp-action="Delete" asp-route-id="@Model?.IdHabito">Delete</a> |
     <a asp-action="Index">Back to List</a>
-<<<<<<< HEAD:src/dev_backend_habitly_eixo2/Views/Habitoes/Details.cshtml
 </div>
 
 <div class="mt-4">
@@ -105,6 +133,10 @@
     }
 
 </div>
-=======
 </div>
->>>>>>> 759c425905ab04eff3bfd9ca1c2cc625b768de84:src/dev_backend_habitly_eixo2/Views/Habitos/Details.cshtml
+
+    <a asp-action="Edit" asp-route-id="@Model?.IdHabito">Editar</a> |
+    <a asp-action="Delete" asp-route-id="@Model?.IdHabito">Excluir</a> |
+    <a asp-action="Index">Voltar à Lista</a>
+</div>
+ main

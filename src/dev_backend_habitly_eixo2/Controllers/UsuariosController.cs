@@ -214,6 +214,8 @@ namespace dev_backend_habitly_eixo2.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
+
         }
 
         private bool UsuariosExists(int id)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using dev_backend_habitly_eixo2.Models;
 
 namespace dev_backend_habitly_eixo2.Models
 {
@@ -12,6 +13,7 @@ namespace dev_backend_habitly_eixo2.Models
         public DbSet<Habito> Habitos { get; set; }
         public DbSet<Notificacao> Notificacoes { get; set; }
         public DbSet<Metrica> Metricas { get; set; }
+
         public DbSet<Checkin> Checkins { get; set; }
     public DbSet<Etiqueta> Etiquetas { get; set; }
 
@@ -26,6 +28,8 @@ namespace dev_backend_habitly_eixo2.Models
                 new Etiqueta { IdEtiqueta = "00000000-0000-0000-0000-000000000003", Nome = "concluído" }
             );
         }
+        public DbSet <PreferenciasUsuario> PreferenciasUsuario { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,5 +39,9 @@ namespace dev_backend_habitly_eixo2.Models
                 .HasIndex(u => u.Email)
                 .IsUnique();
         }
+
+        public DbSet<dev_backend_habitly_eixo2.Models.PreferenciasUsuario> PreferenciasUsuario_1 { get; set; }
+
+
     }
 }

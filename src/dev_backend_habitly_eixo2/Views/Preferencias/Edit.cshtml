@@ -1,0 +1,51 @@
+﻿@page
+@model dev_backend_habitly_eixo2.Views.Preferencias.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "Create.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>PreferenciasUsuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PreferenciasUsuario.IdPreferencia" />
+            <div class="form-group">
+                <label asp-for="PreferenciasUsuario.IdUsuario" class="control-label"></label>
+                <select asp-for="PreferenciasUsuario.IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
+                <span asp-validation-for="PreferenciasUsuario.IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferenciasUsuario.Tema" class="control-label"></label>
+                <input asp-for="PreferenciasUsuario.Tema" class="form-control" />
+                <span asp-validation-for="PreferenciasUsuario.Tema" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PreferenciasUsuario.NotificacoesAtivas" /> @Html.DisplayNameFor(model => model.PreferenciasUsuario.NotificacoesAtivas)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferenciasUsuario.Idioma" class="control-label"></label>
+                <input asp-for="PreferenciasUsuario.Idioma" class="form-control" />
+                <span asp-validation-for="PreferenciasUsuario.Idioma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
