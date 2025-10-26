@@ -1,11 +1,7 @@
 # Registro de Testes de Software
 
-Para cada caso de teste definido no Plano de Testes de Software, realize o registro das evidências dos testes feitos na aplicação pela equipe, que comprovem que o critério de êxito foi alcançado (ou não!!!). Para isso, utilize uma ferramenta de captura de tela que mostre cada um dos casos de teste definidos (obs.: cada caso de teste deverá possuir um vídeo do tipo _screencast_ para caracterizar uma evidência do referido caso).
-
-
-
-# Plano de teste - CT-01 – Criar Novo Usuário - 🎥 [Assista ao vídeo do CT-01](https://github.com/user-attachments/assets/3bad3b7f-6af5-46ff-b7e3-fc7276930f5b)
-<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/ecb4c58e-acc8-4c8a-a27b-28b4f39d1be6"/>
+# Plano de teste - CT-01 – Criar Novo Usuário - 🎥 [Assista ao vídeo do CT-01](https://github.com/user-attachments/assets/a5262666-f6f9-40c7-aeac-a4e566ee5042)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/9b042204-0ccc-454e-9c83-07b39db08c05" />
 
 |    **Registro de Teste**   |                         **CT-01 – Criar Novo Usuário**                        |
 | :------------------------: | :---------------------------------------------------------------------------: |
@@ -15,8 +11,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |         **Método**         |                                Teste funcional                                |
 |        **Resultado**       |      Usuário cadastrado com sucesso e redirecionado para a tela de login      |
 
-# Plano de teste - CT-02 – Editar Dados de Usuário - 🎥 [Assista ao vídeo do CT-02](https://github.com/user-attachments/assets/b8e8565d-6b39-4c82-94ac-46ebd6a9200d)
-<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/a61b0b13-bf39-4220-b5e9-4c2f1365684a" />
+# Plano de teste - CT-02 – Editar Dados de Usuário - 🎥 [Assista ao vídeo do CT-02](https://github.com/user-attachments/assets/6be5a998-4a46-451d-872a-7e8bd6632e10)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/0e2e2915-35c7-4ff4-a9b3-e060ebf387a4" />
 
 |    **Registro de Teste**   |                  **CT-02 – Editar Dados de Usuário**                  |
 | :------------------------: | :-------------------------------------------------------------------: |
@@ -27,8 +23,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |        **Resultado**       | Dados atualizados corretamente e refletidos na visualização do perfil |
 
 
-# Plano de teste - CT-03 – Excluir Usuário 🎥 [Assista ao vídeo do CT-03](https://github.com/user-attachments/assets/54c02a11-ded5-435d-99fb-17bc77484644)
-<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/d58f7031-a56b-4ab6-953d-c660c71f7e15" />
+# Plano de teste - CT-03 – Excluir Usuário 🎥 [Assista ao vídeo do CT-03](https://github.com/user-attachments/assets/ce9b6bc7-64b1-4a05-90ef-89750a1a6b75)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/fbe7f6bd-62fc-4059-b0ff-b63d8b37a743" />
 
 |    **Registro de Teste**   |                 **CT-03 – Excluir Usuário**                |
 | :------------------------: | :--------------------------------------------------------: |
@@ -39,8 +35,9 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |        **Resultado**       |    Usuário excluído com sucesso, sem registros residuais   |
 
 
-# Plano de teste - CT-04 – Login com Credenciais Válidas - 🎥 [Assista ao vídeo do CT-04](https://github.com/user-attachments/assets/9a5a5806-1772-4797-8357-e02cd74287be)
-<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/f2c016f9-f590-4f89-83db-da54384fe755" />
+# Plano de teste - CT-04 – Login com Credenciais Válidas - 🎥 [Assista ao vídeo do CT-04](https://github.com/user-attachments/assets/db874989-adf3-4cf9-917e-bcd76ec35c74)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/708b351e-b361-4f32-b017-451777ca3826" />
+
 
 |    **Registro de Teste**   |                   **CT-04 – Login com Credenciais Válidas**                  |
 | :------------------------: | :--------------------------------------------------------------------------: |
@@ -51,8 +48,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |        **Resultado**       |         Usuário autenticado com sucesso e redirecionado corretamente         |
 
 
-# Plano de teste - CT-05 – Login com Senha Incorreta - 🎥 [Assista ao vídeo do CT-05](https://github.com/user-attachments/assets/f4d8bbdf-9cd0-46b7-9ca8-ad001c81af19)
-<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/c5fad747-4af8-4211-9a12-04b2377d9cba" />
+# Plano de teste - CT-05 – Login com Senha Incorreta - 🎥 [Assista ao vídeo do CT-05](https://github.com/user-attachments/assets/4198f505-ec49-4784-a631-fbd784a6499f)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/b5a5a025-06c8-44e3-9cbb-fb515680064a" />
 
 |    **Registro de Teste**   |           **CT-05 – Login com Senha Incorreta**          |
 | :------------------------: | :------------------------------------------------------: |
@@ -63,8 +60,8 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |        **Resultado**       |   Mensagem de erro exibida corretamente, acesso negado   |
 
 
-# Plano de teste - CT-06 – Logout - 🎥 [Assista ao vídeo do CT-06](https://github.com/user-attachments/assets/7299787b-f6ac-4364-bc18-5beaeb0e74a4)
-<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/a803e30b-f43a-45fc-ae4b-e4aead896726" />
+# Plano de teste - CT-06 – Logout - 🎥 [Assista ao vídeo do CT-06](https://github.com/user-attachments/assets/0cfcea7c-3c8d-4678-809a-2f04214316c3)
+<img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/00b80299-6cc1-4081-84d1-9ffc0656dcd9" />
 
 |    **Registro de Teste**   |                             **CT-06 – Logout**                            |
 | :------------------------: | :-----------------------------------------------------------------------: |
@@ -72,7 +69,47 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |        **Objetivo**        |                Validar o encerramento da sessão de usuário                |
 | **Critérios de Aceitação** | Sessão deve ser finalizada e o usuário redirecionado para a tela de login |
 |         **Método**         |                              Teste funcional                              |
-|        **Resultado**       |                        Logout realizado com sucesso         
+|        **Resultado**       |                        Logout realizado com sucesso                       |
+
+
+# Plano de teste - CT-07 – Criar novo hábito - 🎥 [Assista ao vídeo do CT-07](https://github.com/user-attachments/assets/99952b4d-f146-429a-ae8c-b5f10a789c96)
+<img width="1873" height="924" alt="image" src="https://github.com/user-attachments/assets/7a88d6b6-5ed7-4cc9-ad98-651195dacae2" />
+
+| **Registro de Teste** | **CT-07 – Criar novo hábito com periodicidade** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-003 – CRUD de Hábitos |
+| **Objetivo** | Criar novo hábito com periodicidade |
+| **Critérios de Aceitação** | Hábito aparece na lista do usuário com os dados definidos |
+| **Método** | Teste funcional |
+| **Passos** | - Acessar tela de criação de hábito <br> - Preencher nome, periodicidade e objetivo <br> - Salvar |
+| **Resultado** | Hábito criado com sucesso |
+
+
+# Plano de teste - CT-08 – Editar hábito existente - 🎥 [Assista ao vídeo do CT-08](https://github.com/user-attachments/assets/09695518-3419-427c-b43f-a1f8436f188d)
+<img width="1872" height="923" alt="image" src="https://github.com/user-attachments/assets/f2b84240-172b-4706-92fe-75e67e2b2b86" />
+
+| **Registro de Teste** | **CT-08 – Editar hábito existente** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-003 – CRUD de Hábitos |
+| **Objetivo** | Editar hábito existente |
+| **Critérios de Aceitação** | Alterações gravadas e exibidas na lista de hábitos |
+| **Método** | Teste funcional |
+| **Passos** | - Selecionar hábito <br> - Alterar informações <br> - Salvar |
+| **Resultado** | Hábito editado com sucesso |
+
+
+# Plano de teste - CT-09 – Excluir hábito - 🎥 [Assista ao vídeo do CT-09](https://github.com/user-attachments/assets/f0be0e64-9f73-41cc-9030-4987b5cbee12)
+<img width="1873" height="924" alt="image" src="https://github.com/user-attachments/assets/954be738-bf4e-4b5d-9d3f-28ee39e1ad21" />
+
+| **Registro de Teste** | **CT-09 – Excluir hábito** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-003 – CRUD de Hábitos |
+| **Objetivo** | Excluir hábito |
+| **Critérios de Aceitação** | Hábito removido da lista e do banco |
+| **Método** | Teste funcional |
+| **Passos** | - Selecionar hábito <br> - Clicar em "Excluir" <br> - Confirmar |
+| **Resultado** | Hábito excluído com sucesso |
+
 
 
 

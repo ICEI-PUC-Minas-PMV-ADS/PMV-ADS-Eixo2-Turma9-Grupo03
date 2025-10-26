@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -26,20 +25,17 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // GET: Checkins/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Checkins == null)
-            {
+            if (id == null)
                 return NotFound();
-            }
 
             var checkin = await _context.Checkins
                 .Include(c => c.Habito)
                 .FirstOrDefaultAsync(m => m.IdCheckin == id);
+
             if (checkin == null)
-            {
                 return NotFound();
-            }
 
             return View(checkin);
         }
@@ -47,13 +43,11 @@ namespace dev_backend_habitly_eixo2.Controllers
         // GET: Checkins/Create
         public IActionResult Create()
         {
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "IdHabito");
+            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito");
             return View();
         }
 
         // POST: Checkins/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
@@ -64,38 +58,32 @@ namespace dev_backend_habitly_eixo2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "IdHabito", checkin.IdHabito);
+
+            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
             return View(checkin);
         }
 
         // GET: Checkins/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Checkins == null)
-            {
+            if (id == null)
                 return NotFound();
-            }
 
             var checkin = await _context.Checkins.FindAsync(id);
             if (checkin == null)
-            {
                 return NotFound();
-            }
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "IdHabito", checkin.IdHabito);
+
+            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
             return View(checkin);
         }
 
         // POST: Checkins/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
         {
             if (id != checkin.IdCheckin)
-            {
                 return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
@@ -107,35 +95,29 @@ namespace dev_backend_habitly_eixo2.Controllers
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!CheckinExists(checkin.IdCheckin))
-                    {
                         return NotFound();
-                    }
                     else
-                    {
                         throw;
-                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "IdHabito", checkin.IdHabito);
+
+            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
             return View(checkin);
         }
 
         // GET: Checkins/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Checkins == null)
-            {
+            if (id == null)
                 return NotFound();
-            }
 
             var checkin = await _context.Checkins
                 .Include(c => c.Habito)
                 .FirstOrDefaultAsync(m => m.IdCheckin == id);
+
             if (checkin == null)
-            {
                 return NotFound();
-            }
 
             return View(checkin);
         }
@@ -143,25 +125,21 @@ namespace dev_backend_habitly_eixo2.Controllers
         // POST: Checkins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Checkins == null)
-            {
-                return Problem("Entity set 'AppDbContext.Checkins'  is null.");
-            }
             var checkin = await _context.Checkins.FindAsync(id);
             if (checkin != null)
             {
                 _context.Checkins.Remove(checkin);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CheckinExists(string id)
+        private bool CheckinExists(int id)
         {
-          return _context.Checkins.Any(e => e.IdCheckin == id);
+            return _context.Checkins.Any(e => e.IdCheckin == id);
         }
     }
 }

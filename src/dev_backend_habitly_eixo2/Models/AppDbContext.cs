@@ -4,7 +4,10 @@ namespace dev_backend_habitly_eixo2.Models
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Habito> Habitos { get; set; }
         public DbSet<Notificacao> Notificacoes { get; set; }
@@ -24,5 +27,13 @@ namespace dev_backend_habitly_eixo2.Models
             );
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Usuarios>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+        }
     }
 }

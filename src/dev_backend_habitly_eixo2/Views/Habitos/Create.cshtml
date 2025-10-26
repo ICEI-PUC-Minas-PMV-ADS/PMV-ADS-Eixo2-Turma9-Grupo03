@@ -1,0 +1,127 @@
+﻿@model dev_backend_habitly_eixo2.Models.Habito
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Habito</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* O IdUsuario é definido pelo Controller, não precisa de campo aqui. *@
+
+            <div class="form-group">
+                <label asp-for="TituloHabito" class="control-label"></label>
+                <input asp-for="TituloHabito" class="form-control" />
+                <span asp-validation-for="TituloHabito" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DescricaoHabito" class="control-label"></label>
+                <input asp-for="DescricaoHabito" class="form-control" />
+                <span asp-validation-for="DescricaoHabito" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Dias da Semana para o Hábito</label>
+                <div class="row">
+                    @{
+                        // Define os nomes dos dias da semana em português (0=Dom, 1=Seg, ..., 6=Sáb)
+                        var dias = new Dictionary<int, string>
+                                        {
+                                        { 1, "Seg" }, { 2, "Ter" }, { 3, "Qua" }, { 4, "Qui" },
+                                        { 5, "Sex" }, { 6, "Sáb" }, { 0, "Dom" }
+                                        };
+
+                        var diasSelecionados = Model != null && !string.IsNullOrEmpty(Model.DiasDaSemana)
+                        ? Model.DiasDaSemana.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
+                        : new List<int>();
+
+                        // Verifica se o modelo já está configurado para "Todos os Dias"
+                        var isAllDaysChecked = diasSelecionados.Count == 7;
+                    }
+
+                    <div class="col-sm-12 mb-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"
+                                   id="AllDaysCheckbox"
+                                   onchange="toggleDayCheckboxes(this.checked)"
+                                   @(isAllDaysChecked ? "checked" : "")>
+                            <label class="form-check-label" for="AllDaysCheckbox">
+                                Todos os Dias
+                            </label>
+                        </div>
+                    </div>
+
+                    @foreach (var dia in dias.OrderBy(d => d.Key == 0 ? 7 : d.Key))
+                    {
+                        var isChecked = diasSelecionados.Contains(dia.Key);
+
+                        <div class="col-sm-3 col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input day-checkbox" type="checkbox"
+                                       name="DiasDaSemanaCheckbox"
+                                       value="@dia.Key"
+                                       id="day-@dia.Key"
+                                       @(isChecked ? "checked" : "")>
+                                <label class="form-check-label" for="day-@dia.Key">@dia.Value</label>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <input type="hidden" asp-for="DiasDaSemana" id="DiasDaSemanaHidden" />
+            </div>
+
+            @* 🎯 NOVOS CAMPOS DE DATA *@
+            <div class="form-group">
+                <label asp-for="DataInicio" class="control-label"></label>
+                <input asp-for="DataInicio" class="form-control" type="datetime-local" />
+                <span asp-validation-for="DataInicio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DataFim" class="control-label"></label>
+                <input asp-for="DataFim" class="form-control" type="datetime-local" />
+                <span asp-validation-for="DataFim" class="text-danger"></span>
+            </div>
+            @* 🎯 FIM NOVOS CAMPOS DE DATA *@
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+        <script>
+            function toggleDayCheckboxes(checked) {
+                document.querySelectorAll('.day-checkbox').forEach(cb => {
+                    cb.checked = checked;
+                });
+            }
+
+            // Função para preencher o campo oculto antes do submit
+            document.querySelector('form').addEventListener('submit', function(e) {
+                var selectedDays = [];
+                document.querySelectorAll('.day-checkbox:checked').forEach(cb => {
+                    selectedDays.push(cb.value);
+                });
+                document.getElementById('DiasDaSemanaHidden').value = selectedDays.join(',');
+            });
+        </script>
+    }
+}
