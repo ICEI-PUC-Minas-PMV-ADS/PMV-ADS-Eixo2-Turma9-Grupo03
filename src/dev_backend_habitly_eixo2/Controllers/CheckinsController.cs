@@ -1,145 +1,40 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using dev_backend_habitly_eixo2.Models;
 
-namespace dev_backend_habitly_eixo2.Controllers
+[Authorize]
+public class CheckinsController : Controller
 {
-    public class CheckinsController : Controller
+    private readonly AppDbContext _context;
+
+    public CheckinsController(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
+    }
 
-        public CheckinsController(AppDbContext context)
+    // ✅ Check-in rápido via botão
+    [HttpPost]
+    public async Task<IActionResult> CreateQuick(int idHabito)
+    {
+        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+        // Já existe check-in hoje?
+        bool jaExiste = await _context.Checkins
+            .AnyAsync(c => c.IdHabito == idHabito && c.DataCheckin.Date == DateTime.Today);
+
+        if (!jaExiste)
         {
-            _context = context;
-        }
-
-        // GET: Checkins
-        public async Task<IActionResult> Index()
-        {
-            var appDbContext = _context.Checkins.Include(c => c.Habito);
-            return View(await appDbContext.ToListAsync());
-        }
-
-        // GET: Checkins/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var checkin = await _context.Checkins
-                .Include(c => c.Habito)
-                .FirstOrDefaultAsync(m => m.IdCheckin == id);
-
-            if (checkin == null)
-                return NotFound();
-
-            return View(checkin);
-        }
-
-        // GET: Checkins/Create
-        public IActionResult Create()
-        {
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito");
-            return View();
-        }
-
-        // POST: Checkins/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
-        {
-            if (ModelState.IsValid)
+            _context.Checkins.Add(new Checkin
             {
-                _context.Add(checkin);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                IdHabito = idHabito,
+                DataCheckin = DateTime.Now
+            });
 
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
-            return View(checkin);
+            await _context.SaveChangesAsync();
         }
 
-        // GET: Checkins/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var checkin = await _context.Checkins.FindAsync(id);
-            if (checkin == null)
-                return NotFound();
-
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
-            return View(checkin);
-        }
-
-        // POST: Checkins/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
-        {
-            if (id != checkin.IdCheckin)
-                return NotFound();
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(checkin);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CheckinExists(checkin.IdCheckin))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
-            return View(checkin);
-        }
-
-        // GET: Checkins/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var checkin = await _context.Checkins
-                .Include(c => c.Habito)
-                .FirstOrDefaultAsync(m => m.IdCheckin == id);
-
-            if (checkin == null)
-                return NotFound();
-
-            return View(checkin);
-        }
-
-        // POST: Checkins/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var checkin = await _context.Checkins.FindAsync(id);
-            if (checkin != null)
-            {
-                _context.Checkins.Remove(checkin);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool CheckinExists(int id)
-        {
-            return _context.Checkins.Any(e => e.IdCheckin == id);
-        }
+        return RedirectToAction("Calendario", "Habitos");
     }
 }

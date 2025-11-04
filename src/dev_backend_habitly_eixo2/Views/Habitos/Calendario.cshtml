@@ -1,0 +1,87 @@
+﻿@using dev_backend_habitly_eixo2.Models.DTOs
+@using System.Text.Json
+
+@model List<CalendarioEventoDTO>
+
+@{
+    ViewData["Title"] = "Calendário de Hábitos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Calendário de Hábitos</h1>
+
+<p><a asp-action="Create">Novo Hábito</a></p>
+
+<p><a href="Preferencias/Create">Minhas Preferencias</a></p>
+
+<div id='calendar'></div>
+
+@section Scripts {
+
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var calendarEl = document.getElementById('calendar');
+
+            var eventos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+
+            var eventosFormatados = eventos.map(function (evento) {
+                return {
+                    id: evento.IdHabito,
+                    title: evento.TituloHabito,
+                    start: evento.DataHoraInicio,
+                    end: evento.DataHoraFim,
+                    color: evento.Cor,
+                    extendedProps: { // ✅ Enviando o ID do hábito
+                        idHabito: evento.IdHabito
+                    }
+                };
+            });
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'pt-br',
+                height: 'auto',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                editable: false,
+                events: eventosFormatados,
+
+                // ✅ Clique no evento → faz check-in
+                eventClick: function (info) {
+                    const idHabito = info.event.extendedProps.idHabito;
+
+                    if (confirm("Registrar check-in para este hábito?")) {
+                        const form = document.createElement("form");
+                        form.method = "POST";
+                        form.action = "/Checkins/CreateQuick";
+
+                        const input = document.createElement("input");
+                        input.type = "hidden";
+                        input.name = "idHabito";
+                        input.value = idHabito;
+
+                        form.appendChild(input);
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+                },
+
+                slotLabelFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    meridiem: false,
+                    hour12: false
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+}
