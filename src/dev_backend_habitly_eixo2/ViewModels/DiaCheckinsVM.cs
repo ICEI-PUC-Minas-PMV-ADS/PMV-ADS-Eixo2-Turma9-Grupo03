@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace dev_backend_habitly_eixo2.Models
+namespace dev_backend_habitly_eixo2.ViewModels
 {
     public class DiaCheckinsVM
     {
@@ -10,3 +10,4 @@ namespace dev_backend_habitly_eixo2.Models
         public List<string> Horarios { get; set; } = new();
     }
 }
+
