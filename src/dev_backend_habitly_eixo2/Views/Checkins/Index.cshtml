@@ -1,41 +1,23 @@
 ﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.Checkin>
 
-@{
-    ViewData["Title"] = "Index";
-}
+<h2>Meus Check-ins</h2>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Habito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCheckin)
-            </th>
-            <th></th>
+            <th>Hábito</th>
+            <th>Data do Check-in</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Habito.IdHabito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCheckin)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCheckin">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCheckin">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCheckin">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Habito?.TituloHabito</td>
+                <td>@c.DataCheckin.ToShortDateString()</td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<a asp-controller="Habitos" asp-action="Index" class="btn btn-outline-secondary mt-2">⬅️ Voltar aos hábitos</a>

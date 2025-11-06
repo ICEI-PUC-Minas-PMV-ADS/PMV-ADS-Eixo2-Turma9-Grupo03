@@ -1,15 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using dev_backend_habitly_eixo2.Models;
+using dev_backend_habitly_eixo2.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using dev_backend_habitly_eixo2.Models;
-using dev_backend_habitly_eixo2.ViewModels;
-
+using System.Security.Claims;
 
 namespace dev_backend_habitly_eixo2.Controllers
 {
+    [Authorize]
     public class CheckinsController : Controller
     {
         private readonly AppDbContext _context;
@@ -19,208 +18,97 @@ namespace dev_backend_habitly_eixo2.Controllers
             _context = context;
         }
 
-        // GET: Checkins
-        public async Task<IActionResult> Index()
+        //  Check-in rápido via botão
+        [HttpPost]
+        public async Task<IActionResult> CreateQuick(int idHabito)
         {
-            var appDbContext = _context.Checkins.Include(c => c.Habito);
-            return View(await appDbContext.ToListAsync());
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            // Já existe check-in hoje?
+            bool jaExiste = await _context.Checkins
+                .AnyAsync(c => c.IdHabito == idHabito && c.DataCheckin.Date == DateTime.Today);
+
+            if (!jaExiste)
+            {
+                _context.Checkins.Add(new Checkin
+                {
+                    IdHabito = idHabito,
+                    DataCheckin = DateTime.Now
+                });
+
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Calendario", "Habitos");
         }
-        // LISTA TODOS OS HÁBITOS (entrada pela aba do menu)
+
+        //  Histórico Geral — resumo por hábito
         public async Task<IActionResult> HistoricoGeral()
         {
-            var hoje = DateTime.Now;
-            var primeiroDiaMes = new DateTime(hoje.Year, hoje.Month, 1);
-            var ultimoDiaMes = primeiroDiaMes.AddMonths(1).AddDays(-1);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            var habitos = await _context.Habitos
-                .AsNoTracking()
-                .OrderBy(h => h.TituloHabito)
-                .ToListAsync();
+            // Lista de hábitos + total de check-ins no mês
+            var hoje = DateTime.Today;
+            int mes = hoje.Month;
+            int ano = hoje.Year;
 
-            var lista = new List<HabitoResumoVM>();
-
-            foreach (var h in habitos)
-            {
-                var checkinsMes = await _context.Checkins
-                    .Where(c => c.IdHabito == h.IdHabito &&
-                                c.DataCheckin >= primeiroDiaMes &&
-                                c.DataCheckin <= ultimoDiaMes)
-                    .GroupBy(c => c.DataCheckin.Date)
-                    .CountAsync();
-
-                int diasMes = (ultimoDiaMes - primeiroDiaMes).Days + 1;
-                double percentual = diasMes == 0 ? 0 : Math.Round(checkinsMes / (double)diasMes * 100, 1);
-
-                lista.Add(new HabitoResumoVM
+            var dados = await _context.Habitos
+                .Where(h => h.IdUsuario == userId)
+                .Select(h => new HabitoResumoVM
                 {
                     IdHabito = h.IdHabito,
                     Titulo = h.TituloHabito,
-                    Total = checkinsMes,
-                    Percentual = percentual   
-                });
-            }
+                    Total = h.Checkins
+                        .Where(c => c.DataCheckin.Month == mes && c.DataCheckin.Year == ano)
+                        .Count()
+                })
+                .ToListAsync();
 
-            return View(lista);
+            return View(dados);
         }
 
-        // HISTÓRICO DE UM HÁBITO
+        //  Histórico detalhado por hábito
         public async Task<IActionResult> Historico(int habitoId, int? mes, int? ano)
         {
-            var habito = await _context.Habitos.FindAsync(habitoId);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var habito = await _context.Habitos
+                .FirstOrDefaultAsync(h => h.IdHabito == habitoId && h.IdUsuario == userId);
+
             if (habito == null)
                 return NotFound();
 
-            var hoje = DateTime.Today;
-            int mesSelecionado = mes ?? hoje.Month;
-            int anoSelecionado = ano ?? hoje.Year;
+            ViewBag.TituloHabito = habito.TituloHabito;
 
-            var inicioMes = new DateTime(anoSelecionado, mesSelecionado, 1);
-            var fimMes = inicioMes.AddMonths(1).AddDays(-1);
+            mes ??= DateTime.Today.Month;
+            ano ??= DateTime.Today.Year;
 
-            var registros = await _context.Checkins
-                .AsNoTracking()
-                .Where(c => c.IdHabito == habitoId &&
-                            c.DataCheckin.Date >= inicioMes &&
-                            c.DataCheckin.Date <= fimMes)
-                .OrderBy(c => c.DataCheckin)
+            var checkins = await _context.Checkins
+                .Where(c => c.IdHabito == habitoId
+                         && c.DataCheckin.Month == mes
+                         && c.DataCheckin.Year == ano)
                 .ToListAsync();
 
-            // ✅ AGRUPA POR DIA e monta o ViewModel
-            var agrupado = registros
+            var lista = checkins
                 .GroupBy(c => c.DataCheckin.Date)
                 .Select(g => new DiaCheckinsVM
                 {
                     Data = g.Key,
                     Total = g.Count(),
-                    Horarios = g.Select(x => x.DataCheckin.ToString("HH:mm")).ToList()
+                    Horarios = g
+                        .OrderBy(x => x.DataCheckin)
+                        .Select(x => x.DataCheckin.ToString("HH:mm"))
+                        .ToList()
                 })
                 .OrderByDescending(x => x.Data)
                 .ToList();
 
+            ViewBag.Mes = mes;
+            ViewBag.Ano = ano;
             ViewBag.Habito = habito.TituloHabito;
-            ViewBag.Mes = mesSelecionado;
-            ViewBag.Ano = anoSelecionado;
 
-            return View(agrupado); // 
+            return View(lista);
         }
 
-
-        // GET: Checkins/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var checkin = await _context.Checkins
-                .Include(c => c.Habito)
-                .FirstOrDefaultAsync(m => m.IdCheckin == id);
-
-            if (checkin == null)
-                return NotFound();
-
-            return View(checkin);
-        }
-
-        // GET: Checkins/Create
-        public IActionResult Create()
-        {
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito");
-            return View();
-        }
-
-        // POST: Checkins/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(checkin);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
-            return View(checkin);
-        }
-
-        // GET: Checkins/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var checkin = await _context.Checkins.FindAsync(id);
-            if (checkin == null)
-                return NotFound();
-
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
-            return View(checkin);
-        }
-
-        // POST: Checkins/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCheckin,IdHabito,DataCheckin")] Checkin checkin)
-        {
-            if (id != checkin.IdCheckin)
-                return NotFound();
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(checkin);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CheckinExists(checkin.IdCheckin))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewData["IdHabito"] = new SelectList(_context.Habitos, "IdHabito", "TituloHabito", checkin.IdHabito);
-            return View(checkin);
-        }
-
-        // GET: Checkins/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var checkin = await _context.Checkins
-                .Include(c => c.Habito)
-                .FirstOrDefaultAsync(m => m.IdCheckin == id);
-
-            if (checkin == null)
-                return NotFound();
-
-            return View(checkin);
-        }
-
-        // POST: Checkins/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var checkin = await _context.Checkins.FindAsync(id);
-            if (checkin != null)
-            {
-                _context.Checkins.Remove(checkin);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool CheckinExists(int id)
-        {
-            return _context.Checkins.Any(e => e.IdCheckin == id);
-        }
     }
 }

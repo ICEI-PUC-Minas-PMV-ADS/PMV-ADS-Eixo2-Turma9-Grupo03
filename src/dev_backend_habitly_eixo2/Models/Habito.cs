@@ -34,5 +34,8 @@ namespace dev_backend_habitly_eixo2.Models
         [Required]
         [StringLength(20)]
         public string StatusHabito { get; set; } = "Ativo";
+
+        public virtual ICollection<Checkin> Checkins { get; set; } = new List<Checkin>();
+
     }
 }

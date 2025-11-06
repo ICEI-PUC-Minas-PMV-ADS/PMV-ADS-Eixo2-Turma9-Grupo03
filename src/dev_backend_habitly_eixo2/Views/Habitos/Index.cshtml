@@ -1,77 +1,154 @@
-﻿@using dev_backend_habitly_eixo2.Models.DTOs
-@using System.Text.Json
-
-@model List<CalendarioEventoDTO>
+﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.Habito>
 
 @{
-    ViewData["Title"] = "Calendário de Hábitos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Meus Hábitos";
 }
 
-<h1>Calendário de Hábitos</h1>
+<div class="container py-4">
 
-<p>
-    <a asp-action="Create">Novo Hábito</a>
-</p>
+    <h2 class="fw-bold text-center mb-4">
+        Meus Hábitos
+    </h2>
 
-@* Container onde o calendário será renderizado *@
-<div id='calendar'></div>
+    <div class="row g-4 justify-content-center">
 
+        @foreach (var h in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="habit-card">
 
-@section Scripts {
+                    <h5 class="habit-title">@h.TituloHabito</h5>
 
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+                    <p class="habit-date">
+                        📅 @h.DataInicio.ToShortDateString() → @h.DataFim.ToShortDateString()
+                    </p>
 
+                    <span class="status-badge">Ativo</span>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
+                    <form asp-controller="Checkins" asp-action="CreateQuick" method="post">
+                        <input type="hidden" name="idHabito" value="@h.IdHabito" />
+                        <button class="btn btn-checkin w-100">
+                            ✅ Fazer Check-in
+                        </button>
+                    </form>
 
-            // 2.1. Conversão dos dados do C# para JavaScript/JSON
-            var habitosEventos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+                    <div class="actions">
+                        <a asp-action="Edit" asp-route-id="@h.IdHabito" class="btn-action edit">✏️ Editar</a>
+                        <a asp-action="Details" asp-route-id="@h.IdHabito" class="btn-action detail">🔍 Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@h.IdHabito" class="btn-action delete">🗑 Excluir</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 
-            // 2.2. Mapeamento e Ajuste de Propriedades para o FullCalendar
-            var eventosFormatados = habitosEventos.map(function(evento) {
-                return {
-                    id: evento.IdHabito,
-                    title: evento.TituloHabito,
-                    start: evento.DataHoraInicio,
-                    end: evento.DataHoraFim,
-                    color: evento.Cor
-                };
-            });
+    <div class="text-center mt-4">
+        <a asp-action="Calendario" class="btn-secondary-main">📅 Ver Calendário</a>
+        <a asp-action="Create" class="btn-primary-main">➕ Novo Hábito</a>
+    </div>
+</div>
 
-            // 2.3. Inicialização do Calendário
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'pt-br',
-                height: 'auto',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                editable: false,
-                events: eventosFormatados,
+<style>
+    body {
+        background: #F6F9F6;
+    }
 
-                eventClick: function(info) {
-                    if (info.event.id) {
-                        var idHabito = info.event.id;
-                        var detalhesUrl = '@Url.Action("Details", "Habitos")' + '/' + idHabito;
-                        window.location.href = detalhesUrl;
-                    }
-                },
+    .habit-card {
+        background: #ffffffcc;
+        border-radius: 16px;
+        padding: 20px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: .25s;
+    }
 
-                slotLabelFormat: {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    meridiem: false,
-                    hour12: false
-                }
-            });
+        .habit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+        }
 
-            calendar.render();
-        });
-    </script>
-}
+    .habit-title {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 6px;
+        color: #187A2F;
+    }
+
+    .habit-date {
+        font-size: 14px;
+        color: #6C757D;
+        margin-bottom: 10px;
+    }
+
+    .status-badge {
+        background: #E3F6E4;
+        color: #187A2F;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 10px;
+        font-size: 13px;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    .btn-checkin {
+        background: #2ECC71;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        transition: .2s;
+    }
+
+        .btn-checkin:hover {
+            background: #27AE60;
+        }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-action {
+        padding: 6px 12px;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .btn-action.edit {
+            background: #FFB703;
+        }
+
+        .btn-action.detail {
+            background: #00A8CC;
+        }
+
+        .btn-action.delete {
+            background: #E63946;
+        }
+
+    .btn-primary-main {
+        background: #187A2F;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 8px;
+    }
+
+    .btn-secondary-main {
+        background: #E0EAE0;
+        color: #187A2F;
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+</style>

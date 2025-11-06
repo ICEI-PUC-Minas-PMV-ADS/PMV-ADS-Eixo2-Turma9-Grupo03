@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace dev_backend_habitly_eixo2.Models
 {
+
     [Table("Checkins")]
     public class Checkin
     {
@@ -17,5 +18,7 @@ namespace dev_backend_habitly_eixo2.Models
 
         [Column(TypeName = "datetime")]
         public DateTime DataCheckin { get; set; }
+
+
     }
 }

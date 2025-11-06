@@ -1,0 +1,45 @@
+﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.Habito>
+
+@{
+    ViewData["Title"] = "Meus Hábitos";
+}
+
+<h2>Meus Hábitos</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Compartilhar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habito in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@habito.TituloHabito</strong>
+                </td>
+                <td>
+                    <!-- 🔗 Compartilhar no Twitter -->
+                    <a href="https://twitter.com/intent/tweet?text=@Uri.EscapeDataString($"Acabei de concluir meu hábito '{habito.TituloHabito}' no Habitly! 🎯 #Habitly")"
+                       target="_blank" class="btn btn-outline-primary btn-sm">
+                        Compartilhar no Twitter
+                    </a>
+
+                    <!-- 🔗 Compartilhar no Facebook -->
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=@Uri.EscapeDataString($"https://meusite.com/habito/{habito.IdHabito}")&quote=@Uri.EscapeDataString($"Concluí meu hábito '{habito.TituloHabito}' no Habitly! 💪 #Habitly")"
+                       target="_blank" class="btn btn-outline-primary btn-sm">
+                        Facebook
+                    </a>
+
+                    <!-- 🔗 Compartilhar no WhatsApp -->
+                    <a href="https://api.whatsapp.com/send?text=@Uri.EscapeDataString($"Acabei de concluir meu hábito '{habito.TituloHabito}' no Habitly! 🚀 https://meusite.com/habito/{habito.IdHabito}")"
+                       target="_blank" class="btn btn-outline-success btn-sm">
+                        WhatsApp
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
