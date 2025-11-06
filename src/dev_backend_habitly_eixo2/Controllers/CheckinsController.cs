@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using dev_backend_habitly_eixo2.Models;
+using dev_backend_habitly_eixo2.ViewModels;
+
 
 namespace dev_backend_habitly_eixo2.Controllers
 {
@@ -23,6 +25,85 @@ namespace dev_backend_habitly_eixo2.Controllers
             var appDbContext = _context.Checkins.Include(c => c.Habito);
             return View(await appDbContext.ToListAsync());
         }
+        // LISTA TODOS OS HÁBITOS (entrada pela aba do menu)
+        public async Task<IActionResult> HistoricoGeral()
+        {
+            var hoje = DateTime.Now;
+            var primeiroDiaMes = new DateTime(hoje.Year, hoje.Month, 1);
+            var ultimoDiaMes = primeiroDiaMes.AddMonths(1).AddDays(-1);
+
+            var habitos = await _context.Habitos
+                .AsNoTracking()
+                .OrderBy(h => h.TituloHabito)
+                .ToListAsync();
+
+            var lista = new List<HabitoResumoVM>();
+
+            foreach (var h in habitos)
+            {
+                var checkinsMes = await _context.Checkins
+                    .Where(c => c.IdHabito == h.IdHabito &&
+                                c.DataCheckin >= primeiroDiaMes &&
+                                c.DataCheckin <= ultimoDiaMes)
+                    .GroupBy(c => c.DataCheckin.Date)
+                    .CountAsync();
+
+                int diasMes = (ultimoDiaMes - primeiroDiaMes).Days + 1;
+                double percentual = diasMes == 0 ? 0 : Math.Round(checkinsMes / (double)diasMes * 100, 1);
+
+                lista.Add(new HabitoResumoVM
+                {
+                    IdHabito = h.IdHabito,
+                    Titulo = h.TituloHabito,
+                    Total = checkinsMes,
+                    Percentual = percentual   
+                });
+            }
+
+            return View(lista);
+        }
+
+        // HISTÓRICO DE UM HÁBITO
+        public async Task<IActionResult> Historico(int habitoId, int? mes, int? ano)
+        {
+            var habito = await _context.Habitos.FindAsync(habitoId);
+            if (habito == null)
+                return NotFound();
+
+            var hoje = DateTime.Today;
+            int mesSelecionado = mes ?? hoje.Month;
+            int anoSelecionado = ano ?? hoje.Year;
+
+            var inicioMes = new DateTime(anoSelecionado, mesSelecionado, 1);
+            var fimMes = inicioMes.AddMonths(1).AddDays(-1);
+
+            var registros = await _context.Checkins
+                .AsNoTracking()
+                .Where(c => c.IdHabito == habitoId &&
+                            c.DataCheckin.Date >= inicioMes &&
+                            c.DataCheckin.Date <= fimMes)
+                .OrderBy(c => c.DataCheckin)
+                .ToListAsync();
+
+            // ✅ AGRUPA POR DIA e monta o ViewModel
+            var agrupado = registros
+                .GroupBy(c => c.DataCheckin.Date)
+                .Select(g => new DiaCheckinsVM
+                {
+                    Data = g.Key,
+                    Total = g.Count(),
+                    Horarios = g.Select(x => x.DataCheckin.ToString("HH:mm")).ToList()
+                })
+                .OrderByDescending(x => x.Data)
+                .ToList();
+
+            ViewBag.Habito = habito.TituloHabito;
+            ViewBag.Mes = mesSelecionado;
+            ViewBag.Ano = anoSelecionado;
+
+            return View(agrupado); // 
+        }
+
 
         // GET: Checkins/Details/5
         public async Task<IActionResult> Details(int? id)

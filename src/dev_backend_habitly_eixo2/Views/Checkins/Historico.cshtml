@@ -1,0 +1,59 @@
+﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.DiaCheckinsVM>
+
+@{
+    ViewData["Title"] = "Histórico — " + (ViewBag.Habito as string ?? "");
+    var culture = new System.Globalization.CultureInfo("pt-BR");
+}
+
+<h2>Histórico — @ViewBag.Habito</h2>
+
+<form method="get" class="row g-3 mb-4">
+    <input type="hidden" name="habitoId" value="@Context.Request.Query["habitoId"]" />
+    <div class="col-md-3">
+        <label>Mês</label>
+        <select name="mes" class="form-select">
+            @for (int i = 1; i <= 12; i++)
+            {
+                <option value="@i" selected="@(i == (int)ViewBag.Mes)">
+                    @culture.DateTimeFormat.GetMonthName(i)
+                </option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label>Ano</label>
+        <input type="number" name="ano" value="@ViewBag.Ano" class="form-control" />
+    </div>
+    <div class="col-md-3 d-flex align-items-end">
+        <button class="btn btn-primary w-100">Filtrar</button>
+    </div>
+</form>
+
+@if (!Model.Any())
+{
+    <p>Nenhum check-in encontrado neste período.</p>
+}
+else
+{
+    <h3>Dias com check-in</h3>
+    <div class="row">
+        @foreach (var dia in Model.OrderByDescending(x => x.Data))
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card shadow-sm p-3" style="background:#28a745; color:#fff;">
+                    <div class="fw-bold">
+                        @dia.Data.ToString("dddd", culture)
+                    </div>
+                    <div>📅 @dia.Data.ToString("dd/MM/yyyy")</div>
+                    <div>✅ @dia.Total check-ins</div>
+                    <div>🕒 @string.Join(", ", dia.Horarios)</div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<p class="mt-3">
+    <a asp-action="HistoricoGeral">Voltar</a>
+</p>
+

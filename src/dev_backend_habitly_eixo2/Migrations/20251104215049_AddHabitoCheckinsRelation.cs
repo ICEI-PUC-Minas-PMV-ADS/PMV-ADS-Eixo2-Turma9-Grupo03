@@ -4,7 +4,7 @@
 
 namespace dev_backend_habitly_eixo2.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class AddHabitoCheckinsRelation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

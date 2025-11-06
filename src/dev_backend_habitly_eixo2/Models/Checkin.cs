@@ -15,7 +15,7 @@ namespace dev_backend_habitly_eixo2.Models
 
         public virtual Habito Habito { get; set; }
 
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime DataCheckin { get; set; }
     }
 }

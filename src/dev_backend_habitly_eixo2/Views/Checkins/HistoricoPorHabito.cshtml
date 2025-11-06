@@ -1,0 +1,25 @@
+﻿@model IEnumerable<dev_backend_habitly_eixo2.Models.Checkin>
+@{
+    var titulo = ViewBag.TituloHabito as string ?? "Hábito";
+    ViewData["Title"] = "Histórico — " + titulo;
+}
+
+<h2>Histórico — @titulo</h2>
+
+@if (!Model.Any())
+{
+    <p>Nenhum check-in registrado para este hábito.</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.DataCheckin.ToString("dd/MM/yyyy")</li>
+        }
+    </ul>
+}
+
+<p>
+    <a asp-controller="Checkins" asp-action="Historico">Voltar</a>
+</p>

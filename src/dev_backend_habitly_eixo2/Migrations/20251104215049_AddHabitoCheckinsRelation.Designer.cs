@@ -12,8 +12,8 @@ using dev_backend_habitly_eixo2.Models;
 namespace dev_backend_habitly_eixo2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251023021635_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251104215049_AddHabitoCheckinsRelation")]
+    partial class AddHabitoCheckinsRelation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,15 +26,17 @@ namespace dev_backend_habitly_eixo2.Migrations
 
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Checkin", b =>
                 {
-                    b.Property<string>("IdCheckin")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdCheckin")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCheckin"), 1L, 1);
 
                     b.Property<DateTime>("DataCheckin")
                         .HasColumnType("date");
 
-                    b.Property<string>("IdHabito")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdHabito")
+                        .HasColumnType("int");
 
                     b.HasKey("IdCheckin");
 
@@ -45,23 +47,33 @@ namespace dev_backend_habitly_eixo2.Migrations
 
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Habito", b =>
                 {
-                    b.Property<string>("IdHabito")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdHabito")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdHabito"), 1L, 1);
+
+                    b.Property<DateTime>("DataFim")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("DescricaoHabito")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("IdUsuario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("DiasDaSemana")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("PeriodicidadeHabito")
+                    b.Property<int>("IdUsuario")
                         .HasColumnType("int");
 
                     b.Property<string>("StatusHabito")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("TituloHabito")
                         .IsRequired()
@@ -78,9 +90,8 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.Property<string>("IdMetrica")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("IdUsuario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
 
                     b.Property<int>("StreakAtual")
                         .HasColumnType("int");
@@ -101,9 +112,8 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.Property<DateTime>("DataHora")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IdUsuario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
 
                     b.Property<string>("Mensagem")
                         .HasMaxLength(100)
@@ -114,10 +124,42 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.ToTable("Notificacoes");
                 });
 
+            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.PreferenciasUsuario", b =>
+                {
+                    b.Property<int>("IdPreferencia")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPreferencia"), 1L, 1);
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Idioma")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("NotificacoesAtivas")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Tema")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("IdPreferencia");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("PreferenciasUsuario");
+                });
+
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Usuarios", b =>
                 {
-                    b.Property<string>("IdUsuario")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdUsuario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"), 1L, 1);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -129,8 +171,8 @@ namespace dev_backend_habitly_eixo2.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("Perfil")
-                        .HasColumnType("int");
+                    b.Property<byte>("Perfil")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("Senha")
                         .IsRequired()
@@ -138,18 +180,37 @@ namespace dev_backend_habitly_eixo2.Migrations
 
                     b.HasKey("IdUsuario");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Checkin", b =>
                 {
                     b.HasOne("dev_backend_habitly_eixo2.Models.Habito", "Habito")
-                        .WithMany()
+                        .WithMany("Checkins")
                         .HasForeignKey("IdHabito")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Habito");
+                });
+
+            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.PreferenciasUsuario", b =>
+                {
+                    b.HasOne("dev_backend_habitly_eixo2.Models.Usuarios", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Habito", b =>
+                {
+                    b.Navigation("Checkins");
                 });
 #pragma warning restore 612, 618
         }

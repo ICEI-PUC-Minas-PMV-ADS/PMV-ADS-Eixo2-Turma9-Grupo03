@@ -1,0 +1,36 @@
+﻿@model IEnumerable<dev_backend_habitly_eixo2.ViewModels.HabitoResumoVM>
+
+@{
+    ViewData["Title"] = "Histórico de Check-ins";
+}
+
+<h2 class="text-center mb-4">Histórico de Check-ins</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-center">Você ainda não tem hábitos cadastrados.</p>
+}
+else
+{
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm p-3 h-100">
+                    <h4 class="card-title text-primary">@item.Titulo</h4>
+
+                    <p class="mb-1">
+                        ✅ Check-ins no mês: <strong>@item.Total</strong>
+                    </p>
+
+                    <a class="btn btn-outline-primary w-100"
+                       asp-controller="Checkins"
+                       asp-action="Historico"
+                       asp-route-habitoId="@item.IdHabito">
+                        Ver histórico →
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}

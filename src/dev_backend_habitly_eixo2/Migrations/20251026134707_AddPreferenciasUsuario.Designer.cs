@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dev_backend_habitly_eixo2.Models;
 
@@ -11,9 +12,10 @@ using dev_backend_habitly_eixo2.Models;
 namespace dev_backend_habitly_eixo2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251026134707_AddPreferenciasUsuario")]
+    partial class AddPreferenciasUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -187,7 +189,7 @@ namespace dev_backend_habitly_eixo2.Migrations
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Checkin", b =>
                 {
                     b.HasOne("dev_backend_habitly_eixo2.Models.Habito", "Habito")
-                        .WithMany("Checkins")
+                        .WithMany()
                         .HasForeignKey("IdHabito")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -204,11 +206,6 @@ namespace dev_backend_habitly_eixo2.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Habito", b =>
-                {
-                    b.Navigation("Checkins");
                 });
 #pragma warning restore 612, 618
         }
