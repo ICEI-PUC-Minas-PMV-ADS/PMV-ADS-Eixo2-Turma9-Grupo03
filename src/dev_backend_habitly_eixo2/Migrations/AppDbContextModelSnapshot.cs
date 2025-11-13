@@ -31,7 +31,7 @@ namespace dev_backend_habitly_eixo2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCheckin"), 1L, 1);
 
                     b.Property<DateTime>("DataCheckin")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<int>("IdHabito")
                         .HasColumnType("int");
@@ -41,6 +41,30 @@ namespace dev_backend_habitly_eixo2.Migrations
                     b.HasIndex("IdHabito");
 
                     b.ToTable("Checkins");
+                });
+
+            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Conquista", b =>
+                {
+                    b.Property<int>("IdConquista")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdConquista"), 1L, 1);
+
+                    b.Property<DateTime>("DataConquista")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdHabito")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MetaDias")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdConquista");
+
+                    b.HasIndex("IdHabito");
+
+                    b.ToTable("Conquistas");
                 });
 
             modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Habito", b =>
@@ -188,6 +212,17 @@ namespace dev_backend_habitly_eixo2.Migrations
                 {
                     b.HasOne("dev_backend_habitly_eixo2.Models.Habito", "Habito")
                         .WithMany("Checkins")
+                        .HasForeignKey("IdHabito")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Habito");
+                });
+
+            modelBuilder.Entity("dev_backend_habitly_eixo2.Models.Conquista", b =>
+                {
+                    b.HasOne("dev_backend_habitly_eixo2.Models.Habito", "Habito")
+                        .WithMany()
                         .HasForeignKey("IdHabito")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

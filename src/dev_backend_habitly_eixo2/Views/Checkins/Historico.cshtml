@@ -53,6 +53,23 @@ else
         }
     </div>
 }
+@if (ViewBag.Conquistas != null && ((IEnumerable<dev_backend_habitly_eixo2.Models.Conquista>)ViewBag.Conquistas).Any())
+{
+    <h3 class="mt-4">Conquistas de consistência</h3>
+    <div class="row">
+        @foreach (var c in (IEnumerable<dev_backend_habitly_eixo2.Models.Conquista>)ViewBag.Conquistas)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card shadow-sm p-3" style="background:#ffc107; color:#000;">
+                    <div class="fw-bold">🏅 @c.MetaDias dias seguidos</div>
+                    <div>Alcançada em @c.DataConquista.ToString("dd/MM/yyyy")</div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
 
 <p class="mt-3">
     <a asp-action="HistoricoGeral">Voltar</a>

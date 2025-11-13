@@ -23,6 +23,14 @@ namespace dev_backend_habitly_eixo2.Controllers
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
+            // Confere se o hábito é mesmo do usuário logado
+            var habito = await _context.Habitos
+                .FirstOrDefaultAsync(h => h.IdHabito == idHabito && h.IdUsuario == userId);
+
+            if (habito == null)
+                return NotFound();
+
+            // Já existe check-in hoje?
             bool jaExiste = await _context.Checkins
                 .AnyAsync(c => c.IdHabito == idHabito && c.DataCheckin.Date == DateTime.Today);
 
@@ -37,8 +45,66 @@ namespace dev_backend_habitly_eixo2.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            // Depois de salvar o check-in, vai calcular a sequência de dias seguidos
+            // Busca todos os dias em que houve check-in para esse hábito
+            var dias = await _context.Checkins
+                .Where(c => c.IdHabito == idHabito)
+                .Select(c => c.DataCheckin.Date)
+                .Distinct()
+                .OrderByDescending(d => d)
+                .ToListAsync();
+
+            int streak = 0;
+            var hoje = DateTime.Today;
+            var diaEsperado = hoje;
+
+            foreach (var dia in dias)
+            {
+                if (dia == diaEsperado)
+                {
+                    streak++;
+                    diaEsperado = diaEsperado.AddDays(-1);
+                }
+                else if (dia > diaEsperado)
+                {
+                    // Ignora buracos pra frente (datas futuras, etc.)
+                    continue;
+                }
+                else
+                {
+                    // Quebrou a sequência
+                    break;
+                }
+            }
+
+            // Metas de consistência
+            int[] metas = new[] { 7, 30, 100 };
+
+            foreach (var meta in metas)
+            {
+                if (streak >= meta)
+                {
+                    bool jaTemConquista = await _context.Conquistas
+                        .AnyAsync(c => c.IdHabito == idHabito && c.MetaDias == meta);
+
+                    if (!jaTemConquista)
+                    {
+                        _context.Conquistas.Add(new Conquista
+                        {
+                            IdHabito = idHabito,
+                            MetaDias = meta,
+                            DataConquista = DateTime.Now
+                        });
+                    }
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
             return RedirectToAction("Calendario", "Habitos");
         }
+
+
 
 
         // ✅ HISTÓRICO POR HÁBITO
@@ -77,6 +143,13 @@ namespace dev_backend_habitly_eixo2.Controllers
                 })
                 .OrderByDescending(x => x.Data)
                 .ToList();
+            var conquistas = await _context.Conquistas
+                .Where(c => c.IdHabito == habitoId)
+                .OrderBy(c => c.MetaDias)
+                .ToListAsync();
+
+            ViewBag.Conquistas = conquistas;
+
 
             return View(listaDias);
         }

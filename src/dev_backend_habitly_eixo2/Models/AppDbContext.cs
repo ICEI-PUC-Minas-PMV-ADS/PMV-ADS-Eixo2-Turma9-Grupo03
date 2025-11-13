@@ -16,6 +16,8 @@ namespace dev_backend_habitly_eixo2.Models
 
         public DbSet<Checkin> Checkins { get; set; }
         public DbSet <PreferenciasUsuario> PreferenciasUsuario { get; set; }
+        public DbSet<Conquista> Conquistas { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
