@@ -1,8 +1,8 @@
 message: Please cite this software using these metadata.
-title:
+title: Habitly
 authors:
-  - family-names: 
-    given-names: 
+  - family-names: Calvano da Silva
+    given-names: Sophia
   - family-names: 
     given-names: 
   - family-names: 
@@ -15,15 +15,12 @@ authors:
     given-names: 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Da Costa
+    given-names: José Wilson
 keywords:
-  - 
-  - 
-repository-code: 
-version: 1.0.0
-date-released: 2023-10-31
+  - hábitos;
+  - saúde;
+  - rotina.
+repository-code: (inserir o link do github)
+version: 1.0.0 
+date-released: 2025-12-07
