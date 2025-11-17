@@ -11,114 +11,131 @@
 <body>
     <header>
         <style>
-            :root {
-                --primary: #007A80;
-                --text: #2b2f33;
-                --muted: #6b7280;
-                --soft: #f5f7f7;
-                --border: rgba(0,0,0,.10);
+                        :root {
+                                --primary: #007A80;
+                                --text: #2b2f33;
+                                --muted: #6b7280;
+                                --soft: #f5f7f7;
+                                --border: rgba(0,0,0,.10);
+
             }
 
-            .navbar-habitly {
-                position: sticky;
-                top: 0;
-                z-index: 1030;
-                background: #fff;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 6px 24px rgba(0,0,0,.06);
+                        .navbar-habitly {
+                                position: sticky;
+                                top: 0;
+                                z-index: 1030;
+                                background: #fff;
+                                border-bottom: 1px solid var(--border);
+                                box-shadow: 0 6px 24px rgba(0,0,0,.06);
+
             }
 
-            .navbar-brand {
-                font-weight: 900;
-                letter-spacing: .2px;
-                color: var(--primary) !important;
-                display: flex;
-                align-items: center;
-                gap: 10px;
+                        .navbar-brand {
+                                font-weight: 900;
+                                letter-spacing: .2px;
+                                color: var(--primary) !important;
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+
             }
 
-            .nav-link {
-                font-weight: 600;
-                color: var(--text) !important;
-                border-radius: 10px;
-                padding: .5rem .75rem;
-                position: relative;
+                        .nav-link {
+                                font-weight: 600;
+                                color: var(--text) !important;
+                                border-radius: 10px;
+                                padding: .5rem .75rem;
+                                position: relative;
+
             }
 
-                .nav-link:hover {
-                    background: #f0fbfb;
-                }
+                            .nav-link:hover {
+                                    background: #f0fbfb;
 
-                .nav-link.active::after {
-                    content: "";
-                    position: absolute;
-                    left: 12px;
-                    right: 12px;
-                    bottom: 2px;
-                    height: 3px;
-                    border-radius: 6px;
-                    background: var(--primary);
-                }
-
-            .brand-logo {
-                height: 80px; /* ajuste fino */
-                max-height: 40px; /* segurança em telas maiores */
-                width: auto;
-                display: block;
             }
 
-            .navbar-brand {
-                display: flex;
-                align-items: center;
-                padding: .25rem 0; /* alinha verticalmente */
-            }
-            .badge-admin {
-                background: #e7f9f9;
-                color: var(--primary);
-                border: 1px solid rgba(0,122,128,.25);
-                font-weight: 700;
-                padding: 2px 8px;
-                border-radius: 999px;
-                font-size: 12px;
-                margin-left: 8px;
-                text-transform: uppercase;
-                letter-spacing: .4px;
+                            .nav-link.active::after {
+                                    content: "";
+                                    position: absolute;
+                                    left: 12px;
+                                    right: 12px;
+                                    bottom: 2px;
+                                    height: 3px;
+                                    border-radius: 6px;
+                                    background: var(--primary);
+
             }
 
-            .btn-link-like {
-                font-weight: 700;
-                color: var(--primary);
-                text-decoration: none;
-                padding: .5rem .75rem;
-                border-radius: 10px;
+                        .brand-logo {
+                                height: 80px; /* ajuste fino */
+                                max-height: 40px; /* segurança em telas maiores */
+                                width: auto;
+                                display: block;
+
             }
 
-                .btn-link-like:hover {
-                    background: #e7f9f9;
-                }
+                        .navbar-brand {
+                                display: flex;
+                                align-items: center;
+                                padding: .25rem 0; /* alinha verticalmente */
 
-            .avatar {
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                background: #e7f9f9;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--primary);
-                font-weight: 900;
-                text-transform: uppercase;
             }
+
+                        .badge-admin {
+                                background: #e7f9f9;
+                                color: var(--primary);
+                                border: 1px solid rgba(0,122,128,.25);
+                                font-weight: 700;
+                                padding: 2px 8px;
+                                border-radius: 999px;
+                                font-size: 12px;
+                                margin-left: 8px;
+                                text-transform: uppercase;
+                                letter-spacing: .4px;
+
+            }
+
+                        .btn-link-like {
+                                font-weight: 700;
+                                color: var(--primary);
+                                text-decoration: none;
+                                padding: .5rem .75rem;
+                                border-radius: 10px;
+
+            }
+
+                            .btn-link-like:hover {
+                                    background: #e7f9f9;
+
+            }
+
+                        .avatar {
+                                width: 32px;
+                                height: 32px;
+                                border-radius: 50%;
+                                background: #e7f9f9;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: var(--primary);
+                                font-weight: 900;
+                                text-transform: uppercase;
+
+            }
+
+
+
+
         </style>
 
         <nav class="navbar navbar-expand-sm navbar-light navbar-habitly mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="dot"></span> 
+                    <span class="dot"></span>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#habitlyNav"
-                        aria-controls="habitlyNav" aria-expanded="false" aria-label="Alternar navegação">
+                                    aria-controls="habitlyNav" aria-expanded="false" aria-label="Alternar navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -139,6 +156,10 @@
                                 <a class="nav-link" asp-area="" asp-controller="Checkins" asp-action="HistoricoGeral">Histórico de check-ins</a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Metricas" asp-action="Index">Métricas</a>
+                            </li>
+
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
@@ -155,7 +176,7 @@
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" id="userDropdown" role="button"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="avatar">@((User.Identity.Name ?? "U").FirstOrDefault())</span>
                                     <span>Olá, @User.Identity.Name!</span>
                                 </a>
