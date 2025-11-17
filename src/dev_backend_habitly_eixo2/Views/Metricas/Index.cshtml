@@ -5,23 +5,23 @@
     ViewData["Title"] = "Métricas";
 }
 
-<h1>Minhas Métricas</h1>
+<h1 class="mb-4">Minhas Métricas</h1>
 
+<hr />
 
-
-<div class="row">
+<div class="row mb-5">
     @foreach (var item in Model)
     {
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
 
-                    
+
                     <h5 class="card-title text-primary">@Html.DisplayFor(modelItem => item.TituloHabito)</h5>
 
                     <hr />
 
-                   
+
                     <div class="text-center mb-3">
                         <span style="font-size: 2.5rem; font-weight: bold; color: #ffc107;">
                             🔥 @Html.DisplayFor(modelItem => item.StreakAtual)
@@ -29,20 +29,13 @@
                         <p class="card-text text-muted">Dias de Streak Atual</p>
                     </div>
 
-                  
+
                     <p class="card-text text-center">
                         Recorde Máximo: <strong class="text-success">@Html.DisplayFor(modelItem => item.StreakMaximo) dias</strong>
                     </p>
 
                     <hr />
 
-       
-                    <div class="d-grid gap-2">
-  
-                        <button class="btn btn-success btn-lg mb-2" onclick="marcarConcluido(@item.IdHabito)">
-                            Concluído Hoje! ✔️
-                        </button>
-                    </div>
 
                     <div class="text-center mt-3">
 
@@ -55,3 +48,39 @@
         </div>
     }
 </div>
+
+<hr />
+
+<h2 class="mb-4 text-center">📊 Dashboard dos Hábitos</h2>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Hábito</th>
+                <th class="text-center">Total de Check-ins</th>
+                <th class="text-center">Dias Desde Início</th>
+                <th class="text-center">Taxa de Conclusão</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="align-middle"><strong>@Html.DisplayFor(modelItem => item.TituloHabito)</strong></td>
+                    <td class="text-center align-middle">
+                        <span class="badge bg-primary fs-6">@Html.DisplayFor(modelItem => item.TotalCheckins)</span>
+                    </td>
+                    <td class="text-center align-middle">
+                        @Html.DisplayFor(modelItem => item.DiasAteHoje) dias
+                    </td>
+                    <td class="text-center align-middle">
+                        <span class="badge bg-success fs-6">@Html.DisplayFor(modelItem => item.TaxaConclusao)%</span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<hr />
