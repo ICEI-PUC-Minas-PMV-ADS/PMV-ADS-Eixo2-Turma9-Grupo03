@@ -16,6 +16,9 @@ namespace dev_backend_habitly_eixo2.Controllers
     {
         private readonly AppDbContext _context;
 
+        // 🔑 chave para cadastro de Admin
+        private const string ADMIN_KEY = "aluno_pucminas";
+
         public UsuariosController(AppDbContext context)
         {
             _context = context;
@@ -45,7 +48,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Usuarios usuarios)
         {
-            // IdUsuario agora é int
+            // login por e-mail
             var dados = await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Email == usuarios.Email);
             if (dados == null)
@@ -85,7 +88,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         //Logout
-        [AllowAnonymous] // para que o usuário possa sair mesmo sem ser Admin
+        [AllowAnonymous] // para sair mesmo sem ser Admin
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
@@ -114,28 +117,34 @@ namespace dev_backend_habitly_eixo2.Controllers
             return View();
         }
 
-        // POST: Usuarios/Create
+        // ✅ POST ÚNICO: Usuarios/Create (com chave de admin + e-mail único)
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
         public async Task<IActionResult> Create([Bind("Nome,Email,Senha,Perfil")] Usuarios usuarios)
         {
-            // Verifica se o e-mail já existe no banco de dados
+            // valida e-mail único
             if (await _context.Usuarios.AnyAsync(u => u.Email == usuarios.Email))
             {
-                // Adiciona um erro específico para o campo "Email"
                 ModelState.AddModelError("Email", "Este e-mail já está em uso. Por favor, escolha outro.");
             }
 
-            if (ModelState.IsValid)
+            // se tentar Admin, exigir chave
+            if (usuarios.Perfil == Perfil.Admin)
             {
-                usuarios.Senha = BCrypt.Net.BCrypt.HashPassword(usuarios.Senha);
-                _context.Add(usuarios);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var adminKeyFromForm = (Request.Form["AdminKey"].FirstOrDefault() ?? "").Trim();
+                if (!string.Equals(adminKeyFromForm, ADMIN_KEY, StringComparison.Ordinal))
+                {
+                    ModelState.AddModelError("Perfil", "Chave de administrador inválida.");
+                }
             }
-            // Se o ModelState não for válido (ou se o e-mail já existir), retorna para a mesma view
-            return View(usuarios);
+
+            if (!ModelState.IsValid) return View(usuarios);
+
+            usuarios.Senha = BCrypt.Net.BCrypt.HashPassword(usuarios.Senha);
+            _context.Add(usuarios);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Usuarios/Edit/5
@@ -153,8 +162,6 @@ namespace dev_backend_habitly_eixo2.Controllers
         }
 
         // POST: Usuarios/Edit/5
-        // Controllers/UsuariosController.cs
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -168,22 +175,22 @@ namespace dev_backend_habitly_eixo2.Controllers
             {
                 ModelState.AddModelError("Email", "Este e-mail já está em uso.");
             }
+
             if (string.IsNullOrWhiteSpace(form.Senha))
             {
                 ModelState.Remove(nameof(form.Senha));
             }
             if (!ModelState.IsValid)
-            { 
+            {
                 form.IdUsuario = id;
                 return View(form);
             }
 
-            // Atualiza só campos permitidos
+            // Atualiza
             user.Nome = form.Nome;
             user.Email = form.Email;
             user.Perfil = form.Perfil;
 
-            // Troca senha apenas se vier nova
             if (!string.IsNullOrWhiteSpace(form.Senha))
             {
                 user.Senha = BCrypt.Net.BCrypt.HashPassword(form.Senha);
@@ -192,14 +199,16 @@ namespace dev_backend_habitly_eixo2.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
         // GET: Usuarios/Delete/5
-        [Authorize(Roles = "Admin")] // opcional, pois a classe já tem
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var user = await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id);
             if (user == null) return NotFound();
             return View(user);
         }
+
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -214,8 +223,6 @@ namespace dev_backend_habitly_eixo2.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
-
         }
 
         private bool UsuariosExists(int id)
