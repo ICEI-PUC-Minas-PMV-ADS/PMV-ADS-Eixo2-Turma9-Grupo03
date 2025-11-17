@@ -121,7 +121,29 @@ a {
     .btn-warn:hover {
         background: #d89400;
         border-color: #d89400;
+
     }
+
+.btn-twitter {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+    .btn-twitter:hover {
+        filter: brightness(0.9);
+    }
+
+.btn-facebook {
+    background: #1877F2;
+    border-color: #1877F2;
+    color: #fff;
+}
+
+    .btn-facebook:hover {
+        filter: brightness(0.95);
+    }
+
 
 /* ---------- Inputs e Selects ---------- */
 input[type="text"],

@@ -1,6 +1,5 @@
 ﻿@using dev_backend_habitly_eixo2.Models.DTOs
 @using System.Text.Json
-
 @model List<CalendarioEventoDTO>
 
 @{
@@ -8,80 +7,204 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Calendário de Hábitos</h1>
+<style>
+    /* ===== Tema Habitly ===== */
+    :root {
+        --primary: #007A80;
+        --text: #2b2f33;
+        --muted: #6b7280;
+        --soft: #f5f7f7;
+        --border: rgba(0,0,0,.10);
+        --danger: #dc3545;
+    }
 
-<p><a asp-action="Create">Novo Hábito</a></p>
+    body {
+        background: var(--soft);
+        color: var(--text);
+        font-family: 'Inter',system-ui,-apple-system,sans-serif;
+    }
 
-<p><a href="Preferencias/Create">Minhas Preferencias</a></p>
+    .page-title {
+        font-weight: 900;
+        color: var(--primary);
+        letter-spacing: .2px;
+        margin: 22px 0 12px;
+        font-size: clamp(24px,3vw,34px);
+    }
 
-<div id='calendar'></div>
+    .card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+        margin: 0;
+        font-weight: 800;
+        font-size: clamp(18px,2.2vw,24px);
+    }
+
+    .card-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: transform .15s ease, filter .15s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(.98);
+        }
+
+    .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+    }
+
+    .btn-secondary {
+        background: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+    /* Calendário dentro do card */
+    #calendar {
+        min-height: 600px;
+    }
+
+    .fc .fc-toolbar-title {
+        font-weight: 800;
+        color: var(--text);
+    }
+
+    .fc .fc-button {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text);
+    }
+
+        .fc .fc-button:hover {
+            filter: brightness(.97);
+        }
+
+    .fc .fc-button-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+    }
+
+    .fc .fc-daygrid-day, .fc .fc-timegrid-slot {
+        background: #fff;
+    }
+
+    .fc .fc-day-today {
+        background: #e7f9f9;
+    }
+
+    .fc-event {
+        border-radius: 10px;
+        border: 0;
+        padding: 2px 4px;
+    }
+
+    #calendar {
+        min-height: 520px;
+    }
+
+    }
+</style>
+
+<h1 class="page-title">Calendário de Hábitos</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">Visão mensal</h2>
+        <div class="card-actions">
+            <a class="btn btn-primary" asp-action="Create">Novo Hábito</a>
+            <a class="btn btn-secondary" href="Preferencias/Create">Minhas Preferências</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="calendar"></div>
+    </div>
+</div>
 
 @section Scripts {
-
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+          var calendarEl = document.getElementById('calendar');
+          var eventos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+          var eventosFormatados = eventos.map(function (evento) {
+            return {
+              id: evento.IdHabito,
+              title: evento.TituloHabito,
+              start: evento.DataHoraInicio,
+              end: evento.DataHoraFim,
+              color: evento.Cor,
+              extendedProps: { idHabito: evento.IdHabito }
+            };
+          });
 
-            var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'pt-br',
+            height: 'auto',
+            headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            editable: false,
+            events: eventosFormatados,
 
-            var eventos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+            eventClick: function (info) {
+              const idHabito = info.event.extendedProps.idHabito;
+              if (confirm("Registrar check-in para este hábito?")) {
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = "/Checkins/CreateQuick";
+                const input = document.createElement("input");
+                input.type = "hidden";
+                input.name = "idHabito";
+                input.value = idHabito;
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
+              }
+            },
 
-            var eventosFormatados = eventos.map(function (evento) {
-                return {
-                    id: evento.IdHabito,
-                    title: evento.TituloHabito,
-                    start: evento.DataHoraInicio,
-                    end: evento.DataHoraFim,
-                    color: evento.Cor,
-                    extendedProps: { // ✅ Enviando o ID do hábito
-                        idHabito: evento.IdHabito
-                    }
-                };
-            });
+            slotLabelFormat: { hour: '2-digit', minute: '2-digit', meridiem: false, hour12: false }
+          });
 
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'pt-br',
-                height: 'auto',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                editable: false,
-                events: eventosFormatados,
-
-                // ✅ Clique no evento → faz check-in
-                eventClick: function (info) {
-                    const idHabito = info.event.extendedProps.idHabito;
-
-                    if (confirm("Registrar check-in para este hábito?")) {
-                        const form = document.createElement("form");
-                        form.method = "POST";
-                        form.action = "/Checkins/CreateQuick";
-
-                        const input = document.createElement("input");
-                        input.type = "hidden";
-                        input.name = "idHabito";
-                        input.value = idHabito;
-
-                        form.appendChild(input);
-                        document.body.appendChild(form);
-                        form.submit();
-                    }
-                },
-
-                slotLabelFormat: {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    meridiem: false,
-                    hour12: false
-                }
-            });
-
-            calendar.render();
+          calendar.render();
         });
     </script>
 }

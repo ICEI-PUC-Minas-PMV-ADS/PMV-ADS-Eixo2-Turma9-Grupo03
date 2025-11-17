@@ -1,129 +1,283 @@
 ﻿@model dev_backend_habitly_eixo2.Models.Habito
-
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Hábito";
 }
 
-<h1>Edit</h1>
+<style>
+    /* ===== Tema Habitly ===== */
+    :root {
+        --primary: #007A80;
+        --text: #2b2f33;
+        --muted: #6b7280;
+        --soft: #f5f7f7;
+        --border: rgba(0,0,0,.10);
+        --danger: #dc3545;
+    }
 
-<h4>Habito</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    body {
+        background: var(--soft);
+        color: var(--text);
+        font-family: 'Inter',system-ui,-apple-system,sans-serif;
+    }
+
+    .page-title {
+        font-weight: 900;
+        color: var(--primary);
+        letter-spacing: .2px;
+        margin: 22px 0 12px;
+        font-size: clamp(24px,3vw,34px);
+    }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    }
+
+    .card-body {
+        padding: 22px;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .control-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        margin: 0 0 6px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1.5px solid #e5e7eb;
+        border-radius: 12px;
+        background: #fff;
+        color: var(--text);
+        font-size: 15px;
+        transition: border-color .15s ease, box-shadow .15s ease;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0,122,128,.12);
+        }
+
+    .text-danger {
+        color: var(--danger);
+        font-size: 13px;
+        margin-top: 6px;
+        display: block;
+    }
+
+    .input-validation-error {
+        border-color: var(--danger) !important;
+        background: #fff7f7;
+    }
+
+    /* Chips para dias da semana */
+    .days-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1.5px solid #e5e7eb;
+        background: #fff;
+        cursor: pointer;
+        user-select: none;
+        transition: all .15s ease;
+    }
+
+        .chip input {
+            display: none;
+        }
+
+        .chip .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .chip.active {
+            border-color: var(--primary);
+            background: #e7f9f9;
+        }
+
+            .chip.active .dot {
+                background: var(--primary);
+            }
+
+    .all-days {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .all-days input {
+            width: 18px;
+            height: 18px;
+        }
+
+    /* Botões */
+    .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: transform .15s ease, filter .15s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(.98);
+        }
+
+    .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+    }
+
+    .btn-secondary {
+        background: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+
+    .actions {
+        flex-direction: column;
+    }
+
+    }
+</style>
+
+<h1 class="page-title">Editar Hábito</h1>
+
+<div class="card">
+    <div class="card-body">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdHabito" />
 
-            @* 🎯 MANTÉM IdUsuario COMO CAMPO OCULTO (HIDDEN) POR SEGURANÇA *@
+            <input type="hidden" asp-for="IdHabito" />
             <input type="hidden" asp-for="IdUsuario" />
+            <input type="hidden" asp-for="DiasDaSemana" id="DiasDaSemanaHidden" />
 
             <div class="form-group">
-                <label asp-for="TituloHabito" class="control-label"></label>
+                <label asp-for="TituloHabito" class="control-label">Título</label>
                 <input asp-for="TituloHabito" class="form-control" />
                 <span asp-validation-for="TituloHabito" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="DescricaoHabito" class="control-label"></label>
+                <label asp-for="DescricaoHabito" class="control-label">Descrição</label>
                 <input asp-for="DescricaoHabito" class="form-control" />
                 <span asp-validation-for="DescricaoHabito" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label class="control-label">Dias da Semana para o Hábito</label>
-                <div class="row">
-                    @{
-                        // Define os nomes dos dias da semana em português (0=Dom, 1=Seg, ..., 6=Sáb)
-                        var dias = new Dictionary<int, string>
-                                        {
-                                        { 1, "Seg" }, { 2, "Ter" }, { 3, "Qua" }, { 4, "Qui" },
-                                        { 5, "Sex" }, { 6, "Sáb" }, { 0, "Dom" }
-                                        };
+                <label class="control-label">Dias da Semana</label>
 
-                        var diasSelecionados = Model != null && !string.IsNullOrEmpty(Model.DiasDaSemana)
-                        ? Model.DiasDaSemana.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
-                        : new List<int>();
+                @{
+                    var dias = new Dictionary<int, string> { { 1, "Seg" }, { 2, "Ter" }, { 3, "Qua" }, { 4, "Qui" }, { 5, "Sex" }, { 6, "Sáb" }, { 0, "Dom" } };
+                    var diasSelecionados = Model != null && !string.IsNullOrEmpty(Model.DiasDaSemana)
+                    ? Model.DiasDaSemana.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
+                    : new List<int>();
+                    var isAllDaysChecked = diasSelecionados.Count == 7;
+                }
 
-                        // Verifica se o modelo já está configurado para "Todos os Dias"
-                        var isAllDaysChecked = diasSelecionados.Count == 7;
-                    }
+                <div class="all-days">
+                    <input class="form-check-input" type="checkbox" id="AllDaysCheckbox" @(isAllDaysChecked ? "checked" : "") />
+                    <label for="AllDaysCheckbox"><strong>Todos os Dias</strong></label>
+                </div>
 
-                    <div class="col-sm-12 mb-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox"
-                                   id="AllDaysCheckbox"
-                                   onchange="toggleDayCheckboxes(this.checked)"
-                                   @(isAllDaysChecked ? "checked" : "")>
-                            <label class="form-check-label" for="AllDaysCheckbox">
-                                Todos os Dias
-                            </label>
-                        </div>
-                    </div>
-
+                <div class="days-wrap" id="daysWrap">
                     @foreach (var dia in dias.OrderBy(d => d.Key == 0 ? 7 : d.Key))
                     {
-                        var isChecked = diasSelecionados.Contains(dia.Key);
-
-                        <div class="col-sm-3 col-md-2">
-                            <div class="form-check">
-                                <input class="form-check-input day-checkbox" type="checkbox"
-                                       name="DiasDaSemanaCheckbox"
-                                       value="@dia.Key"
-                                       id="day-@dia.Key"
-                                       @(isChecked ? "checked" : "")>
-                                <label class="form-check-label" for="day-@dia.Key">@dia.Value</label>
-                            </div>
-                        </div>
+                        var checkedAttr = diasSelecionados.Contains(dia.Key) ? "checked" : "";
+                        <label class="chip @(checkedAttr == "checked" ? "active" : "")" for="day-@dia.Key">
+                            <span class="dot"></span>
+                            <span>@dia.Value</span>
+                            <input class="day-checkbox" type="checkbox" name="DiasDaSemanaCheckbox" value="@dia.Key" id="day-@dia.Key" @checkedAttr />
+                        </label>
                     }
                 </div>
-                <input type="hidden" asp-for="DiasDaSemana" id="DiasDaSemanaHidden" />
             </div>
 
-
-            @* 🎯 NOVOS CAMPOS DE DATA *@
             <div class="form-group">
-                <label asp-for="DataInicio" class="control-label"></label>
+                <label asp-for="DataInicio" class="control-label">Início</label>
                 <input asp-for="DataInicio" class="form-control" type="datetime-local" />
                 <span asp-validation-for="DataInicio" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="DataFim" class="control-label"></label>
+                <label asp-for="DataFim" class="control-label">Término</label>
                 <input asp-for="DataFim" class="form-control" type="datetime-local" />
                 <span asp-validation-for="DataFim" class="text-danger"></span>
             </div>
-            @* 🎯 FIM NOVOS CAMPOS DE DATA *@
 
-
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="actions">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-action="Index">Voltar à Lista</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
-
-        <script>
-            function toggleDayCheckboxes(checked) {
-                document.querySelectorAll('.day-checkbox').forEach(cb => {
-                    cb.checked = checked;
-                });
-            }
-
-            // Função para preencher o campo oculto antes do submit
-            document.querySelector('form').addEventListener('submit', function(e) {
-                var selectedDays = [];
-                document.querySelectorAll('.day-checkbox:checked').forEach(cb => {
-                    selectedDays.push(cb.value);
-                });
-                document.getElementById('DiasDaSemanaHidden').value = selectedDays.join(',');
-            });
-        </script>
     }
+    <script>
+        // Alterna chips quando marcar/desmarcar
+        document.querySelectorAll('.day-checkbox').forEach(cb=>{
+          cb.addEventListener('change', function(){
+            const lbl = this.closest('.chip');
+            if(!lbl) return;
+            lbl.classList.toggle('active', this.checked);
+          });
+        });
+
+        // Selecionar todos os dias
+        const allDays = document.getElementById('AllDaysCheckbox');
+        allDays?.addEventListener('change', function(){
+          const checked = this.checked;
+          document.querySelectorAll('.day-checkbox').forEach(cb=>{
+            cb.checked = checked;
+            const lbl = cb.closest('.chip');
+            if(lbl) lbl.classList.toggle('active', checked);
+          });
+        });
+
+        // Preenche hidden antes do submit
+        document.querySelector('form').addEventListener('submit', function(){
+          const values = [];
+          document.querySelectorAll('.day-checkbox:checked').forEach(cb=> values.push(cb.value));
+          document.getElementById('DiasDaSemanaHidden').value = values.join(',');
+        });
+    </script>
 }
