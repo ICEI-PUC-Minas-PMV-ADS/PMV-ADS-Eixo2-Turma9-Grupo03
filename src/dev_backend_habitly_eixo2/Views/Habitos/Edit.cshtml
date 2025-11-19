@@ -200,6 +200,13 @@
             </div>
 
             <div class="form-group">
+                <label class="control-label">Etiquetas (separe por ";")</label>
+                <input asp-for="TagsCsv" id="TagsInput" class="form-control" placeholder="ex: corrida;manha;externo" />
+                <small class="text-muted">Digite as etiquetas separadas por ponto e vírgula. Serão exibidas como chips no cartão.</small>
+                <div id="TagsPreview" style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;"></div>
+            </div>
+
+            <div class="form-group">
                 <label class="control-label">Dias da Semana</label>
 
                 @{
@@ -279,5 +286,26 @@
           document.querySelectorAll('.day-checkbox:checked').forEach(cb=> values.push(cb.value));
           document.getElementById('DiasDaSemanaHidden').value = values.join(',');
         });
+
+        // Tags preview (Edit)
+        (function(){
+            const inp = document.getElementById('TagsInput');
+            const preview = document.getElementById('TagsPreview');
+            function update(){
+                preview.innerHTML = '';
+                const parts = (inp.value || '').split(';').map(s=>s.trim()).filter(s=>s.length>0);
+                parts.forEach(p=>{
+                    const span = document.createElement('span');
+                    span.textContent = p;
+                    span.style.padding = '6px 10px';
+                    span.style.background = '#E8F6F4';
+                    span.style.borderRadius = '999px';
+                    span.style.fontWeight = '700';
+                    span.style.color = '#0b5d56';
+                    preview.appendChild(span);
+                });
+            }
+            if(inp && preview){ inp.addEventListener('input', update); update(); }
+        })();
     </script>
 }

@@ -35,6 +35,13 @@ namespace dev_backend_habitly_eixo2.Models
         [StringLength(20)]
         public string StatusHabito { get; set; } = "Ativo";
 
+        // Etiquetas — armazenadas como CSV separado por ";" (ex: "manha;externo")
+        [StringLength(500)]
+        public string? TagsCsv { get; set; }
+
+        // Indica se o hábito foi arquivado (não aparece na lista principal)
+        public bool IsArquivado { get; set; } = false;
+
         public virtual ICollection<Checkin> Checkins { get; set; } = new List<Checkin>();
 
     }

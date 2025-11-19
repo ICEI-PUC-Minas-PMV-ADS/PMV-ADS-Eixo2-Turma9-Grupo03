@@ -1,0 +1,61 @@
+@model IEnumerable<dev_backend_habitly_eixo2.Models.Habito>
+@{
+    ViewData["Title"] = "Hábitos Arquivados";
+}
+
+<div class="container py-4">
+    <h2 class="fw-bold text-center mb-4">Hábitos Arquivados</h2>
+
+    <div class="row g-4 justify-content-center">
+        @foreach(var h in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="habit-card">
+                    <h5 class="habit-title">@h.TituloHabito</h5>
+                    <p class="habit-date">📅 @h.DataInicio.ToShortDateString() → @h.DataFim.ToShortDateString()</p>
+                    <span class="status-badge">Arquivado</span>
+
+                    @if (!string.IsNullOrEmpty(h.TagsCsv))
+                    {
+                        var tags = h.TagsCsv.Split(';', System.StringSplitOptions.RemoveEmptyEntries).Select(t=>t.Trim()).Where(t=>t.Length>0).ToList();
+                        if (tags.Count > 0)
+                        {
+                            <div style="margin:8px 0; display:flex; gap:8px; flex-wrap:wrap;">
+                                @foreach(var t in tags)
+                                {
+                                    <span style="background:#E8F6F4;color:#0b5d56;padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px;">@t</span>
+                                }
+                            </div>
+                        }
+                    }
+
+                    <div class="actions">
+                        <a asp-action="Details" asp-route-id="@h.IdHabito" class="btn-action detail">🔍 Detalhes</a>
+                        <form asp-action="Desarquivar" method="post" style="display:inline-block; margin-left:6px;">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@h.IdHabito" />
+                            <button type="submit" class="btn-action edit">↩️ Desarquivar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn-secondary-main">◀ Voltar</a>
+    </div>
+</div>
+
+<style>
+    /* Reaproveita estilos do Index */
+    .habit-card { background: #ffffffcc; border-radius: 16px; padding: 20px; box-shadow: 0 6px 14px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); }
+    .habit-title { font-weight: 700; font-size: 18px; margin-bottom: 6px; color: #187A2F; }
+    .habit-date { font-size: 14px; color: #6C757D; margin-bottom: 10px; }
+    .status-badge { background: #f0f0f0; color: #6C757D; font-weight: 600; padding: 4px 10px; border-radius: 10px; font-size: 13px; display: inline-block; margin-bottom: 12px; }
+    .actions { display:flex; gap:8px; margin-top:10px; }
+    .btn-action { padding: 6px 12px; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .btn-action.detail { background: #00A8CC; }
+    .btn-action.edit { background: #FFB703; }
+    .btn-secondary-main { background: #E0EAE0; color: #187A2F; padding: 10px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; }
+</style>

@@ -28,7 +28,7 @@ namespace dev_backend_habitly_eixo2.Controllers
                 return Challenge();
 
             var habitos = await _context.Habitos
-                .Where(h => h.IdUsuario == userId)
+                .Where(h => h.IdUsuario == userId && !h.IsArquivado)
                 .ToListAsync();
 
             return View(habitos);
@@ -62,7 +62,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("TituloHabito,DescricaoHabito,StatusHabito,DataInicio,DataFim,DiasDaSemana")] Habito habito)
+            [Bind("TituloHabito,DescricaoHabito,StatusHabito,DataInicio,DataFim,DiasDaSemana,TagsCsv")] Habito habito)
         {
             if (!TryGetUserId(out int userId)) return Challenge();
 
@@ -103,7 +103,7 @@ namespace dev_backend_habitly_eixo2.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,
-            [Bind("IdHabito,IdUsuario,TituloHabito,DescricaoHabito,StatusHabito,DataInicio,DataFim,DiasDaSemana")] Habito habito)
+            [Bind("IdHabito,IdUsuario,TituloHabito,DescricaoHabito,StatusHabito,DataInicio,DataFim,DiasDaSemana,TagsCsv,IsArquivado")] Habito habito)
         {
             if (id != habito.IdHabito)
                 return NotFound();
@@ -180,7 +180,7 @@ namespace dev_backend_habitly_eixo2.Controllers
                 return Challenge();
 
             var habitos = await _context.Habitos
-                .Where(h => h.IdUsuario == userId)
+                .Where(h => h.IdUsuario == userId && !h.IsArquivado)
                 .ToListAsync();
 
             var eventosCalendario = new List<CalendarioEventoDTO>();
@@ -245,6 +245,49 @@ namespace dev_backend_habitly_eixo2.Controllers
         {
             var diasSelecionados = Request.Form["DiasDaSemanaCheckbox"];
             habito.DiasDaSemana = string.Join(",", diasSelecionados.ToArray());
+        }
+
+        // ====================
+        // Arquivamento
+        // ====================
+        public async Task<IActionResult> Arquivados()
+        {
+            if (!TryGetUserId(out int userId))
+                return Challenge();
+
+            var habitos = await _context.Habitos
+                .Where(h => h.IdUsuario == userId && h.IsArquivado)
+                .ToListAsync();
+
+            return View(habitos);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Arquivar(int id)
+        {
+            var habito = await _context.Habitos.FindAsync(id);
+            if (habito == null) return NotFound();
+            if (!TryGetUserId(out int userId) || habito.IdUsuario != userId) return Forbid();
+
+            habito.IsArquivado = true;
+            _context.Update(habito);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Desarquivar(int id)
+        {
+            var habito = await _context.Habitos.FindAsync(id);
+            if (habito == null) return NotFound();
+            if (!TryGetUserId(out int userId) || habito.IdUsuario != userId) return Forbid();
+
+            habito.IsArquivado = false;
+            _context.Update(habito);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Arquivados));
         }
     }
 }
