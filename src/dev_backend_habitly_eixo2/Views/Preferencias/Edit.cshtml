@@ -1,51 +1,53 @@
-﻿@page
-@model dev_backend_habitly_eixo2.Views.Preferencias.EditModel
+﻿@model dev_backend_habitly_eixo2.Models.PreferenciasUsuario
 
 @{
-    ViewData["Title"] = "Edit";
-    Layout = "Create.cshtml";
+    ViewData["Title"] = "Editar Preferências";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-3">Editar Preferências</h1>
 
-<h4>PreferenciasUsuario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PreferenciasUsuario.IdPreferencia" />
-            <div class="form-group">
-                <label asp-for="PreferenciasUsuario.IdUsuario" class="control-label"></label>
-                <select asp-for="PreferenciasUsuario.IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
-                <span asp-validation-for="PreferenciasUsuario.IdUsuario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PreferenciasUsuario.Tema" class="control-label"></label>
-                <input asp-for="PreferenciasUsuario.Tema" class="form-control" />
-                <span asp-validation-for="PreferenciasUsuario.Tema" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PreferenciasUsuario.NotificacoesAtivas" /> @Html.DisplayNameFor(model => model.PreferenciasUsuario.NotificacoesAtivas)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="PreferenciasUsuario.Idioma" class="control-label"></label>
-                <input asp-for="PreferenciasUsuario.Idioma" class="form-control" />
-                <span asp-validation-for="PreferenciasUsuario.Idioma" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit" method="post" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+
+    <input type="hidden" asp-for="IdPreferencia" />
+    <input type="hidden" asp-for="IdUsuario" />
+
+
+    <div class="mb-3">
+        <label asp-for="Tema" class="form-label"></label>
+        <select asp-for="Tema" class="form-select" asp-items="ViewBag.Temas"></select>
+        <span asp-validation-for="Tema" class="text-danger"></span>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div class="form-check mb-3">
+        <input asp-for="NotificacoesAtivas" class="form-check-input" />
+        <label asp-for="NotificacoesAtivas" class="form-check-label"></label>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="Idioma" class="form-label"></label>
+        <select asp-for="Idioma" class="form-select" asp-items="ViewBag.Idiomas"></select>
+        <span asp-validation-for="Idioma" class="text-danger"></span>
+    </div>
+
+    @if (ViewBag.IdUsuario != null)
+    {
+        <div class="mb-3">
+            <label asp-for="IdUsuario" class="form-label"></label>
+            <select asp-for="IdUsuario" class="form-select" asp-items="ViewBag.IdUsuario"></select>
+            <span asp-validation-for="IdUsuario" class="text-danger"></span>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Voltar</a>
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -17,6 +17,15 @@ namespace dev_backend_habitly_eixo2.Controllers
         public IActionResult Create()
         {
             int idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var exists = _context.PreferenciasUsuario
+                    .Any(p => p.IdUsuario == idUsuario);
+            //int idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+
+            if (exists)
+            {
+                return RedirectToAction("Edit");
+            }
 
             var model = new PreferenciasUsuario
             {
@@ -63,10 +72,12 @@ namespace dev_backend_habitly_eixo2.Controllers
         // GET: /Preferencias/Edit
         public IActionResult Edit()
         {
-            int? idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var usuarioName = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if (idUsuario == null)
+            if (string.IsNullOrEmpty(usuarioName))
                 return RedirectToAction("Login", "Usuarios");
+
+            int idUsuario = int.Parse(usuarioName);
 
             var pref = _context.PreferenciasUsuario.FirstOrDefault(p => p.IdUsuario == idUsuario);
             if (pref == null)

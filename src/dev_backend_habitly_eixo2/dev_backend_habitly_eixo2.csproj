@@ -10,10 +10,16 @@
 
   <ItemGroup>
     <Compile Remove="Views\Habitos\compartilha.cshtml.cs" />
+    <Compile Remove="Views\Preferencias\Editcshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Habitos\compartilha.cshtml" />
+    <Content Remove="Views\Preferencias\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Preferencias\Edit.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
