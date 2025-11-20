@@ -23,7 +23,21 @@
                         📅 @h.DataInicio.ToShortDateString() → @h.DataFim.ToShortDateString()
                     </p>
 
-                    <span class="status-badge">Ativo</span>
+                    <span class="status-badge">@h.StatusHabito</span>
+
+                    @if (!string.IsNullOrEmpty(h.TagsCsv))
+                    {
+                        var tags = h.TagsCsv.Split(';', System.StringSplitOptions.RemoveEmptyEntries).Select(t=>t.Trim()).Where(t=>t.Length>0).ToList();
+                        if (tags.Count > 0)
+                        {
+                            <div style="margin:8px 0; display:flex; gap:8px; flex-wrap:wrap;">
+                                @foreach(var t in tags)
+                                {
+                                    <span style="background:#E8F6F4;color:#0b5d56;padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px;">@t</span>
+                                }
+                            </div>
+                        }
+                    }
 
                     <form asp-controller="Checkins" asp-action="CreateQuick" method="post">
                         <input type="hidden" name="idHabito" value="@h.IdHabito" />
@@ -36,6 +50,11 @@
                         <a asp-action="Edit" asp-route-id="@h.IdHabito" class="btn-action edit">✏️ Editar</a>
                         <a asp-action="Details" asp-route-id="@h.IdHabito" class="btn-action detail">🔍 Detalhes</a>
                         <a asp-action="Delete" asp-route-id="@h.IdHabito" class="btn-action delete">🗑 Excluir</a>
+                        <form asp-action="Arquivar" method="post" style="display:inline-block; margin-left:6px;">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@h.IdHabito" />
+                            <button type="submit" class="btn-action archive" title="Arquivar">📦 Arquivar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -127,6 +146,10 @@
 
         .btn-action.detail {
             background: #00A8CC;
+        }
+
+        .btn-action.archive {
+            background: #6C757D;
         }
 
         .btn-action.delete {
