@@ -206,6 +206,32 @@
             </div>
         </div>
     </div>
+    <!-- Minhas Conquistas -->
+    @if (ViewBag.Conquistas != null && ViewBag.Conquistas.Count > 0)
+    {
+        <div class="card-body mt-3">
+            <h4>🎖 Minhas Conquistas</h4>
+
+            <ul class="list-group">
+                @foreach (var c in ViewBag.Conquistas)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>Meta: @c.MetaDias dias — alcançada em @c.DataConquista.ToString("dd/MM/yyyy")</span>
+                        <span class="badge bg-success">🏆 alcançada</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <div class="card-body mt-3">
+            <h4>🎖 Minhas Conquistas</h4>
+            <p>Nenhuma conquista alcançada ainda… continue firme! 💪</p>
+        </div>
+    }
+
+
 
     <!-- Compartilhamento -->
     <div class="share">

@@ -48,6 +48,13 @@ namespace dev_backend_habitly_eixo2.Controllers
 
             if (!TryGetUserId(out int userId) || habito.IdUsuario != userId)
                 return Forbid();
+            var conquistas = await _context.Conquistas
+               .Where(c => c.IdHabito == id)
+               .OrderBy(c => c.MetaDias)
+               .ToListAsync();
+
+            ViewBag.Conquistas = conquistas;
+
 
             return View(habito);
         }

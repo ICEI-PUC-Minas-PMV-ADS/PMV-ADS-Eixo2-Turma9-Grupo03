@@ -45,44 +45,41 @@ namespace dev_backend_habitly_eixo2.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            // Depois de salvar o check-in, vai calcular a sequência de dias seguidos
+            //----------------------
+            // CÁLCULO DO STREAK
+            //----------------------
             // Busca todos os dias em que houve check-in para esse hábito
             var dias = await _context.Checkins
                 .Where(c => c.IdHabito == idHabito)
                 .Select(c => c.DataCheckin.Date)
                 .Distinct()
-                .OrderByDescending(d => d)
+                .OrderBy(d => d)
                 .ToListAsync();
 
-            int streak = 0;
-            var hoje = DateTime.Today;
-            var diaEsperado = hoje;
+            // Calcula a maior sequência contínua (não apenas até hoje)
+            int maiorStreak = 1;
+            int atualStreak = 1;
 
-            foreach (var dia in dias)
+            for (int i = 1; i < dias.Count; i++)
             {
-                if (dia == diaEsperado)
+                if (dias[i] == dias[i - 1].AddDays(1))
                 {
-                    streak++;
-                    diaEsperado = diaEsperado.AddDays(-1);
-                }
-                else if (dia > diaEsperado)
-                {
-                    // Ignora buracos pra frente (datas futuras, etc.)
-                    continue;
+                    atualStreak++;
+                    if (atualStreak > maiorStreak)
+                        maiorStreak = atualStreak;
                 }
                 else
                 {
-                    // Quebrou a sequência
-                    break;
+                    atualStreak = 1;
                 }
             }
 
-            // Metas de consistência
+            // Metas de consistência retroativas
             int[] metas = new[] { 7, 30, 100 };
 
             foreach (var meta in metas)
             {
-                if (streak >= meta)
+                if (maiorStreak >= meta)
                 {
                     bool jaTemConquista = await _context.Conquistas
                         .AnyAsync(c => c.IdHabito == idHabito && c.MetaDias == meta);
@@ -101,11 +98,9 @@ namespace dev_backend_habitly_eixo2.Controllers
 
             await _context.SaveChangesAsync();
 
+
             return RedirectToAction("Calendario", "Habitos");
         }
-
-
-
 
         // ✅ HISTÓRICO POR HÁBITO
         public async Task<IActionResult> Historico(int habitoId, int? mes, int? ano)

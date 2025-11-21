@@ -4,7 +4,7 @@
 
 namespace dev_backend_habitly_eixo2.Migrations
 {
-    public partial class AddTagsAndArchive : Migration
+    public partial class Conquistas2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

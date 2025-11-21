@@ -12,8 +12,8 @@ using dev_backend_habitly_eixo2.Models;
 namespace dev_backend_habitly_eixo2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251118235156_AddTagsAndArchive")]
-    partial class AddTagsAndArchive
+    [Migration("20251120224006_Conquistas2")]
+    partial class Conquistas2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
