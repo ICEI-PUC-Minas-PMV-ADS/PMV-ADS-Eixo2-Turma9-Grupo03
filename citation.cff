@@ -3,16 +3,18 @@ title: Habitly
 authors:
   - family-names: Calvano da Silva
     given-names: Sophia
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Vinicius Costa Damas
+    given-names: Guilherme
+  - family-names: Clara Silva Miranda
+    given-names: Julia
+  - family-names: Ritiele Rodrigues Coelho 
+    given-names: Lorrayne
+  - family-names: Fonseca Gomes
+    given-names: Lucas
+  - family-names: Augusto de Castro Valadão
+    given-names: Matheus
+  - family-names: Henrique Gomes
+    given-names: Pedro
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: Da Costa
@@ -21,6 +23,6 @@ keywords:
   - hábitos;
   - saúde;
   - rotina.
-repository-code: (inserir o link do github)
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/PMV-ADS-Eixo2-Turma9-Grupo03.git
 version: 1.0.0 
 date-released: 2025-12-07
