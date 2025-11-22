@@ -1,133 +1,178 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@inject dev_backend_habitly_eixo2.Models.AppDbContext _db
+
+@{
+    string tema = "Claro";
+
+    if (User.Identity.IsAuthenticated)
+    {
+        int idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        tema = _db.PreferenciasUsuario
+                    .Where(p => p.IdUsuario == idUsuario)
+                    .Select(p => p.Tema)
+                    .FirstOrDefault() ?? "Claro";
+    }
+
+    string bodyClass = tema == "Escuro" ? "dark-mode" : "";
+}
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Habitly</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/dev_backend_habitly_eixo2.styles.css" asp-append-version="true" />
+
+    <style>
+        :root {
+            --primary: #007A80;
+            --text: #2b2f33;
+            --muted: #6b7280;
+            --soft: #f5f7f7;
+            --bg: #ffffff;
+            --border: rgba(0,0,0,.10);
+        }
+
+        body.dark-mode {
+            --primary: #34d1d4;
+            --text: #f5f5f5;
+            --muted: #bdbdbd;
+            --soft: #1c1c1c;
+            --bg: #121212;
+            --border: rgba(255,255,255,.10);
+            background: var(--bg) !important;
+            color: var(--text) !important;
+        }
+
+            body.dark-mode .navbar-habitly {
+                background: #1e1e1e !important;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 6px 24px rgba(0,0,0,.50);
+            }
+
+            body.dark-mode .nav-link {
+                color: var(--text) !important;
+            }
+
+                body.dark-mode .nav-link:hover {
+                    background: #222 !important;
+                }
+
+            body.dark-mode .dropdown-menu {
+                background: #1f1f1f;
+                color: var(--text);
+            }
+
+            body.dark-mode .dropdown-item {
+                color: var(--text);
+            }
+
+                body.dark-mode .dropdown-item:hover {
+                    background: #333;
+                }
+
+            body.dark-mode footer {
+                background: #1e1e1e;
+                color: var(--text);
+            }
+
+            body.dark-mode .form-control,
+            body.dark-mode .form-select {
+                background: #1e1e1e;
+                color: var(--text);
+                border-color: var(--border);
+            }
+
+            body.dark-mode .form-check-label {
+                color: var(--text);
+            }
+
+            body.dark-mode .btn-primary {
+                background: var(--primary);
+                border-color: var(--primary);
+            }
+
+        .navbar-habitly {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 6px 24px rgba(0,0,0,.06);
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            letter-spacing: .2px;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text) !important;
+            border-radius: 10px;
+            padding: .5rem .75rem;
+            position: relative;
+        }
+
+            .nav-link:hover {
+                background: #f0fbfb;
+            }
+
+            .nav-link.active::after {
+                content: "";
+                position: absolute;
+                left: 12px;
+                right: 12px;
+                bottom: 2px;
+                height: 3px;
+                border-radius: 6px;
+                background: var(--primary);
+            }
+
+        .brand-logo {
+            height: 80px;
+            max-height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        .badge-admin {
+            background: #e7f9f9;
+            color: var(--primary);
+            border: 1px solid rgba(0,122,128,.25);
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #e7f9f9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
-<body>
+
+<body class="@bodyClass">
+
     <header>
-        <style>
-                        :root {
-                                --primary: #007A80;
-                                --text: #2b2f33;
-                                --muted: #6b7280;
-                                --soft: #f5f7f7;
-                                --border: rgba(0,0,0,.10);
-
-            }
-
-                        .navbar-habitly {
-                                position: sticky;
-                                top: 0;
-                                z-index: 1030;
-                                background: #fff;
-                                border-bottom: 1px solid var(--border);
-                                box-shadow: 0 6px 24px rgba(0,0,0,.06);
-
-            }
-
-                        .navbar-brand {
-                                font-weight: 900;
-                                letter-spacing: .2px;
-                                color: var(--primary) !important;
-                                display: flex;
-                                align-items: center;
-                                gap: 10px;
-
-            }
-
-                        .nav-link {
-                                font-weight: 600;
-                                color: var(--text) !important;
-                                border-radius: 10px;
-                                padding: .5rem .75rem;
-                                position: relative;
-
-            }
-
-                            .nav-link:hover {
-                                    background: #f0fbfb;
-
-            }
-
-                            .nav-link.active::after {
-                                    content: "";
-                                    position: absolute;
-                                    left: 12px;
-                                    right: 12px;
-                                    bottom: 2px;
-                                    height: 3px;
-                                    border-radius: 6px;
-                                    background: var(--primary);
-
-            }
-
-                        .brand-logo {
-                                height: 80px; /* ajuste fino */
-                                max-height: 40px; /* segurança em telas maiores */
-                                width: auto;
-                                display: block;
-
-            }
-
-                        .navbar-brand {
-                                display: flex;
-                                align-items: center;
-                                padding: .25rem 0; /* alinha verticalmente */
-
-            }
-
-                        .badge-admin {
-                                background: #e7f9f9;
-                                color: var(--primary);
-                                border: 1px solid rgba(0,122,128,.25);
-                                font-weight: 700;
-                                padding: 2px 8px;
-                                border-radius: 999px;
-                                font-size: 12px;
-                                margin-left: 8px;
-                                text-transform: uppercase;
-                                letter-spacing: .4px;
-
-            }
-
-                        .btn-link-like {
-                                font-weight: 700;
-                                color: var(--primary);
-                                text-decoration: none;
-                                padding: .5rem .75rem;
-                                border-radius: 10px;
-
-            }
-
-                            .btn-link-like:hover {
-                                    background: #e7f9f9;
-
-            }
-
-                        .avatar {
-                                width: 32px;
-                                height: 32px;
-                                border-radius: 50%;
-                                background: #e7f9f9;
-                                display: inline-flex;
-                                align-items: center;
-                                justify-content: center;
-                                color: var(--primary);
-                                font-weight: 900;
-                                text-transform: uppercase;
-
-            }
-
-
-
-
-        </style>
-
         <nav class="navbar navbar-expand-sm navbar-light navbar-habitly mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
@@ -135,16 +180,15 @@
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#habitlyNav"
-                                    aria-controls="habitlyNav" aria-expanded="false" aria-label="Alternar navegação">
+                        aria-controls="habitlyNav" aria-expanded="false" aria-label="Alternar navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div id="habitlyNav" class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav me-auto">
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" aria-label="Ir para a página inicial">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                             <img src="~/img/habitly_img.png" class="brand-logo" />
                         </a>
-
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -176,7 +220,7 @@
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" id="userDropdown" role="button"
-                                                     data-bs-toggle="dropdown" aria-expanded="false">
+                                   data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="avatar">@((User.Identity.Name ?? "U").FirstOrDefault())</span>
                                     <span>Olá, @User.Identity.Name!</span>
                                 </a>
@@ -202,16 +246,15 @@
         </nav>
 
         <script>
-            // Marca o link ativo conforme a URL atual
-            (function(){
-              const here = location.pathname.toLowerCase();
-              document.querySelectorAll('.navbar .nav-link').forEach(a=>{
-                const href = a.getAttribute('href') || '';
-                if(!href) return;
-                const path = href.split('?')[0].toLowerCase();
-                if(path !== '/' && here.startsWith(path)) a.classList.add('active');
-                if(here === '/' && path === '/') a.classList.add('active');
-              });
+            (function () {
+                const here = location.pathname.toLowerCase();
+                document.querySelectorAll('.navbar .nav-link').forEach(a => {
+                    const href = a.getAttribute('href') || '';
+                    if (!href) return;
+                    const path = href.split('?')[0].toLowerCase();
+                    if (path !== '/' && here.startsWith(path)) a.classList.add('active');
+                    if (here === '/' && path === '/') a.classList.add('active');
+                });
             })();
         </script>
     </header>
@@ -224,7 +267,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - Habitly - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - Habitly -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
@@ -232,5 +276,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

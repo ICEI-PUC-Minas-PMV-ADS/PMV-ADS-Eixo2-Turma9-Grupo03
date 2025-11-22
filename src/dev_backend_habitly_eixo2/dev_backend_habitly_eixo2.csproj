@@ -9,6 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\NovaPasta\**" />
+    <Compile Remove="NovaPasta\**" />
+    <Content Remove="Migrations\NovaPasta\**" />
+    <Content Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="Migrations\NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="Migrations\NovaPasta\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Views\Habitos\compartilha.cshtml.cs" />
     <Compile Remove="Views\Preferencias\Editcshtml.cs" />
   </ItemGroup>
