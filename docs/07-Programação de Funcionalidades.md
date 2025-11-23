@@ -21,7 +21,7 @@
 # Instruções de acesso
 Para acessar a aplicação Habitly com perfil de usuário padrão, siga as orientações abaixo:
 
-🔗 Link de Acesso:
+🔗 Link de Acesso: https://habitly-fwapdpd0edhtf3fx.brazilsouth-01.azurewebsites.net/
 
 Credenciais de Acesso (Usuário):
 - Email: user@habitly.com
