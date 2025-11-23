@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using dev_backend_habitly_eixo2.Models;
-
+﻿using dev_backend_habitly_eixo2.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace dev_backend_habitly_eixo2.Controllers
 {
@@ -13,10 +15,40 @@ namespace dev_backend_habitly_eixo2.Controllers
             _context = context;
         }
 
+        private void CarregarOpcoes()
+        {
+            ViewBag.Temas = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Claro", Value = "Claro" },
+                new SelectListItem { Text = "Escuro", Value = "Escuro" }
+            };
+
+            ViewBag.Idiomas = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Português", Value = "pt-BR" },
+                new SelectListItem { Text = "Inglês", Value = "en-US" }
+            };
+        }
+
         // GET: /Preferencias/Create
         public IActionResult Create()
         {
-            return View();
+            CarregarOpcoes();
+
+            int idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var exists = _context.PreferenciasUsuario
+                .Any(p => p.IdUsuario == idUsuario);
+
+            if (exists)
+                return RedirectToAction("Edit");
+
+            var model = new PreferenciasUsuario
+            {
+                IdUsuario = idUsuario
+            };
+
+            return View(model);
         }
 
         // POST: /Preferencias/Create
@@ -24,22 +56,18 @@ namespace dev_backend_habitly_eixo2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(PreferenciasUsuario preferencias)
         {
-            int? idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+            CarregarOpcoes();
 
-            if (idUsuario == null)
-            {
-                TempData["MensagemErro"] = "Usuário não identificado. Faça login novamente.";
-                return RedirectToAction("Login", "Usuarios");
-            }
-
-            preferencias.IdUsuario = idUsuario.Value;
+            int idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            preferencias.IdUsuario = idUsuario;
 
             if (ModelState.IsValid)
             {
                 _context.PreferenciasUsuario.Add(preferencias);
                 _context.SaveChanges();
-                TempData["MensagemSucesso"] = "Preferências salvas com sucesso!";
-                return RedirectToAction("Index", "Home");
+
+                TempData["MensagemSucesso"] = "Preferências criadas com sucesso!";
+                return RedirectToAction("Index", "Habitos");
             }
 
             return View(preferencias);
@@ -48,12 +76,18 @@ namespace dev_backend_habitly_eixo2.Controllers
         // GET: /Preferencias/Edit
         public IActionResult Edit()
         {
-            int? idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+            CarregarOpcoes();
 
-            if (idUsuario == null)
+            var usuarioName = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(usuarioName))
                 return RedirectToAction("Login", "Usuarios");
 
-            var pref = _context.PreferenciasUsuario.FirstOrDefault(p => p.IdUsuario == idUsuario);
+            int idUsuario = int.Parse(usuarioName);
+
+            var pref = _context.PreferenciasUsuario
+                .AsNoTracking() // evita entidade duplicada
+                .FirstOrDefault(p => p.IdUsuario == idUsuario);
+
             if (pref == null)
                 return RedirectToAction("Create");
 
@@ -65,22 +99,24 @@ namespace dev_backend_habitly_eixo2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(PreferenciasUsuario preferencias)
         {
-            int? idUsuario = HttpContext.Session.GetInt32("IdUsuario");
+            CarregarOpcoes();
 
-            if (idUsuario == null)
-                return RedirectToAction("Login", "Usuarios");
+            int idUsuario = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            preferencias.IdUsuario = idUsuario.Value;
+            var entity = _context.PreferenciasUsuario
+                .FirstOrDefault(p => p.IdUsuario == idUsuario);
 
-            if (ModelState.IsValid)
-            {
-                _context.PreferenciasUsuario.Update(preferencias);
-                _context.SaveChanges();
-                TempData["MensagemSucesso"] = "Preferências atualizadas com sucesso!";
-                return RedirectToAction("Index", "Home");
-            }
+            if (entity == null)
+                return RedirectToAction("Create");
 
-            return View(preferencias);
+            entity.Tema = preferencias.Tema;
+            entity.Idioma = preferencias.Idioma;
+            entity.NotificacoesAtivas = preferencias.NotificacoesAtivas;
+
+            _context.SaveChanges();
+
+            TempData["MensagemSucesso"] = "Preferências atualizadas com sucesso!";
+            return RedirectToAction("Index", "Habitos");
         }
     }
 }

@@ -18,9 +18,11 @@ namespace dev_backend_habitly_eixo2.Models
         [StringLength(50)]
         public string Tema { get; set; } = "Claro"; // Exemplo: Claro / Escuro
 
+        [Display(Name = "Notificações Ativas")]
         [Required]
         public bool NotificacoesAtivas { get; set; } = true; // Exemplo: recebe notificações?
 
+        [Required]
         public string Idioma { get; set; } = "pt-BR"; // Exemplo: idioma preferido
 
         public Usuarios? Usuario { get; set; } // Relacionamento
