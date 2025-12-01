@@ -1,6 +1,6 @@
 # Registro de Testes de Software
 
-# Plano de teste - CT-01 – Criar Novo Usuário - 🎥 [Assista ao vídeo do CT-01](https://github.com/user-attachments/assets/a5262666-f6f9-40c7-aeac-a4e566ee5042)
+# Plano de teste - CT-01 – Criar Novo Usuário - 🎥 [Assista ao vídeo do CT-01](https://github.com/user-attachments/assets/a5262666-f6f9-40c7-aeac-a4e566ee5042](https://github.com/user-attachments/assets/4778685e-df7b-446e-9aff-b383a8bdadde)
 <img width="2560" height="1528" alt="Image" src="https://github.com/user-attachments/assets/9b042204-0ccc-454e-9c83-07b39db08c05" />
 
 |    **Registro de Teste**   |                         **CT-01 – Criar Novo Usuário**                        |
