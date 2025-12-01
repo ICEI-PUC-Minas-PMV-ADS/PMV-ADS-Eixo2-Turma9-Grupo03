@@ -26,9 +26,9 @@ Sistema de gerenciamento de hábitos que auxilie os usuários na criação, acom
 ## Instruções de Instalação, Execução e Acesso
 
 **Acesso rápido (produção)**
-* URL da aplicação: https://seu-dominio.com/caminho
-* Status: online / instável / em manutenção (atualize conforme o caso)
-* Ambiente: produção / homologação
+* URL da aplicação: https://habitly-fwapdpd0edhtf3fx.brazilsouth-01.azurewebsites.net/
+* Status: online 
+* Ambiente: homologação
 
 Credenciais de Acesso (Usuário):
 - Email: user@habitly.com
@@ -37,6 +37,7 @@ Credenciais de Acesso (Usuário):
 Credenciais de Acesso (Administrador):
 - Usuário: admin@habitly.com
 - Senha: 123456
+- * Chave Administrador = aluno_pucminas
 
 
 # Documentação
