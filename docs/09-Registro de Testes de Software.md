@@ -127,6 +127,41 @@ https://github.com/user-attachments/assets/0631778d-365c-4822-a8a4-7378b8da672b
 | **Resultado** | Lembrete criado com sucesso |
 
 
+
+# Plano de teste - CT-11 – Consultar Métricas dos Hábitos.
+
+
+
+| **Registro de Teste** | **CT-11 – Consultar Métricas dos Hábitos** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-005 – A aplicação deve permitir consultar métricas (streak atual, streak máximo, adesão) |
+| **Objetivo** | Usuário conseguir visualizar corretamente suas métricas de hábito |
+| **Critérios de Aceitação** | Métricas exibidas corretamente (streak atual, streak máximo e adesão), com dados consistentes no banco |
+| **Método** | Teste funcional |
+| **Resultado** | Métricas consultadas e exibidas com sucesso |
+
+<img width="1898" height="860" alt="Captura de tela 2025-12-03 203104" src="https://github.com/user-attachments/assets/95723766-7933-49a7-bbb4-71aae37005d4" />
+
+
+
+# Plano de teste - CT-12 – Consultar Visão Geral (Dashboard) dos Hábitos.
+
+
+
+| **Registro de Teste** | **CT-12 – Consultar Visão Geral (Dashboard) dos Hábitos** |
+| :---------------------- | :------------------------------------------------------------- |
+| **Requisito Associado** | RF-006 – A aplicação deve permitir consultar visão geral (dashboard) dos hábitos |
+| **Objetivo** | Usuário conseguir acessar e visualizar o dashboard geral dos hábitoso |
+| **Critérios de Aceitação** | Dashboard exibido corretamente, apresentando métricas resumidas, hábitos ativos, progresso e estatísticas gerais |
+| **Método** | Teste funcional |
+| **Resultado** | Visão geral exibida com sucesso |
+
+
+<img width="1902" height="938" alt="Captura de tela 2025-12-03 203438" src="https://github.com/user-attachments/assets/8ad19729-08da-4ba1-9311-5cd4e5c9b96a" />
+
+
+
+
 ## Relatório de testes de software
 
 Os testes de software realizados no sistema Habitly demonstram que as principais funcionalidades estão estáveis e em conformidade com os requisitos definidos.
