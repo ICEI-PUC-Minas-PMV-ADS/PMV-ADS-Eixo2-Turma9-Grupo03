@@ -159,7 +159,19 @@ https://github.com/user-attachments/assets/0631778d-365c-4822-a8a4-7378b8da672b
 
 <img width="1902" height="938" alt="Captura de tela 2025-12-03 203438" src="https://github.com/user-attachments/assets/8ad19729-08da-4ba1-9311-5cd4e5c9b96a" />
 
+# Plano de teste - CT-13 – Histórico de Checkin - 🎥 [Assista
 
+Uploading teste-historico-checkin.mp4…
+
+ ao vídeo do CT-13]
+
+|    **Registro de Teste**   |                             **CT-13 – Histórico de checkin**                                    |
+| :------------------------: | :-----------------------------------------------------------------------:                       |
+|   **Requisito Associado**  |                   RF-011 – Histórico de checkin                                                 |
+|        **Objetivo**        |    Deve permitir consultar histórico de check-ins por hábito e por período de tempo             |
+| **Critérios de Aceitação** |        Sessão deve mostrar o histórico de todos os checkins diários feitos                      |
+|         **Método**         |                              Teste funcional                                                    |
+|        **Resultado**       |                        Logout realizado com sucesso                                             |
 
 
 ## Relatório de testes de software
