@@ -171,8 +171,21 @@ https://github.com/user-attachments/assets/5d563869-378a-447c-812d-74dbcc71f9cd
 |        **Objetivo**        |    Deve permitir consultar histórico de check-ins por hábito e por período de tempo             |
 | **Critérios de Aceitação** |        Sessão deve mostrar o histórico de todos os checkins diários feitos                      |
 |         **Método**         |                              Teste funcional                                                    |
-|        **Resultado**       |                        Logout realizado com sucesso                                             |
+|        **Resultado**       |                        Histótico de checkin exibida com sucesso                                 |
 
+
+# Plano de teste - CT-13 – Histórico de Checkin
+
+|    **Registro de Teste**   |                             **CT-14 – Metricas de consistencias**                               |              
+| :------------------------: | :---------------------------------------------------------------------------------------------: |
+|   **Requisito Associado**  |                   RF-011 – Histórico de checkin                                                 |
+|        **Objetivo**        |        Deve registrar conquistas de consistência (ex.: 7, 30 e 100 dias)                        |
+| **Critérios de Aceitação** |        Sessão deve mostrar conquistas quando atingir 7.30 e 100 dias de checkins seguidos       |                                   |                            |                                                                                                 |
+|         **Método**         |                              Teste funcional                                                    |
+|        **Resultado**       |                       Conquistas exibidas com sucesso                                           |
+<img width="1916" height="925" alt="Captura de ecrã 2025-12-07 175259" src="https://github.com/user-attachments/assets/681d7777-7109-4dfc-ad73-c642c1c7a329" />
+
+<img width="1124" height="750" alt="Captura de ecrã 2025-12-07 180119" src="https://github.com/user-attachments/assets/623f9334-37c1-4818-9c80-33a4150f913b" />
 
 ## Relatório de testes de software
 
