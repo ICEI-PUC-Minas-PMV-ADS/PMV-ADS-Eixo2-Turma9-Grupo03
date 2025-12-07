@@ -79,5 +79,30 @@ Durante a fase de execução, foram realizados encontros semanais com o orientad
 
 <img width="1279" height="663" alt="Image" src="https://github.com/user-attachments/assets/454a4b90-a600-4b09-8919-179831f81c72"/>
 
+### Planejamento:
+Nesta etapa foram marcadas reuniões com todos os integrantes do grupo para divisão de novas tarefas de desenvolvimento e escolha de componentes que iriam compor o layout da aplicação, por exemplo, as cores que seriam usadas. Foram atribuídas também 2 funcionalidades para cada integrante da equipe realizar o desenvolvimento segundo orientação do mestre monitor.
+### Execução:
+As lideranças conduziram o primeiro crud do projeto e houveram algumas reuniões para registrar o andamento do desenvolvimento alcançado por cada integrante da equipe.
 
-teste apenas
+### Etapa 4:
+
+<img width="1147" height="770" alt="Kanban etapa 4 e 5" src="https://github.com/user-attachments/assets/9882c926-28df-43c3-856b-b4bcdeaf852e" />
+
+### Planejamento:
+Nesta etapa foi definido que todas as funcionalidades deveriam ser entregues visando prevenir possíveis problemas na etapa 5. Foram definidas datas para reuniões do grupo com objetivo de aferir o progresso alcançado na semana e pontuar as dificuldades encontradas para que fosse possível encontrar uma solução em conjunto.
+### Execução:
+Algumas dificuldades para foram encontradas para hospedagem de site e manipulação do visual studio code/Github. Diante dessas dificuldades, as lideranças foram direcionadas pelo orientador e pela monitoria a seguir um caminho de desenvolvimento da referida tarefa. Munidos de informações, eles conseguiram nortear todos os integrantes do grupo, sanando boa parte das dúvidas e contribuindo para que todos conseguissem concluir o desenvolvimento das funcionalidades da aplicação conforme o tempo planejado.
+
+### Etapa 4:
+
+<img width="1155" height="780" alt="Kanban etapa 5" src="https://github.com/user-attachments/assets/508e4bcc-05fa-48a9-bd3a-a44498a5a2b6" />
+
+### Planejamento/Execução: 
+Nesta etapa foi preparada a apresentação da aplicação que será conduzida pela liderança do grupo. Foram definidos também alguns ajustes que precisam ser revisados e entregues de acordo com a data prevista pelo grupo.
+
+### Conclusão:
+
+<img width="1155" height="780" alt="Kanban conclusao" src="https://github.com/user-attachments/assets/2ad95cc3-c76a-4938-9604-d91c4cf3e0fa" />
+
+### Agradecimento/Considerações finais:
+Conforme planejado todas as tarefas foram entregues e nenhuma das dificuldades foram suficientes para conter o desenvolvimento do grupo. Gostariamos de manifestar nossa gratidão agradecendo primeiramente a Deus que em tudo está e é quem faz tudo ser possível, em segundo lugar ao apoio e comprometimento de todos os integrantes da equipe com zeloso prestígio aos líderes. Por fim, agradecemos ao nosso orientador espetacular Jose Wilson da Costa que com muita maestria conduziu perfeitamente esse eixo e contribuiu para a construção de conhecimento acadêmico e desenvolvimento pessoal, sempre com um bom humor inconfundível.
