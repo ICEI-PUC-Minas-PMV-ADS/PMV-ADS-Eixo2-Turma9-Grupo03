@@ -1,33 +1,13 @@
 # Apresentação
 
-<span style="color:red">Pré-requisitos: Todos os demais artefatos</span>
+## Habitly
+<img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/62325ce9-34ef-4368-a814-540dc40b8ef3" />
 
-## Título do Projeto
+O logotipo do Habitly representa crescimento e constância, com linhas simples e estilo minimalista. O tom verde-água (#007A80) foi escolhido por transmitir equilíbrio, foco e bem-estar, refletindo a proposta de evolução contínua dos hábitos.os)
 
-Nome e marca do projeto
+## Conjunto de Slides 
 
-## Identidade Visual (Marca, Design)
-
-O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do contexto da solução proposta, de forma a manter a temática do problema.
-
-> **Links Úteis**:
-> - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
-> - [7 dicas de design para criar apresentações de PowerPoint incríveis e eficientes](https://www.shutterstock.com/pt/blog/7-dicas-de-design-para-criar-apresentacoes-de-powerpoint-incriveis-e-eficientes)
-> - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
-
-## Conjunto de Slides (Estrutura)
-
-O grupo deve distribuir de forma coerente o conteúdo a ser apresentado, dentro do tempo determinado. Importante ressaltar a importância da descrição clara de todo o andamento do projeto, insumos gerados e requisitos atendidos.
- 
-> **Links Úteis**:
-> - [A regra 10-20-30 para apresentações de sucesso](https://revistapegn.globo.com/Noticias/noticia/2014/07/regra-10-20-30-para-apresentacoes-de-sucesso.html)
-> - [Top Tips for Effective Presentations](https://www.skillsyouneed.com/present/presentation-tips.html)
-> - [How to make a great presentation](https://www.ted.com/playlists/574/how_to_make_a_great_presentation)
->
-
-## Vídeo de apresentação - Etapa 01
-
-Inclua aqui o vídeo de APRESENTAÇÃO INICIAL do projeto produzido na Etapa 01.
+[Habitly.pdf](https://github.com/user-attachments/files/24019010/Habitly.pdf)
 
 ## Vídeo de apresentação - Etapa 05
 
