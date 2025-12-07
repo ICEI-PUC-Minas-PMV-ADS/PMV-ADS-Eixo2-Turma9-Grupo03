@@ -159,11 +159,11 @@ https://github.com/user-attachments/assets/0631778d-365c-4822-a8a4-7378b8da672b
 
 <img width="1902" height="938" alt="Captura de tela 2025-12-03 203438" src="https://github.com/user-attachments/assets/8ad19729-08da-4ba1-9311-5cd4e5c9b96a" />
 
-# Plano de teste - CT-13 – Histórico de Checkin - 🎥 [Assista
+# Plano de teste - CT-13 – Histórico de Checkin - 🎥 [Assistaao vídeo do CT-13 ]
 
-Uploading teste-historico-checkin.mp4…
 
- ao vídeo do CT-13]
+https://github.com/user-attachments/assets/5d563869-378a-447c-812d-74dbcc71f9cd
+
 
 |    **Registro de Teste**   |                             **CT-13 – Histórico de checkin**                                    |
 | :------------------------: | :-----------------------------------------------------------------------:                       |
